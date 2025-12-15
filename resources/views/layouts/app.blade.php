@@ -1,1750 +1,822 @@
 <!DOCTYPE html>
-
-<html id="ctl00_Html1" lang="vi">
-
-<head id="ctl00_Head1">
-    <title>
-        Trang chủ - TẬP ĐOÀN TTC
-    </title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta property="og:title" content="Trang chủ" />
-    <meta property="og:site_name" content="TẬP ĐOÀN TTC" />
-    <meta itemprop="name" content="Trang chủ" />
-    <link rel="alternate" hreflang="x-default" href="https://www.ttcgroup.vn/" />
-    <link rel="alternate" hreflang="vi-VN" href="https://www.ttcgroup.vn/" />
-    <link rel="alternate" hreflang="en-US" href="https://www.ttcgroup.vn/en-US/" />
-    <link rel="search" type="application/opensearchdescription+xml" title="Tìm kiếm TẬP ĐOÀN TTC" href="https://www.ttcgroup.vn/SearchEngineInfo.ashx" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <link rel='shortcut icon' href='/assets/skins/default/favicon.ico' />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/assets/skins/default/css/main6.min.css?v=1.0.1" />
-    <link rel="stylesheet" href="/assets/skins/default/css/core.min.css?v=1.0.1" />
-    <link rel="stylesheet" href="/assets/skins/default/css/account.css?v=1.0.1" />
-    <link rel="canonical" href="https://www.ttcgroup.vn/" />
+<html lang="en">
+<head><meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap Core CSS -->
+    <link href="assets/home/vendor/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/home/vendor/jquery.mmenu.all.css" />
+    <link rel="stylesheet" href="assets/home/vendor/swiper.min.css" />
+    <link href="assets/home/vendor/animate.min.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="assets/home/vendor/jquery.mCustomScrollbar.min.css" />
+    <link href="assets/home/main.css?t=214" type="text/css" rel="stylesheet" />
+    <link href="assets/home/custom.css?t=214" type="text/css" rel="stylesheet" />
+    <link href="/assets/css/styles.css?v={{ env('VERSION_CSS') }}" rel="stylesheet">
+    @yield('meta')
+    <link rel="canonical" href="{{ url()->current() }}" itemprop="url" />
+    <?php $setting = App\Helpers\Utility::setting();?>
+    <link rel="shortcut icon" href="{{Storage::disk('admin')->url($setting->favicon)}}">
+    @stack('css')
 </head>
-
-<body id="ctl00_Body" class="canhcam homepage section-grey vi-vn">
-
-
-<form method="post" action="./" id="aspnetForm">
-    <div class="aspNetHidden">
-        <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
-        <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
-        <input type="hidden" name="__VIEWSTATEFIELDCOUNT" id="__VIEWSTATEFIELDCOUNT" value="2" />
-        <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTk3NjY2MTIwNw8WAh4TVmFsaWRhdGVSZXF1ZXN0TW9kZQIBFgJmD2QWAgIBDxYCHgRsYW5nBQJ2aRYCAgMPFgIeBWNsYXNzBSNjYW5oY2FtIGhvbWVwYWdlIHNlY3Rpb24tZ3JleSB2aS12bhYCAgUPZBYQAgEPFgIeD1NpdGVNYXBQcm92aWRlcgUMY2FuaGNhbXNpdGUxZAILD2QWAmYPZBYCZg9kFgJmDw8WBB4IQ3NzQ2xhc3MFGnNlYXJjaGJveCBwcm9kdWN0c2VhcmNoYm94HgRfIVNCAgIWAh4Ic2l0ZXJvb3QFF2h0dHBzOi8vd3d3LnR0Y2dyb3VwLnZuFgICAQ8PFgYeB1Rvb2xUaXAFC1TDrG0ga2nhur9tHwQFC3NlYXJjaGlucHV0HwUCAhYEHgxhdXRvY29tcGxldGUFA29mZh4LcGxhY2Vob2xkZXIFC1TDrG0ga2nhur9tZAIXDw8WBh8EBRNhbHRj"
-        />
-        <input type="hidden" name="__VIEWSTATE1" id="__VIEWSTATE1" value="b250ZW50MSBjbXN6b25lHwUCAh4HVmlzaWJsZWhkZAIZDw8WBh8EBRBsZWZ0c2lkZSBjbXN6b25lHwUCAh8KaGRkAhsPDxYEHwQFEG1pZGRsZS1mdWxsd2lkdGgfBQICZGQCHQ8PFgYfBAURcmlnaHRzaWRlIGNtc3pvbmUfBQICHwpoZGQCHw8PFgYfBAUTYWx0Y29udGVudDIgY21zem9uZR8FAgIfCmhkZAIzDw8WAh8KaGRkZMxoGsoixoK/BLzaZpioNyQ/mrOJ"
-        />
-    </div>
-
-    <script type="text/javascript">
-        //<![CDATA[
-        var theForm = document.forms['aspnetForm'];
-        if (!theForm) {
-            theForm = document.aspnetForm;
-        }
-
-        function __doPostBack(eventTarget, eventArgument) {
-            if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
-                theForm.__EVENTTARGET.value = eventTarget;
-                theForm.__EVENTARGUMENT.value = eventArgument;
-                theForm.submit();
-            }
-        }
-        //]]>
-    </script>
-
-
-    <script src="https://ajax.aspnetcdn.com/ajax/4.6/1/WebForms.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        //<![CDATA[
-        window.WebForm_PostBackOptions || document.write('<script type="text/javascript" src="/WebResource.axd?d=--qPzXQQ0Xj6NmG_DCndwmrNAfMBL9KMFGqqGRiZlq5BQ6afRcSwFLWAQXKGsiu4RFgyxe7ltU6YGFXpFiqNcJOSBh01&amp;t=638902023720898773"><\/script>'); //]]>
-    </script>
-
-
-
-    <script src="https://ajax.aspnetcdn.com/ajax/4.6/1/MicrosoftAjax.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        //<![CDATA[
-        (window.Sys && Sys._Application && Sys.Observer) || document.write('<script type="text/javascript" src="/ScriptResource.axd?d=2KUjU73acDHBCuc0BTuf9G-p4N7mAHNvommI-fmmQS8iFvMG4W7MU7Nzv-zwuOz0QIGjDyQCSgiDwQNyc7vP9amEmtwlsNs3gs41f_sy6ULU53n3gRSgTRK0gmVpypR6DiGQjXCdn5HUnOk_hKAbGq8gZ_I1&t=32e5dfca"><\/script>'); //]]>
-    </script>
-
-    <script src="https://ajax.aspnetcdn.com/ajax/4.6/1/MicrosoftAjaxWebForms.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        //<![CDATA[
-        (window.Sys && Sys.WebForms) || document.write('<script type="text/javascript" src="/ScriptResource.axd?d=2OsjTCRkdeAk8sNWBMgtih443w34i6woSueiCwh7YTQNx3pNrU0fZE36Aj2C9B6Q5AnNnsH-Rz774N6BUUnq6zKfoak2AZgNPilfV6ttI8uDc8_CwBua4eqbQKZqmVHfdA6bkQwC4IbRXLoPT4bTSYtT-iR0JdZgGzbWFj1ErMr7788N0&t=32e5dfca"><\/script>'); //]]>
-    </script>
-
-    <div class="aspNetHidden">
-
-        <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334" />
-        <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAMhq7jKOAAqzSWKo5gP9fH2IhqRRVqO824Y7jXILEg/xaWoKVhY2ghWRrVBRqxXOGwL/8y5nCxS713M4hwAnOmT6kVjMg==" />
-    </div>
-
-
-
-    <script type="text/javascript">
-        //<![CDATA[
-        Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'aspnetForm', [], [], [], 90, 'ctl00');
-        //]]>
-    </script>
-
-    <header>
-        <div class="container relative">
-            <div class="header-left">
-                <div class="header-top-left">
-                    <div class="language-wrap">
-                        <div class='Module Module-1339'>
-                            <ul class="language-list">
-                                <li class="active">
-                                    <a href="javascript:;" title="VN">VN</a>
-                                </li>
-                                <li>
-                                    <a href="https://www.ttcgroup.vn/en-US/" title="EN">EN</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="search-wrap">
-                        <div class="search-toggle"><em class="fa-light fa-magnifying-glass"></em></div>
-
-                        <div class="search-overlay">
-                            <div class="container">
-                                <div class='Module Module-1377'>
-                                    <div id='ctl00_mdl1377_ctl00_Search_pnlSearch' class='searchbox productsearchbox'>
-
-                                        <input name="ctl00$mdl1377$ctl00$Search$txtSearch" type="text" id="ctl00_mdl1377_ctl00_Search_txtSearch" title="Tìm kiếm" class="searchinput" autocomplete="off" placeholder="Tìm kiếm" />
-
-                                        <button onclick="__doPostBack('ctl00$mdl1377$ctl00$Search$btnSearch','')" id="ctl00_mdl1377_ctl00_Search_btnSearch" class="searchbutton">
-                                            <em class="fa-regular fa-magnifying-glass"></em>
-                                        </button>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="header-nav-left">
-                    <div class='Module Module-1340'>
-                        <div class='ModuleContent'>
-                            <nav class="nav-primary-menu ">
-                                <ul class="nav">
-                                    <li class="nav-link active">
-                                        <a href="https://www.ttcgroup.vn/" title="Trang chủ">
-                                            <em class="fa-regular fa-home">
-                                            </em>
-                                        </a>
-                                    </li>
-                                    <li class="drop-down  nav-link">
-                                        <div class="title">
-                                            <a href="https://www.ttcgroup.vn/gioi-thieu" title="Giới thiệu">Giới thiệu</a>
-                                            <em class="fa-regular fa-chevron-down">
-                                            </em>
-                                        </div>
-                                        <ul class="nav-sub">
-                                            <li class="nav-link-sub">
-                                                <a href="https://www.ttcgroup.vn/gioi-thieu/lich-su-hinh-thanh-va-phat-trien" title="Lịch sử hình thành và phát triển">Lịch sử hình thành và phát triển</a>
-                                            </li>
-                                            <li class="nav-link-sub">
-                                                <a href="https://www.ttcgroup.vn/gioi-thieu/don-vi-thanh-vien-ttc" title="Đơn vị thành viên">Đơn vị thành viên</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="drop-down  nav-link">
-                                        <div class="title">
-                                            <a href="https://www.ttcgroup.vn/linh-vuc-hoat-dong" title="Lĩnh vực hoạt động">Lĩnh vực hoạt động</a>
-                                            <em class="fa-regular fa-chevron-down">
-                                            </em>
-                                        </div>
-                                        <ul class="nav-sub">
-                                            <li class="nav-link-sub">
-                                                <a href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/nong-nghiep-2" title="Nông nghiệp">Nông nghiệp</a>
-                                            </li>
-                                            <li class="nav-link-sub">
-                                                <a href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/nang-luong-1" title="Năng lượng">Năng lượng</a>
-                                            </li>
-                                            <li class="nav-link-sub">
-                                                <a href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/bat-dong-san-1" title="Bất động sản">Bất động sản</a>
-                                            </li>
-                                            <li class="nav-link-sub">
-                                                <a href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/bat-dong-san-cong-nghiep-1" title="Bất động sản Công nghiệp">Bất động sản Công nghiệp</a>
-                                            </li>
-                                            <li class="nav-link-sub">
-                                                <a href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/du-lich-1" title="Du lịch">Du lịch</a>
-                                            </li>
-                                            <li class="nav-link-sub">
-                                                <a href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/giao-duc-1" title="Giáo dục">Giáo dục</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="nav-brand">
-                <div class='Module Module-1338'>
-                    <div class='ModuleContent'><a href="/"><img alt="" src="/assets/media/img/logo/logo-ttcgroup-v2.png" /></a></div>
-                </div>
-            </div>
-            <div class="header-right">
-                <div class="header-contact-group">
-                    <div class="header-contact">
-                        <div class='Module Module-1342'>
-                            <div class='ModuleContent'>
-                                <ul>
-                                    <li><a href="tel:+84 28 3997 7727"><em class="fa-regular fa-phone"> </em><span>+84 28 3997 7727</span></a></li>
-                                    <li><a href="mailto:info@ttcgroup.vn"><em class="fa-regular fa-envelope"></em><span>info@ttcgroup.vn</span></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="header-social-network">
-                        <div class='Module Module-1343'>
-                            <div class='ModuleContent'>
-                                <ul>
-                                    <li><a href="https://www.facebook.com/ttcgroup1979" target="_blank"><em class="fa-brands fa-facebook-f"></em></a></li>
-                                    <li><a href="https://www.youtube.com/@ttcgroup4745" target="_blank"><em class="fa-brands fa-youtube"></em></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="header-nav-right">
-                    <div class='Module Module-1341'>
-                        <div class='ModuleContent'>
-                            <nav class="nav-primary-menu ">
-                                <ul class="nav">
-                                    <li class="nav-link">
-                                        <a href="https://www.ttcgroup.vn/trach-nhiem-xa-hoi" title="Trách nhiệm xã hội">Trách nhiệm xã hội</a>
-                                    </li>
-                                    <li class="nav-link">
-                                        <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc" title="Truyền thông">Truyền thông</a>
-                                    </li>
-                                    <li class="nav-link">
-                                        <a href="https://www.ttcgroup.vn/tuyen-dung" title="Tuyển dụng">Tuyển dụng</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-                <div class="site-menu-toggle" tabindex="-1" aria-label="Toggle Site Menu">
-                    <div class="hamburger hamburger--elastic">
-                        <div class="hamburger-box">
-                            <div class="hamburger-inner"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <div class="mobile-nav-wrap">
-        <div class="mobile-top-nav"></div>
-    </div>
-
-    <main>
-
-
-        <div id="ctl00_divCenter" class="middle-fullwidth">
-
-
-            <div class='Module Module-1353'>
-                <div class='ModuleContent'>
-                    <section class="primary-banner">
-                        <div class="banner-container">
-                            <div class="swiper">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <div class="wrap">
-                                            <div class="img">
-                                                <a>
-                                                    <img loading="lazy" src="/assets/Banner/banner-trang-chủ-1920x820px-–-2.jpg" srcset="/assets/Banner/banner-trang-chủ-780x570px-–-4.jpg 767w, /assets/Banner/banner-trang-chủ-1920x820px-–-2.jpg" alt="">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="wrap">
-                                            <div class="img">
-                                                <a>
-                                                    <img loading="lazy" src="/assets/Banner/banner-trang-chủ-1920x820px-–-6.jpg" srcset="/assets/Banner/banner-trang-chủ-780x570px-–-5.jpg 767w, /assets/Banner/banner-trang-chủ-1920x820px-–-6.jpg" alt="">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-nav second container">
-                            <div class="prev">
-                                <em class="fa-light fa-chevron-left">
-                                </em>
-                            </div>
-                            <div class="next">
-                                <em class="fa-light fa-chevron-right">
-                                </em>
-                            </div>
-                        </div>
-                        <div class="swiper-pagination primary-pagination">
-                        </div>
-                    </section>
-                </div>
-            </div>
-            <div class='Module Module-1379'>
-                <div class='ModuleContent'>
-                    <section class="home-sector pad-b-6 pad-t-8">
-                        <div class="container">
-                            <h2 class="block-title text-center lg:mb-7 mb-8">Lĩnh vực hoạt động</h2>
-                            <div class="grid-swiper">
-                                <div class="swiper">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <div class="sector-item" style="--color-code:#397140">
-                                                <div class="img opacity">
-                                                    <a href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/nong-nghiep-2" title="Nông nghiệp">
-                                                        <img loading="lazy" src="/assets/media/linh-vuc-hoat-dong/agri.jpeg" alt="Nông nghiệp">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="title">
-                                                        <a class="text-clamp-32 font-bold" href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/nong-nghiep-2" title="Nông nghiệp">Nông nghiệp</a>
-                                                    </h3>
-                                                    <div class="wrap-gap">
-                                                        <div class="desc">
-                                                            <p style="text-align: justify;"><span>Công ty CP Thành Thành Công - Biên Hòa (TTC AgriS, HOSE: SBT) là đơn vị chủ lực của ngành Nông nghiệp TTC với thương hiệu “Đường Biên Hòa” hơn 55 năm, quen thuộc với hàng triệu người tiêu dùng, TTC AgriS tiên phong cho nông nghiệp Việt Nam chuyển mình đón đầu xu thế mới, với triết lý kinh doanh “xanh” trên nền tảng Giải pháp - Dịch vụ - Công nghệ - Bền vững.&nbsp;</span></p>
-                                                            <p style="text-align: justify;"><span>Ngành Nông nghiệp TTC hiện sở hữu vùng nguyên liệu xuyên biên giới với tổng diện tích gần 72.000 ha, trải dài tại 4 quốc gia Việt Nam, Lào, Campuchia và Úc. Trong chiến lược thúc đẩy nền kinh tế nông nghiệp bền vững giai đoạn 2021 - 2025, TTC AgriS chủ động tăng cường hợp tác phát triển nông nghiệp thông minh với chính quyền bang Queensland (Úc), đặt mục tiêu mở rộng diện tích vùng nguyên liệu tại Úc lên 20.000 ha, ứng dụng công nghệ canh tác số thông qua nền tảng quản trị FRM (Farmer Relationship Management), đồng thời nâng tổng diện tích vùng nguyên liệu toàn cầu đạt gần 90.000 ha. &nbsp;</span></p>
-                                                            <p style="text-align: justify;"><span>Với vị thế là doanh nghiệp nông nghiệp công nghệ cao, TTC AgriS mở ra chương mới trên hành trình toàn diện chuỗi giá trị dinh dưỡng bền vững, với mục tiêu tạo ra sân chơi chung về khoa học công nghệ - kinh tế nông nghiệp. TTC AgriS còn mở rộng hệ sinh thái các sản phẩm năng lượng có giá trị dinh dưỡng cao, tận dụng các loại cây chủ lực như mía, dừa, chuối, gạo,… tốt cho sức khỏe, giảm thiểu tác động đến môi trường và cộng đồng.&nbsp;</span></p>
-                                                            <p style="text-align: justify;"><span>TTC AgriS là nhà phân phối duy nhất của John Deere tại Việt Nam, cung cấp các dòng máy móc và thiết bị có xuất xứ từ Mỹ, đáp ứng nhu cầu canh tác đa dạng, góp phần hiện đại hóa nền nông nghiệp.</span></p>
-                                                        </div>
-                                                        <a class="btn btn-primary" href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/nong-nghiep-2" title="Nông nghiệp">
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="sector-item" style="--color-code:#E3302C">
-                                                <div class="img opacity">
-                                                    <a href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/nang-luong-1" title="Năng lượng">
-                                                        <img loading="lazy" src="/assets/media/linh-vuc-hoat-dong/ene.jpeg" alt="Năng lượng">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="title">
-                                                        <a class="text-clamp-32 font-bold" href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/nang-luong-1" title="Năng lượng">Năng lượng</a>
-                                                    </h3>
-                                                    <div class="wrap-gap">
-                                                        <div class="desc">
-                                                            <p style="text-align: justify;"><span>Công ty CP Điện Gia Lai (GEC, HOSE: GEG) là đơn vị chủ lực của ngành Năng lượng TTC. Gia nhập Sở Giao dịch Chứng khoán TP.HCM từ tháng 9/2019, cổ phiếu GEG thuộc Rổ Chỉ số VN100 vào kỳ cơ cấu tháng 7/2020 và là công ty duy nhất trong Rổ sở hữu đa dạng danh mục năng lượng tái tạo, tự hào là đơn vị đóng điện thương mại 2 nhà máy điện mặt trời đầu tiên ở Việt Nam là Phong Điền (Thừa Thiên Huế) và Krông Pa (Gia Lai).</span></p>
-                                                            <p style="text-align: justify;"><span>Sở hữu 23 nhà máy thủy điện, điện mặt trời và điện gió với tổng công suất vận hành gần 800 Mwp, cung cấp 8 tỷ kWh sản lượng điện cho lưới điện quốc gia, giảm phát thải gần 5,6 triệu tấn CO2 và cung ứng điện cho 4,4 triệu hộ gia đình.</span></p>
-                                                            <p style="text-align: justify;"><span>Những năm gần đây, hướng đến chiến lược Tài chính Xanh, GEC luôn là điểm đến của dòng vốn Xanh từ các định chế tài chính và đích đến của các nhà đầu tư như: JERA, DEG, SYMBIOTICS… Đồng thời, đặt mục tiêu phấn đấu tăng danh mục dự án với công suất phát triển lên hơn 1.700 MW giai đoạn 2021 - 2030, tầm nhìn đến 2050.</span></p>
-                                                        </div>
-                                                        <a class="btn btn-primary" href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/nang-luong-1" title="Năng lượng">
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="sector-item" style="--color-code:#438ecb">
-                                                <div class="img opacity">
-                                                    <a href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/bat-dong-san-1" title="Bất động sản">
-                                                        <img loading="lazy" src="/assets/media/b%E1%BA%A5t-%C4%91%E1%BB%99ng-s%E1%BA%A3n/gio%CC%9B%CC%81i-thieu---%C4%91o%CC%9Bn-vi-thanh-vie%CC%82n-710-x-480px-%E2%80%93-3.jpg" alt="Bất động sản">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="title">
-                                                        <a class="text-clamp-32 font-bold" href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/bat-dong-san-1" title="Bất động sản">Bất động sản</a>
-                                                    </h3>
-                                                    <div class="wrap-gap">
-                                                        <div class="desc">
-                                                            <p style="text-align: justify;"><span>Trong xu thế hội nhập, song hành cùng sự phát triển, thay đổi diện mạo nhanh chóng của đô thị nói riêng và ngành Bất động sản nói chung, TTC Land đã không ngừng khẳng định uy tín thương hiệu với bề dày hơn 20 năm hoạt động.</span></p>
-                                                            <p style="text-align: justify;"><span>Với định hướng không chỉ xây dựng một công trình chất lượng mà còn sáng tạo không gian sống đích thực cùng đội ngũ nhân sự luôn “Cầu tiến trong tư duy - Tận tâm trong mọi hoạt động”, TTC Land khẳng định cam kết về việc phát triển dự án xanh, bền vững và thân thiện với môi trường, góp phần gia tăng nguồn cung cũng như sự lựa chọn cho khách hàng, nhà đầu tư.
-</span></p>
-                                                        </div>
-                                                        <a class="btn btn-primary" href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/bat-dong-san-1" title="Bất động sản">
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="sector-item" style="--color-code:#003767">
-                                                <div class="img opacity">
-                                                    <a href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/bat-dong-san-cong-nghiep-1" title="Bất động sản Công nghiệp">
-                                                        <img loading="lazy" src="/assets/media/linh-vuc-hoat-dong/bds-cong-nghiep-v2.jpg" alt="Bất động sản Công nghiệp">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="title">
-                                                        <a class="text-clamp-32 font-bold" href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/bat-dong-san-cong-nghiep-1" title="Bất động sản Công nghiệp">Bất động sản Công nghiệp</a>
-                                                    </h3>
-                                                    <div class="wrap-gap">
-                                                        <div class="desc">
-                                                            <p><span>Tổng Công ty Bất động sản Công nghiệp Thành Thành Công sở hữu nhiều khu, cụm công nghiệp và hệ thống kho bãi, nhà xưởng rộng khắp tại các khu vực có vị trí đắc địa, cửa ngõ giao thương quan trọng của vùng kinh tế trọng điểm phía Nam, tối ưu hóa cơ hội trong thời kỳ hội nhập, tạo công ăn việc làm, nâng cao thu nhập cho người lao động.</span></p>
-                                                            <p><span>Tổng Công ty Bất động sản Công nghiệp Thành Thành Công tập trung đa dạng hóa sản phẩm dịch vụ với hệ thống cơ sở hạ tầng hoàn chỉnh nhằm đáp ứng nhu cầu thị trường và mang lại hiệu quả cho nhà đầu tư. Bên cạnh đó, còn đẩy nhanh công nghệ hóa các hoạt động, giao dịch, nhằm gia tăng tốc độ tiếp cận, chăm sóc khách hàng cũng như quản lý nội bộ doanh nghiệp, đồng thời quan tâm đến cảnh quan, an ninh trật tự, hướng đến hình ảnh một khu công nghiệp sinh thái thông minh.</span></p>
-                                                        </div>
-                                                        <a class="btn btn-primary" href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/bat-dong-san-cong-nghiep-1" title="Bất động sản Công nghiệp">
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="sector-item" style="--color-code:#872677">
-                                                <div class="img opacity">
-                                                    <a href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/du-lich-1" title="Du lịch">
-                                                        <img loading="lazy" src="/assets/media/linh-vuc-hoat-dong/trav.jpeg" alt="Du lịch">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="title">
-                                                        <a class="text-clamp-32 font-bold" href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/du-lich-1" title="Du lịch">Du lịch</a>
-                                                    </h3>
-                                                    <div class="wrap-gap">
-                                                        <div class="desc">
-                                                            <p><span>Công ty CP Du lịch Thành Thành Công (TTC Hospitality, HOSE: VNG) là đơn vị chủ lực của ngành Du lịch TTC. Trên nền tảng tôn trọng thiên nhiên, bảo tồn văn hóa sẵn có, chung tay cùng Việt Nam vẽ nên một bản đồ du lịch rực rỡ sắc màu, ngành Du lịch TTC hoạt động khép kín trong 4 lĩnh vực: Lưu trú, vui chơi, trung tâm hội nghị/nhà hàng, lữ hành.</span></p>
-                                                            <p><span>Sở hữu gần 20 điểm đến tại các tỉnh, thành du lịch trọng điểm cả nước, như: Huế, Hội An, Nha Trang, Ninh Thuận, Khánh Hòa, Phan Thiết, Đà Lạt, TP.HCM, Bến Tre, Cần Thơ và 01 điểm đến tại thành phố Siem Reap (Campuchia).</span></p>
-                                                            <p><span>Với sứ mệnh “Đồng hành cùng địa phương góp phần phát triển ngành du lịch Việt Nam”, ngành Du lịch TTC cam kết liên tục xây dựng các sản phẩm du lịch đa dạng nhằm mang đến những trải nghiệm trọn vẹn trong các chuyến du lịch, công tác hay nghỉ dưỡng, từ đó quảng bá sâu rộng hơn nét đẹp
-của thiên nhiên, đất nước, con người Việt Nam đến với du khách nội địa và nước ngoài, đồng hành cùng Chính phủ Việt Nam phấn đấu đến năm 2030, du
-lịch thực sự là ngành kinh tế mũi nhọn, thúc đẩy mạnh mẽ sự phát triển của các ngành, lĩnh vực khác.</span></p>
-                                                        </div>
-                                                        <a class="btn btn-primary" href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/du-lich-1" title="Du lịch">
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="sector-item" style="--color-code:#F35907">
-                                                <div class="img opacity">
-                                                    <a href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/giao-duc-1" title="Giáo dục">
-                                                        <img loading="lazy" src="/assets/media/linh-vuc-hoat-dong/giao-duc.jpg" alt="Giáo dục">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="title">
-                                                        <a class="text-clamp-32 font-bold" href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/giao-duc-1" title="Giáo dục">Giáo dục</a>
-                                                    </h3>
-                                                    <div class="wrap-gap">
-                                                        <div class="desc"><span>Với hệ thống đào tạo từ cấp trung học phổ thông đến đại học và Viện Nghiên cứu và Đào tạo Quốc tế TTC, ngành Giáo dục TTC cam kết mang đến chất lượng giáo dục tiên tiến, nuôi dưỡng thế hệ trẻ không chỉ giỏi chuyên môn mà còn có tư duy đổi mới, tinh thần khởi nghiệp và trách nhiệm với cộng đồng, đồng thời theo đuổi định hướng chiến lược mở rộng hệ thống trường học tại các tỉnh thành trên cả nước trong tương lai gần.</span></div>
-                                                        <a class="btn btn-primary" href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/giao-duc-1" title="Giáo dục">
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-nav">
-                                    <div class="prev">
-                                        <em class="fa-light fa-chevron-left">
-                                        </em>
-                                    </div>
-                                    <div class="next">
-                                        <em class="fa-light fa-chevron-right">
-                                        </em>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </div>
-            <div class='Module Module-1355'>
-                <div class='ModuleContent'>
-                    <section class="home-news">
-                        <div class="container">
-                            <div class="row news-big">
-                                <div class="col w-full lg:w-1/2">
-                                    <div class="txt-hor">
-                                        <div class="type font-bold text-white">Tin nổi bật</div>
-                                        <h2 class="block-title t-32 blue">
-                                            <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/chu-tich-ttc-nen-chon-thoi-diem-thich-hop-de-m-a" title="Chủ tịch TTC: Nên chọn thời điểm thích hợp để M&amp;A">Chủ tịch TTC: Nên chọn thời điểm thích hợp để M&A</a>
-                                        </h2>
-                                        <div class="desc dark t-20">Nếu xét thấy các điều kiện không được thuận lợi thì doanh nghiệp cũng nên chọn chiến lược M&amp;A để đảm bảo được quyền lợi cho các cổ đông.</div>
-                                        <div class="wrap-left">
-                                            <a class="btn btn-secondary" href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/chu-tich-ttc-nen-chon-thoi-diem-thich-hop-de-m-a" title="Chủ tịch TTC: Nên chọn thời điểm thích hợp để M&amp;A">
-                                                <span>Xem thêm</span>
-                                                <em class="fa-light fa-long-arrow-right">
-                                                </em>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col w-full lg:w-1/2">
-                                    <div class="img zoom-in">
-                                        <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/chu-tich-ttc-nen-chon-thoi-diem-thich-hop-de-m-a" title="Chủ tịch TTC: Nên chọn thời điểm thích hợp để M&amp;A">
-                                            <img loading="lazy" src="/assets/News/10866/img_0296.jpg" alt="Chủ tịch TTC: Nên chọn thời điểm thích hợp để M&amp;A">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="trinity-swiper">
-                                <div class="swiper">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <div class="news-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/chu-tich-ttc-nen-chon-thoi-diem-thich-hop-de-m-a" title="Chủ tịch TTC: Nên chọn thời điểm thích hợp để M&amp;A">
-                                                        <img loading="lazy" src="/assets/News/10866/img_0296.jpg" alt="Chủ tịch TTC: Nên chọn thời điểm thích hợp để M&amp;A">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="headline blue">
-                                                        <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/chu-tich-ttc-nen-chon-thoi-diem-thich-hop-de-m-a" title="Chủ tịch TTC: Nên chọn thời điểm thích hợp để M&amp;A">Chủ tịch TTC: Nên chọn thời điểm thích hợp để M&A</a>
-                                                    </h3>
-                                                    <div class="wrap-left">
-                                                        <a class="btn btn-secondary">
-                                                            <span>Xem thêm</span>
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="news-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/pickleball-d-joy-vietnam-masters-petrolimex-cup-kien-tao-nen-mong-pickleball-viet-nam" title="Pickleball D-Joy Vietnam Masters - Petrolimex Cup: Kiến tạo nền móng Pickleball Việt Nam">
-                                                        <img loading="lazy" src="/assets/News/10865/2.jpg" alt="Pickleball D-Joy Vietnam Masters - Petrolimex Cup: Kiến tạo nền móng Pickleball Việt Nam">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="headline blue">
-                                                        <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/pickleball-d-joy-vietnam-masters-petrolimex-cup-kien-tao-nen-mong-pickleball-viet-nam" title="Pickleball D-Joy Vietnam Masters - Petrolimex Cup: Kiến tạo nền móng Pickleball Việt Nam">Pickleball D-Joy Vietnam Masters - Petrolimex Cup: Kiến tạo nền móng Pickleball Việt Nam</a>
-                                                    </h3>
-                                                    <div class="wrap-left">
-                                                        <a class="btn btn-secondary">
-                                                            <span>Xem thêm</span>
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="news-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/bat-dong-san-1/tin-tuc-khac-4/-thuoc-top-100-noi-lam-viec-tot-nhat-viet-nam-nam-2025-khoi-doanh-nghiep-vua" title="🎉🎉🎉𝐓𝐓𝐂 𝐋𝐚𝐧𝐝 thuộc Top 100 nơi làm việc tốt nhất Việt Nam năm 2025 Khối Doanh nghiệp Vừa">
-                                                        <img loading="lazy" src="/assets/News/10864/chuc-mung-ttc-land-top-100.jpg" alt="🎉🎉🎉𝐓𝐓𝐂 𝐋𝐚𝐧𝐝 thuộc Top 100 nơi làm việc tốt nhất Việt Nam năm 2025 Khối Doanh nghiệp Vừa">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="headline blue">
-                                                        <a href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/bat-dong-san-1/tin-tuc-khac-4/-thuoc-top-100-noi-lam-viec-tot-nhat-viet-nam-nam-2025-khoi-doanh-nghiep-vua" title="🎉🎉🎉𝐓𝐓𝐂 𝐋𝐚𝐧𝐝 thuộc Top 100 nơi làm việc tốt nhất Việt Nam năm 2025 Khối Doanh nghiệp Vừa">🎉🎉🎉𝐓𝐓𝐂 𝐋𝐚𝐧𝐝 thuộc Top 100 nơi làm việc tốt nhất Việt Nam năm 2025 Khối Doanh nghiệp Vừa</a>
-                                                    </h3>
-                                                    <div class="wrap-left">
-                                                        <a class="btn btn-secondary">
-                                                            <span>Xem thêm</span>
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="news-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/ttc-nang-buoc-thanh-cong-40-nam-dong-hanh-voi-hoc-sinh-vuot-kho" title="TTC - Nâng bước thành công: 40 năm đồng hành với học sinh vượt khó">
-                                                        <img loading="lazy" src="/assets/News/10860/1.jpg" alt="TTC - Nâng bước thành công: 40 năm đồng hành với học sinh vượt khó">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="headline blue">
-                                                        <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/ttc-nang-buoc-thanh-cong-40-nam-dong-hanh-voi-hoc-sinh-vuot-kho" title="TTC - Nâng bước thành công: 40 năm đồng hành với học sinh vượt khó">TTC - Nâng bước thành công: 40 năm đồng hành với học sinh vượt khó</a>
-                                                    </h3>
-                                                    <div class="wrap-left">
-                                                        <a class="btn btn-secondary">
-                                                            <span>Xem thêm</span>
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="news-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/-dai-hoi-doanh-nhan-tre-viet-nam-lan-thu-viii-tien-phong-doi-moi-kien-tao-gia-tri-vung-buoc-vao-ky-nguyen-moi" title="🇻🇳 Đại hội Doanh nhân trẻ Việt Nam lần thứ VIII: Tiên phong đổi mới – Kiến tạo giá trị – Vững bước vào kỷ nguyên mới">
-                                                        <img loading="lazy" src="/assets/News/10859/a%CC%89nh_viber_2025-11-28_17-44-43-024.jpg" alt="🇻🇳 Đại hội Doanh nhân trẻ Việt Nam lần thứ VIII: Tiên phong đổi mới – Kiến tạo giá trị – Vững bước vào kỷ nguyên mới">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="headline blue">
-                                                        <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/-dai-hoi-doanh-nhan-tre-viet-nam-lan-thu-viii-tien-phong-doi-moi-kien-tao-gia-tri-vung-buoc-vao-ky-nguyen-moi" title="🇻🇳 Đại hội Doanh nhân trẻ Việt Nam lần thứ VIII: Tiên phong đổi mới – Kiến tạo giá trị – Vững bước vào kỷ nguyên mới">🇻🇳 Đại hội Doanh nhân trẻ Việt Nam lần thứ VIII: Tiên phong đổi mới – Kiến tạo giá trị – Vững bước vào kỷ nguyên mới</a>
-                                                    </h3>
-                                                    <div class="wrap-left">
-                                                        <a class="btn btn-secondary">
-                                                            <span>Xem thêm</span>
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="news-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/ong-dang-hong-anh-giu-chuc-chu-tich-hoi-doanh-nhan-tre-viet-nam-khoa-viii" title="Ông Đặng Hồng Anh giữ chức Chủ tịch Hội Doanh nhân trẻ Việt Nam khóa VIII">
-                                                        <img loading="lazy" src="/assets/News/10857/3.png" alt="Ông Đặng Hồng Anh giữ chức Chủ tịch Hội Doanh nhân trẻ Việt Nam khóa VIII">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="headline blue">
-                                                        <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/ong-dang-hong-anh-giu-chuc-chu-tich-hoi-doanh-nhan-tre-viet-nam-khoa-viii" title="Ông Đặng Hồng Anh giữ chức Chủ tịch Hội Doanh nhân trẻ Việt Nam khóa VIII">Ông Đặng Hồng Anh giữ chức Chủ tịch Hội Doanh nhân trẻ Việt Nam khóa VIII</a>
-                                                    </h3>
-                                                    <div class="wrap-left">
-                                                        <a class="btn btn-secondary">
-                                                            <span>Xem thêm</span>
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="news-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/giao-duc-1/tin-tuc-khac-5/ngay-hoi-ttc-day-khong-gian-trai-nghiem-ket-noi-viec-lam" title="Ngày hội TTC Day: Không gian trải nghiệm - kết nối - việc làm">
-                                                        <img loading="lazy" src="/assets/News/10856/1.jpeg" alt="Ngày hội TTC Day: Không gian trải nghiệm - kết nối - việc làm">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="headline blue">
-                                                        <a href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/giao-duc-1/tin-tuc-khac-5/ngay-hoi-ttc-day-khong-gian-trai-nghiem-ket-noi-viec-lam" title="Ngày hội TTC Day: Không gian trải nghiệm - kết nối - việc làm">Ngày hội TTC Day: Không gian trải nghiệm - kết nối - việc làm</a>
-                                                    </h3>
-                                                    <div class="wrap-left">
-                                                        <a class="btn btn-secondary">
-                                                            <span>Xem thêm</span>
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="news-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/vietnam-masters-khat-vong-vuon-ra-the-gioi-cua-pickleball-viet-nam" title="Vietnam Masters - Khát vọng vươn ra thế giới của pickleball Việt Nam">
-                                                        <img loading="lazy" src="/assets/News/10855/1.jpg" alt="Vietnam Masters - Khát vọng vươn ra thế giới của pickleball Việt Nam">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="headline blue">
-                                                        <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/vietnam-masters-khat-vong-vuon-ra-the-gioi-cua-pickleball-viet-nam" title="Vietnam Masters - Khát vọng vươn ra thế giới của pickleball Việt Nam">Vietnam Masters - Khát vọng vươn ra thế giới của pickleball Việt Nam</a>
-                                                    </h3>
-                                                    <div class="wrap-left">
-                                                        <a class="btn btn-secondary">
-                                                            <span>Xem thêm</span>
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="news-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/toa-dam-doi-thoai-ve-chan-dung-the-he-doanh-nhan-moi" title="Tọa đàm “Đối thoại về chân dung thế hệ doanh nhân mới”">
-                                                        <img loading="lazy" src="/assets/News/10854/2.jpg" alt="Tọa đàm “Đối thoại về chân dung thế hệ doanh nhân mới”">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="headline blue">
-                                                        <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/toa-dam-doi-thoai-ve-chan-dung-the-he-doanh-nhan-moi" title="Tọa đàm “Đối thoại về chân dung thế hệ doanh nhân mới”">Tọa đàm “Đối thoại về chân dung thế hệ doanh nhân mới”</a>
-                                                    </h3>
-                                                    <div class="wrap-left">
-                                                        <a class="btn btn-secondary">
-                                                            <span>Xem thêm</span>
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="news-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttcgroup.vn/truyen-thong/hinh-anh/-chuc-mung-ngay-nha-giao-viet-nam-2011-" title="🎉 CHÚC MỪNG NGÀY NHÀ GIÁO VIỆT NAM 20/11 🎉">
-                                                        <img loading="lazy" src="/assets/News/10853/edm-chuc-mung-20thang11-2025.jpg" alt="🎉 CHÚC MỪNG NGÀY NHÀ GIÁO VIỆT NAM 20/11 🎉">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="headline blue">
-                                                        <a href="https://www.ttcgroup.vn/truyen-thong/hinh-anh/-chuc-mung-ngay-nha-giao-viet-nam-2011-" title="🎉 CHÚC MỪNG NGÀY NHÀ GIÁO VIỆT NAM 20/11 🎉">🎉 CHÚC MỪNG NGÀY NHÀ GIÁO VIỆT NAM 20/11 🎉</a>
-                                                    </h3>
-                                                    <div class="wrap-left">
-                                                        <a class="btn btn-secondary">
-                                                            <span>Xem thêm</span>
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="news-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttcgroup.vn/truyen-thong/goc-bao-chi/giai-mb-pickleball-d-joy-tour-2025-chang-3-khep-lai-an-tuong-huong-den-vietnam-masters" title="Giải MB Pickleball D-Joy Tour 2025 chặng 3 khép lại ấn tượng, hướng đến Vietnam Masters">
-                                                        <img loading="lazy" src="/assets/News/10848/1.jpg" alt="Giải MB Pickleball D-Joy Tour 2025 chặng 3 khép lại ấn tượng, hướng đến Vietnam Masters">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="headline blue">
-                                                        <a href="https://www.ttcgroup.vn/truyen-thong/goc-bao-chi/giai-mb-pickleball-d-joy-tour-2025-chang-3-khep-lai-an-tuong-huong-den-vietnam-masters" title="Giải MB Pickleball D-Joy Tour 2025 chặng 3 khép lại ấn tượng, hướng đến Vietnam Masters">Giải MB Pickleball D-Joy Tour 2025 chặng 3 khép lại ấn tượng, hướng đến Vietnam Masters</a>
-                                                    </h3>
-                                                    <div class="wrap-left">
-                                                        <a class="btn btn-secondary">
-                                                            <span>Xem thêm</span>
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="news-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/chu-tich-dang-van-thanh-doanh-nhan-phai-xanh-tu-noi-tai-cua-chinh-minh" title="Chủ tịch Đặng Văn Thành: Doanh nhân phải &quot;xanh&quot; từ nội tại của chính mình&quot;!">
-                                                        <img loading="lazy" src="/assets/News/10847/tong-quan-dien-dan--1762246070142622216683.jpg" alt="Chủ tịch Đặng Văn Thành: Doanh nhân phải &quot;xanh&quot; từ nội tại của chính mình&quot;!">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="headline blue">
-                                                        <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/chu-tich-dang-van-thanh-doanh-nhan-phai-xanh-tu-noi-tai-cua-chinh-minh" title="Chủ tịch Đặng Văn Thành: Doanh nhân phải &quot;xanh&quot; từ nội tại của chính mình&quot;!">Chủ tịch Đặng Văn Thành: Doanh nhân phải "xanh" từ nội tại của chính mình"!</a>
-                                                    </h3>
-                                                    <div class="wrap-left">
-                                                        <a class="btn btn-secondary">
-                                                            <span>Xem thêm</span>
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="news-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/ong-dang-van-thanh-nha-nuoc-da-tao-moi-truong-doanh-nhan-phai-nhan-thuc" title="Chủ tịch Đặng Văn Thành: ‘Nhà nước đã tạo môi trường, doanh nhân phải nhận thức’">
-                                                        <img loading="lazy" src="/assets/News/10845/z7187776681567_e44d7ef37d4e4d0bc481b70ece4b36d5.jpg" alt="Chủ tịch Đặng Văn Thành: ‘Nhà nước đã tạo môi trường, doanh nhân phải nhận thức’">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="headline blue">
-                                                        <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/ong-dang-van-thanh-nha-nuoc-da-tao-moi-truong-doanh-nhan-phai-nhan-thuc" title="Chủ tịch Đặng Văn Thành: ‘Nhà nước đã tạo môi trường, doanh nhân phải nhận thức’">Chủ tịch Đặng Văn Thành: ‘Nhà nước đã tạo môi trường, doanh nhân phải nhận thức’</a>
-                                                    </h3>
-                                                    <div class="wrap-left">
-                                                        <a class="btn btn-secondary">
-                                                            <span>Xem thêm</span>
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="news-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/ttc-land-ttc-iz-va-vietcombank-bat-tay-phat-trien-khu-dan-cu-quy-mo-hon-42ha-tai-tay-ninh" title="TTC Land, TTC IZ và Vietcombank bắt tay phát triển khu dân cư quy mô hơn 42ha tại Tây Ninh">
-                                                        <img loading="lazy" src="/assets/News/10844/dscf2111_.jpg" alt="TTC Land, TTC IZ và Vietcombank bắt tay phát triển khu dân cư quy mô hơn 42ha tại Tây Ninh">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="headline blue">
-                                                        <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/ttc-land-ttc-iz-va-vietcombank-bat-tay-phat-trien-khu-dan-cu-quy-mo-hon-42ha-tai-tay-ninh" title="TTC Land, TTC IZ và Vietcombank bắt tay phát triển khu dân cư quy mô hơn 42ha tại Tây Ninh">TTC Land, TTC IZ và Vietcombank bắt tay phát triển khu dân cư quy mô hơn 42ha tại Tây Ninh</a>
-                                                    </h3>
-                                                    <div class="wrap-left">
-                                                        <a class="btn btn-secondary">
-                                                            <span>Xem thêm</span>
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="news-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/truong-dai-hoc-nguyen-tat-thanh-hop-mat-doanh-nghiep-nhan-ky-niem-21-nam-ngay-doanh-nhan-viet-nam" title="Trường Đại học Nguyễn Tất Thành họp mặt doanh nghiệp nhân kỷ niệm 21 năm Ngày Doanh nhân Việt Nam">
-                                                        <img loading="lazy" src="/assets/News/10842/4.jpg" alt="Trường Đại học Nguyễn Tất Thành họp mặt doanh nghiệp nhân kỷ niệm 21 năm Ngày Doanh nhân Việt Nam">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="headline blue">
-                                                        <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/truong-dai-hoc-nguyen-tat-thanh-hop-mat-doanh-nghiep-nhan-ky-niem-21-nam-ngay-doanh-nhan-viet-nam" title="Trường Đại học Nguyễn Tất Thành họp mặt doanh nghiệp nhân kỷ niệm 21 năm Ngày Doanh nhân Việt Nam">Trường Đại học Nguyễn Tất Thành họp mặt doanh nghiệp nhân kỷ niệm 21 năm Ngày Doanh nhân Việt Nam</a>
-                                                    </h3>
-                                                    <div class="wrap-left">
-                                                        <a class="btn btn-secondary">
-                                                            <span>Xem thêm</span>
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="news-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/ttc-dong-hanh-cung-cong-dong-doanh-nghiep-va-nha-truong-trong-hanh-trinh-kien-tao-the-he-tri-thuc-tre-vi-mot-tuong-lai-phat-trien-ben-vung" title="TTC ĐỒNG HÀNH CÙNG CỘNG ĐỒNG DOANH NGHIỆP VÀ NHÀ TRƯỜNG TRONG HÀNH TRÌNH KIẾN TẠO THẾ HỆ TRI THỨC TRẺ – VÌ MỘT TƯƠNG LAI PHÁT TRIỂN BỀN VỮNG.">
-                                                        <img loading="lazy" src="/assets/News/10841/a%CC%89nh_viber_2025-10-29_10-11-31-906.jpg" alt="TTC ĐỒNG HÀNH CÙNG CỘNG ĐỒNG DOANH NGHIỆP VÀ NHÀ TRƯỜNG TRONG HÀNH TRÌNH KIẾN TẠO THẾ HỆ TRI THỨC TRẺ – VÌ MỘT TƯƠNG LAI PHÁT TRIỂN BỀN VỮNG.">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="headline blue">
-                                                        <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/ttc-dong-hanh-cung-cong-dong-doanh-nghiep-va-nha-truong-trong-hanh-trinh-kien-tao-the-he-tri-thuc-tre-vi-mot-tuong-lai-phat-trien-ben-vung" title="TTC ĐỒNG HÀNH CÙNG CỘNG ĐỒNG DOANH NGHIỆP VÀ NHÀ TRƯỜNG TRONG HÀNH TRÌNH KIẾN TẠO THẾ HỆ TRI THỨC TRẺ – VÌ MỘT TƯƠNG LAI PHÁT TRIỂN BỀN VỮNG.">TTC ĐỒNG HÀNH CÙNG CỘNG ĐỒNG DOANH NGHIỆP VÀ NHÀ TRƯỜNG TRONG HÀNH TRÌNH KIẾN TẠO THẾ HỆ TRI THỨC TRẺ – VÌ MỘT TƯƠNG LAI PHÁT TRIỂN BỀN VỮNG.</a>
-                                                    </h3>
-                                                    <div class="wrap-left">
-                                                        <a class="btn btn-secondary">
-                                                            <span>Xem thêm</span>
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="news-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/tran-trong-chuc-mung-ong-dang-hong-anh-pho-chu-tich-tap-doan-ttc-tai-dac-cu-chuc-danh-chu-tich-hoi-doanh-nhan-tre-viet-nam-khoa-viii-nhiem-ky-2025-2030" title="Trân trọng chúc mừng Ông Đặng Hồng Anh – Phó Chủ tịch Tập đoàn TTC – tái đắc cử chức danh Chủ tịch Hội Doanh nhân trẻ Việt Nam khóa VIII, nhiệm kỳ 2025 – 2030.">
-                                                        <img loading="lazy" src="/assets/News/10835/edm-chuc-mung-ong-dha-%E2%80%93-pct-tap-doan-ttc.jpg" alt="Trân trọng chúc mừng Ông Đặng Hồng Anh – Phó Chủ tịch Tập đoàn TTC – tái đắc cử chức danh Chủ tịch Hội Doanh nhân trẻ Việt Nam khóa VIII, nhiệm kỳ 2025 – 2030.">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="headline blue">
-                                                        <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/tran-trong-chuc-mung-ong-dang-hong-anh-pho-chu-tich-tap-doan-ttc-tai-dac-cu-chuc-danh-chu-tich-hoi-doanh-nhan-tre-viet-nam-khoa-viii-nhiem-ky-2025-2030" title="Trân trọng chúc mừng Ông Đặng Hồng Anh – Phó Chủ tịch Tập đoàn TTC – tái đắc cử chức danh Chủ tịch Hội Doanh nhân trẻ Việt Nam khóa VIII, nhiệm kỳ 2025 – 2030.">Trân trọng chúc mừng Ông Đặng Hồng Anh – Phó Chủ tịch Tập đoàn TTC – tái đắc cử chức danh Chủ tịch Hội Doanh nhân trẻ Việt Nam khóa VIII, nhiệm kỳ 2025 – 2030.</a>
-                                                    </h3>
-                                                    <div class="wrap-left">
-                                                        <a class="btn btn-secondary">
-                                                            <span>Xem thêm</span>
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="news-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/huynh-bich-ngoc-bong-hong-vang-2025-va-hanh-trinh-46-nam-cung-tap-doan-ttc" title="Huỳnh Bích Ngọc - ‘Bông hồng vàng’ 2025 và hành trình 46 năm cùng Tập đoàn TTC">
-                                                        <img loading="lazy" src="/assets/News/10834/ba%CC%81o-01.png" alt="Huỳnh Bích Ngọc - ‘Bông hồng vàng’ 2025 và hành trình 46 năm cùng Tập đoàn TTC">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="headline blue">
-                                                        <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/huynh-bich-ngoc-bong-hong-vang-2025-va-hanh-trinh-46-nam-cung-tap-doan-ttc" title="Huỳnh Bích Ngọc - ‘Bông hồng vàng’ 2025 và hành trình 46 năm cùng Tập đoàn TTC">Huỳnh Bích Ngọc - ‘Bông hồng vàng’ 2025 và hành trình 46 năm cùng Tập đoàn TTC</a>
-                                                    </h3>
-                                                    <div class="wrap-left">
-                                                        <a class="btn btn-secondary">
-                                                            <span>Xem thêm</span>
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="news-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/doanh-nghiep-doanh-nhan-buoc-vao-duong-dua-moi" title="Doanh nghiệp, doanh nhân bước vào đường đua mới">
-                                                        <img loading="lazy" src="/assets/News/10833/ba%CC%80i-01.png" alt="Doanh nghiệp, doanh nhân bước vào đường đua mới">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="headline blue">
-                                                        <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/doanh-nghiep-doanh-nhan-buoc-vao-duong-dua-moi" title="Doanh nghiệp, doanh nhân bước vào đường đua mới">Doanh nghiệp, doanh nhân bước vào đường đua mới</a>
-                                                    </h3>
-                                                    <div class="wrap-left">
-                                                        <a class="btn btn-secondary">
-                                                            <span>Xem thêm</span>
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="news-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/tphcm-hoan-toan-co-the-tro-thanh-mot-thung-lung-silicon" title="TPHCM hoàn toàn có thể trở thành một “thung lũng Silicon”">
-                                                        <img loading="lazy" src="/assets/News/10830/ba%CC%81o-da%CC%82n-tri%CC%81-01.jpg" alt="TPHCM hoàn toàn có thể trở thành một “thung lũng Silicon”">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="headline blue">
-                                                        <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/tphcm-hoan-toan-co-the-tro-thanh-mot-thung-lung-silicon" title="TPHCM hoàn toàn có thể trở thành một “thung lũng Silicon”">TPHCM hoàn toàn có thể trở thành một “thung lũng Silicon”</a>
-                                                    </h3>
-                                                    <div class="wrap-left">
-                                                        <a class="btn btn-secondary">
-                                                            <span>Xem thêm</span>
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="news-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/chu-tich-tap-doan-ttc-dang-van-thanh-nghi-quyet-68-mo-duong-cho-doanh-nghiep-tu-nhan-vuon-xa" title="Chủ tịch Tập đoàn TTC Đặng Văn Thành: Nghị quyết 68 mở đường cho doanh nghiệp tư nhân vươn xa">
-                                                        <img loading="lazy" src="/assets/News/10829/18-dangvanthanh.jpeg" alt="Chủ tịch Tập đoàn TTC Đặng Văn Thành: Nghị quyết 68 mở đường cho doanh nghiệp tư nhân vươn xa">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="headline blue">
-                                                        <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/chu-tich-tap-doan-ttc-dang-van-thanh-nghi-quyet-68-mo-duong-cho-doanh-nghiep-tu-nhan-vuon-xa" title="Chủ tịch Tập đoàn TTC Đặng Văn Thành: Nghị quyết 68 mở đường cho doanh nghiệp tư nhân vươn xa">Chủ tịch Tập đoàn TTC Đặng Văn Thành: Nghị quyết 68 mở đường cho doanh nghiệp tư nhân vươn xa</a>
-                                                    </h3>
-                                                    <div class="wrap-left">
-                                                        <a class="btn btn-secondary">
-                                                            <span>Xem thêm</span>
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="news-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/bo-tu-lenh-quan-khu-chuc-mung-ttc-group-nhan-dip-ky-niem-ngay-doanh-nhan-viet-nam" title="Bộ Tư lệnh Quân khu chúc mừng TTC Group nhân dịp kỷ niệm Ngày Doanh nhân Việt Nam">
-                                                        <img loading="lazy" src="/assets/News/10826/bth01438.jpg" alt="Bộ Tư lệnh Quân khu chúc mừng TTC Group nhân dịp kỷ niệm Ngày Doanh nhân Việt Nam">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="headline blue">
-                                                        <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/bo-tu-lenh-quan-khu-chuc-mung-ttc-group-nhan-dip-ky-niem-ngay-doanh-nhan-viet-nam" title="Bộ Tư lệnh Quân khu chúc mừng TTC Group nhân dịp kỷ niệm Ngày Doanh nhân Việt Nam">Bộ Tư lệnh Quân khu chúc mừng TTC Group nhân dịp kỷ niệm Ngày Doanh nhân Việt Nam</a>
-                                                    </h3>
-                                                    <div class="wrap-left">
-                                                        <a class="btn btn-secondary">
-                                                            <span>Xem thêm</span>
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="news-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/bat-dong-san-1/tin-tuc-khac-4/sun-group-novaland-hoa-sen-rot-35000-ty-dong-dau-tu-vao-lam-dong" title="Sun Group, Novaland, Hoa Sen... “rót” 35.000 tỷ đồng đầu tư vào Lâm Đồng">
-                                                        <img loading="lazy" src="/assets/News/10825/mot-goc-tai-phuong-mui-ne-tinh-lam-dong-0115.jpg" alt="Sun Group, Novaland, Hoa Sen... “rót” 35.000 tỷ đồng đầu tư vào Lâm Đồng">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="headline blue">
-                                                        <a href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/bat-dong-san-1/tin-tuc-khac-4/sun-group-novaland-hoa-sen-rot-35000-ty-dong-dau-tu-vao-lam-dong" title="Sun Group, Novaland, Hoa Sen... “rót” 35.000 tỷ đồng đầu tư vào Lâm Đồng">Sun Group, Novaland, Hoa Sen... “rót” 35.000 tỷ đồng đầu tư vào Lâm Đồng</a>
-                                                    </h3>
-                                                    <div class="wrap-left">
-                                                        <a class="btn btn-secondary">
-                                                            <span>Xem thêm</span>
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="news-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/tap-doan-ttc-doanh-nghiep-tu-nhan-tieu-bieu-dai-dien-40-nam-doi-moi" title="Tập đoàn TTC: Doanh nghiệp tư nhân tiêu biểu đại diện 40 năm Đổi mới">
-                                                        <img loading="lazy" src="/assets/News/10823/tap-doan-ttc-20251009100248601.jpg" alt="Tập đoàn TTC: Doanh nghiệp tư nhân tiêu biểu đại diện 40 năm Đổi mới">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="headline blue">
-                                                        <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/tap-doan-ttc-doanh-nghiep-tu-nhan-tieu-bieu-dai-dien-40-nam-doi-moi" title="Tập đoàn TTC: Doanh nghiệp tư nhân tiêu biểu đại diện 40 năm Đổi mới">Tập đoàn TTC: Doanh nghiệp tư nhân tiêu biểu đại diện 40 năm Đổi mới</a>
-                                                    </h3>
-                                                    <div class="wrap-left">
-                                                        <a class="btn btn-secondary">
-                                                            <span>Xem thêm</span>
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="news-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/thay-doi-tu-duy-de-quan-ly-sang-de-lam-giau" title="Thay đổi tư duy &quot;dễ quản lý&quot; sang &quot;dễ làm giàu&quot;">
-                                                        <img loading="lazy" src="/assets/News/10810/anh1-17520360261581398221932.jpg" alt="Thay đổi tư duy &quot;dễ quản lý&quot; sang &quot;dễ làm giàu&quot;">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="headline blue">
-                                                        <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/thay-doi-tu-duy-de-quan-ly-sang-de-lam-giau" title="Thay đổi tư duy &quot;dễ quản lý&quot; sang &quot;dễ làm giàu&quot;">Thay đổi tư duy "dễ quản lý" sang "dễ làm giàu"</a>
-                                                    </h3>
-                                                    <div class="wrap-left">
-                                                        <a class="btn btn-secondary">
-                                                            <span>Xem thêm</span>
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="news-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/noi-co-tuong-phat-dai-nhat-chau-a-tren-nui-cach-tphcm-hon-100km-du-khach-nhan-xet-that-choang-ngop" title="Nơi có &quot;Tượng Phật dài nhất châu Á trên núi&quot;, cách TP.HCM hơn 100km, du khách nhận xét: Thật choáng ngợp!">
-                                                        <img loading="lazy" src="/assets/News/10814/0zzcohvkcpp1695658036162-1758268388064-175826838833611404677-1758464153159-1758464153631697627328.jpg" alt="Nơi có &quot;Tượng Phật dài nhất châu Á trên núi&quot;, cách TP.HCM hơn 100km, du khách nhận xét: Thật choáng ngợp!">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="headline blue">
-                                                        <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/noi-co-tuong-phat-dai-nhat-chau-a-tren-nui-cach-tphcm-hon-100km-du-khach-nhan-xet-that-choang-ngop" title="Nơi có &quot;Tượng Phật dài nhất châu Á trên núi&quot;, cách TP.HCM hơn 100km, du khách nhận xét: Thật choáng ngợp!">Nơi có "Tượng Phật dài nhất châu Á trên núi", cách TP.HCM hơn 100km, du khách nhận xét: Thật choáng ngợp!</a>
-                                                    </h3>
-                                                    <div class="wrap-left">
-                                                        <a class="btn btn-secondary">
-                                                            <span>Xem thêm</span>
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="news-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/nghi-quyet-68-ve-kinh-te-tu-nhan-co-hoi-vang-cho-doanh-nghiep-tay-ninh-but-pha" title="Nghị quyết 68 về kinh tế tư nhân: Cơ hội vàng cho doanh nghiệp Tây Ninh bứt phá">
-                                                        <img loading="lazy" src="/assets/News/10817/doanh-nghiep-tay-ninh.jpg" alt="Nghị quyết 68 về kinh tế tư nhân: Cơ hội vàng cho doanh nghiệp Tây Ninh bứt phá">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="headline blue">
-                                                        <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc/nghi-quyet-68-ve-kinh-te-tu-nhan-co-hoi-vang-cho-doanh-nghiep-tay-ninh-but-pha" title="Nghị quyết 68 về kinh tế tư nhân: Cơ hội vàng cho doanh nghiệp Tây Ninh bứt phá">Nghị quyết 68 về kinh tế tư nhân: Cơ hội vàng cho doanh nghiệp Tây Ninh bứt phá</a>
-                                                    </h3>
-                                                    <div class="wrap-left">
-                                                        <a class="btn btn-secondary">
-                                                            <span>Xem thêm</span>
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="news-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/bat-dong-san-1/tin-tuc-khac-4/dinh-huong-phat-trien-ttc-phu-quoc-2025-2030-selavia-va-chien-luoc-dot-pha-cho-dao-ngoc" title="Định hướng phát triển TTC Phú Quốc 2025 - 2030: Selavia và chiến lược đột phá cho &quot;đảo ngọc&quot;">
-                                                        <img loading="lazy" src="/assets/News/10804/7335df9a-c04a-4627-ac79-121f1adbf3ff.jpg" alt="Định hướng phát triển TTC Phú Quốc 2025 - 2030: Selavia và chiến lược đột phá cho &quot;đảo ngọc&quot;">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="headline blue">
-                                                        <a href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/bat-dong-san-1/tin-tuc-khac-4/dinh-huong-phat-trien-ttc-phu-quoc-2025-2030-selavia-va-chien-luoc-dot-pha-cho-dao-ngoc" title="Định hướng phát triển TTC Phú Quốc 2025 - 2030: Selavia và chiến lược đột phá cho &quot;đảo ngọc&quot;">Định hướng phát triển TTC Phú Quốc 2025 - 2030: Selavia và chiến lược đột phá cho "đảo ngọc"</a>
-                                                    </h3>
-                                                    <div class="wrap-left">
-                                                        <a class="btn btn-secondary">
-                                                            <span>Xem thêm</span>
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="news-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/nang-luong-1/tin-tuc-khac-3/dien-mat-troi-mai-nha-tai-duytan-recycling-buoc-tien-xanh-hoa-san-xuat" title="Điện mặt trời mái nhà tại DUYTAN Recycling - Bước tiến xanh hóa sản xuất">
-                                                        <img loading="lazy" src="/assets/News/10815/dtr-1-17587963918711437939806.jpg" alt="Điện mặt trời mái nhà tại DUYTAN Recycling - Bước tiến xanh hóa sản xuất">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="headline blue">
-                                                        <a href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/nang-luong-1/tin-tuc-khac-3/dien-mat-troi-mai-nha-tai-duytan-recycling-buoc-tien-xanh-hoa-san-xuat" title="Điện mặt trời mái nhà tại DUYTAN Recycling - Bước tiến xanh hóa sản xuất">Điện mặt trời mái nhà tại DUYTAN Recycling - Bước tiến xanh hóa sản xuất</a>
-                                                    </h3>
-                                                    <div class="wrap-left">
-                                                        <a class="btn btn-secondary">
-                                                            <span>Xem thêm</span>
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="news-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/bat-dong-san-1/tin-tuc-khac-4/khu-dan-cu-ttc-do-thi-sinh-thai-ben-vung-tai-tay-ninh" title="Khu dân cư TTC: Đô thị sinh thái bền vững tại Tây Ninh">
-                                                        <img loading="lazy" src="/assets/News/10818/kdc-ttc-1-1759464255858878402758.jpg" alt="Khu dân cư TTC: Đô thị sinh thái bền vững tại Tây Ninh">
-                                                    </a>
-                                                </div>
-                                                <div class="txt">
-                                                    <h3 class="headline blue">
-                                                        <a href="https://www.ttcgroup.vn/linh-vuc-hoat-dong/bat-dong-san-1/tin-tuc-khac-4/khu-dan-cu-ttc-do-thi-sinh-thai-ben-vung-tai-tay-ninh" title="Khu dân cư TTC: Đô thị sinh thái bền vững tại Tây Ninh">Khu dân cư TTC: Đô thị sinh thái bền vững tại Tây Ninh</a>
-                                                    </h3>
-                                                    <div class="wrap-left">
-                                                        <a class="btn btn-secondary">
-                                                            <span>Xem thêm</span>
-                                                            <em class="fa-light fa-long-arrow-right">
-                                                            </em>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-nav">
-                                    <div class="prev">
-                                        <em class="fa-light fa-chevron-left">
-                                        </em>
-                                    </div>
-                                    <div class="next">
-                                        <em class="fa-light fa-chevron-right">
-                                        </em>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </div>
-            <section class="home-member" setBackground="/assets/media/img/bg/home-bg.jpg">
-                <div class="container">
-                    <div class='Module Module-1356'>
-                        <div class='ModuleContent'>
-                            <h2 class="block-title text-center">Đơn vị thành viên</h2>
-                            <div class="member-swiper relative">
-                                <div class="swiper">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <div class="member-item">
-                                                <div class="img shine">
-                                                    <a href="https://ttcagris.com.vn/" target="_blank" title="TTC Agris 1">
-                                                        <img loading="lazy" src="/assets/News/2672/ttc-agri.png" alt="TTC Agris 1">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="member-item">
-                                                <div class="img shine">
-                                                    <a href="https://geccom.vn/vi/" target="_blank" title="GEC">
-                                                        <img loading="lazy" src="/assets/News/2673/c%C3%A1c-logo-230-x-200-%E2%80%93-11.png" alt="GEC">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="member-item">
-                                                <div class="img shine">
-                                                    <a href="https://ttcland.vn/" target="_blank" title="TTC Land">
-                                                        <img loading="lazy" src="/assets/News/2674/ttc-land.png" alt="TTC Land">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="member-item">
-                                                <div class="img shine">
-                                                    <a href="https://ttciz.com.vn/" target="_blank" title="TTC Industrial">
-                                                        <img loading="lazy" src="/assets/News/2676/inds-rel.png" alt="TTC Industrial">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="member-item">
-                                                <div class="img shine">
-                                                    <a href="https://ttchospitality.vn/" target="_blank" title="TTC Hospitality">
-                                                        <img loading="lazy" src="/assets/News/2675/ttc-hosp.png" alt="TTC Hospitality">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="member-item">
-                                                <div class="img shine">
-                                                    <a title="TTC Education">
-                                                        <img loading="lazy" src="/assets/News/10764/ca%CC%81c-logo-230-x-200-%E2%80%93-32.jpg" alt="TTC Education">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="member-item">
-                                                <div class="img shine">
-                                                    <a href="https://yersin.edu.vn/" target="_blank" title="Yersin University">
-                                                        <img loading="lazy" src="/assets/News/2677/c%C3%A1c-logo-230-x-200-%E2%80%93-9.png" alt="Yersin University">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="member-item">
-                                                <div class="img shine">
-                                                    <a href="https://irt.yersin.edu.vn/" target="_blank" title="Viện IRT">
-                                                        <img loading="lazy" src="/assets/News/2671/c%C3%A1c-logo-230-x-200-%E2%80%93-10.png" alt="Viện IRT">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="member-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttcimex.vn/" target="_blank" title="TTC Imex">
-                                                        <img loading="lazy" src="/assets/News/6605/c%C3%A1c-logo-230-x-200.png" alt="TTC Imex">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="member-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttclogistics.vn/" target="_blank" title="TTC Logistics">
-                                                        <img loading="lazy" src="/assets/News/6607/logo-logistics.png" alt="TTC Logistics">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="member-item">
-                                                <div class="img shine">
-                                                    <a href="https://ttcphuquoc.vn" target="_blank" title="TTC Phú Quốc">
-                                                        <img loading="lazy" src="/assets/News/6606/c%C3%A1c-logo-230-x-200-%E2%80%93-20.png" alt="TTC Phú Quốc">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="member-item">
-                                                <div class="img shine">
-                                                    <a href="https://www.ttcenergy.vn/" target="_blank" title="TTC Energy Solar">
-                                                        <img loading="lazy" src="/assets/News/2667/c%C3%A1c-logo-230-x-200-%E2%80%93-15.png" alt="TTC Energy Solar">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="member-item">
-                                                <div class="img shine">
-                                                    <a href="https://thanhthanhnam.vn/" target="_blank" title="Thanh Thanh Nam">
-                                                        <img loading="lazy" src="/assets/News/6609/c%C3%A1c-logo-230-x-200-%E2%80%93-19.png" alt="Thanh Thanh Nam">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="member-item">
-                                                <div class="img shine">
-                                                    <a href="https://dtcs.com.vn/" target="_blank" title="TTC Đại Tín">
-                                                        <img loading="lazy" src="/assets/News/6608/ca%CC%81c-logo-230-x-200-%E2%80%93-19.jpg" alt="TTC Đại Tín">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="member-item">
-                                                <div class="img shine">
-                                                    <a href="https://ttctea.vn/" target="_blank" title="TTC Thành Ngọc">
-                                                        <img loading="lazy" src="/assets/News/6610/logo-ttc-thanh-ngoc-02_1.jpg" alt="TTC Thành Ngọc">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-nav">
-                                    <div class="prev">
-                                        <em class="fa-light fa-chevron-left">
-                                        </em>
-                                    </div>
-                                    <div class="next">
-                                        <em class="fa-light fa-chevron-right">
-                                        </em>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class='Module Module-1357'>
-                        <div class='ModuleContent'>
-                            <div class="community-txt">
-                                <div class="italic-title"> <span>Vì Cộng đồng&nbsp;</span><strong>PHÁT TRIỂN ĐỊA PHƯƠNG</strong></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-        </div>
-
-
-    </main>
-    <footer>
-        <div class="sidenav-group">
-            <a class="back-to-top"><em class="fa-regular fa-chevron-up"></em></a>
-        </div>
-        <div class="footer-top">
-            <div class="container">
-                <div class="row">
-                    <div class="col w-full xl:w-1/12">
-                        <div class="logo">
-                            <div class='Module Module-1344'>
-                                <div class='ModuleContent'><a href="/"><img alt="" src="/assets/media/img/logo/logo-ttcgroup-v2.png" /></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col w-full sm:w-1/2 xl:w-3/12">
-                        <div class='Module Module-1345'>
-                            <div class='ModuleContent'>
-                                <h3 class="headline blue bold t-24 mb-3 lg:mb-5">TTC GROUP</h3>
-                                <address>
-                                    <ol>
-                                        <li><span>Địa chỉ: 253 Hoàng Văn Thụ, Phường Tân Sơn Hòa, TP.HCM</span></li>
-                                        <li><span>Điện thoại: +84 28 3997 7727</span></li>
-                                        <li><span>Email: info@ttcgroup.vn</span></li>
-                                        <li><span>Giấy chứng nhận đăng ký kinh doanh: 0301 466 073</span></li>
-                                        <li><span>Cấp ngày: 25.07.2007</span></li>
-                                        <li><span>Nơi cấp: Phòng Đăng ký kinh doanh - Sở Kế hoạch và Đầu tư Thành phố Hồ Chí Minh</span></li>
-                                    </ol>
-                                </address></div>
-                        </div>
-                    </div>
-                    <div class="col w-full sm:w-1/2 xl:w-2/12">
-                        <div class='Module Module-1346'>
-                            <div class='ModuleContent'>
-                                <h3 class="headline blue bold mb-3 lg:mb-5">LIÊN KẾT NHANH</h3>
-                                <ul>
-                                    <li>
-                                        <a href="https://www.ttcgroup.vn/gioi-thieu" title="Giới thiệu">Giới thiệu</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.ttcgroup.vn/linh-vuc-hoat-dong" title="Lĩnh vực hoạt động">Lĩnh vực hoạt động</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.ttcgroup.vn/trach-nhiem-xa-hoi" title="Trách nhiệm xã hội">Trách nhiệm xã hội</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.ttcgroup.vn/truyen-thong/tin-tuc-ttc" title="Truyền thông">Truyền thông</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.ttcgroup.vn/tuyen-dung" title="Tuyển dụng">Tuyển dụng</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.ttcgroup.vn/truyen-thong/tai-lieu-khac" title="Tài liệu khác">Tài liệu khác</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col w-full sm:w-1/2 xl:w-3/12">
-                        <div class='Module Module-1347'>
-                            <div class='ModuleContent'>
-                                <h3 class="headline blue bold mb-3"><a href="/truyen-thong/hinh-anh">GÓC HÌNH ẢNH</a></h3>
-                            </div>
-                        </div>
-                        <div class="block-wrap">
-                            <div class='Module Module-1348'>
-                                <div class='ModuleContent'>
-                                    <div class="swiper-media-main gallery-main">
-                                        <div class="swiper">
-                                            <div class="swiper-wrapper">
-                                                <div class="swiper-slide">
-                                                    <div class="item">
-                                                        <div class="img zoom-in">
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/1hdd_3854.jpg" title="🌟 40 năm cùng “TTC - Nâng bước thành công”🌟">
-                                                                <img loading="lazy" src="/assets/News/10862/1hdd_3854.jpg" alt="🌟 40 năm cùng “TTC - Nâng bước thành công”🌟">
-                                                            </a>
-                                                        </div>
-                                                        <div class="hidden">
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_3911.jpg" data-thumb="/assets/News/10862/hdd_3911.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_3902.jpg" data-thumb="/assets/News/10862/hdd_3902.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_3871.jpg" data-thumb="/assets/News/10862/hdd_3871.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_3868.jpg" data-thumb="/assets/News/10862/hdd_3868.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_3823.jpg" data-thumb="/assets/News/10862/hdd_3823.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_3818.jpg" data-thumb="/assets/News/10862/hdd_3818.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_3799.jpg" data-thumb="/assets/News/10862/hdd_3799.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_3787.jpg" data-thumb="/assets/News/10862/hdd_3787.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_3784.jpg" data-thumb="/assets/News/10862/hdd_3784.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_3778.jpg" data-thumb="/assets/News/10862/hdd_3778.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_3774.jpg" data-thumb="/assets/News/10862/hdd_3774.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_3767.jpg" data-thumb="/assets/News/10862/hdd_3767.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_3762.jpg" data-thumb="/assets/News/10862/hdd_3762.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_3759.jpg" data-thumb="/assets/News/10862/hdd_3759.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_3748.jpg" data-thumb="/assets/News/10862/hdd_3748.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_3743.jpg" data-thumb="/assets/News/10862/hdd_3743.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_3740.jpg" data-thumb="/assets/News/10862/hdd_3740.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_3728.jpg" data-thumb="/assets/News/10862/hdd_3728.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_3723.jpg" data-thumb="/assets/News/10862/hdd_3723.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_3705.jpg" data-thumb="/assets/News/10862/hdd_3705.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_3699.jpg" data-thumb="/assets/News/10862/hdd_3699.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_3695.jpg" data-thumb="/assets/News/10862/hdd_3695.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_3673.jpg" data-thumb="/assets/News/10862/hdd_3673.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_3649.jpg" data-thumb="/assets/News/10862/hdd_3649.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_3620.jpg" data-thumb="/assets/News/10862/hdd_3620.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_3590.jpg" data-thumb="/assets/News/10862/hdd_3590.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_3564.jpg" data-thumb="/assets/News/10862/hdd_3564.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_3529.jpg" data-thumb="/assets/News/10862/hdd_3529.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_3492.jpg" data-thumb="/assets/News/10862/hdd_3492.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_3159.jpg" data-thumb="/assets/News/10862/hdd_3159.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_3147.jpg" data-thumb="/assets/News/10862/hdd_3147.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_3138.jpg" data-thumb="/assets/News/10862/hdd_3138.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_2671.jpg" data-thumb="/assets/News/10862/hdd_2671.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_2652.jpg" data-thumb="/assets/News/10862/hdd_2652.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/hdd_2533.jpg" data-thumb="/assets/News/10862/hdd_2533.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-1" href="/assets/News/10862/975a0222.jpg" data-thumb="/assets/News/10862/975a0222.jpg" Title="">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-media-thumb gallery-thumb">
-                                        <div class="swiper">
-                                            <div class="swiper-wrapper">
-                                                <div class="swiper-slide">
-                                                    <div class="item">
-                                                        <div class="img opacity">
-                                                            <a href="/assets/News/10861/hdd_3115.jpg" data-fancybox="footer-gallery-2" title="🌟 1.000 HỌC SINH THAM GIA “TTC – CHẠY VÌ SỨC KHỎE CỘNG ĐỒNG” LẦN 2 NĂM 2025 🌟">
-                                                                <img loading="lazy" src="/assets/News/10861/hdd_3115.jpg" alt="🌟 1.000 HỌC SINH THAM GIA “TTC – CHẠY VÌ SỨC KHỎE CỘNG ĐỒNG” LẦN 2 NĂM 2025 🌟">
-                                                            </a>
-                                                        </div>
-                                                        <div class="hidden">
-                                                            <a data-fancybox="footer-gallery-2" href="/assets/News/10861/hdd_3074.jpg" data-thumb="/assets/News/10861/hdd_3074.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-2" href="/assets/News/10861/hdd_3049.jpg" data-thumb="/assets/News/10861/hdd_3049.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-2" href="/assets/News/10861/hdd_3024.jpg" data-thumb="/assets/News/10861/hdd_3024.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-2" href="/assets/News/10861/hdd_2993.jpg" data-thumb="/assets/News/10861/hdd_2993.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-2" href="/assets/News/10861/hdd_2953.jpg" data-thumb="/assets/News/10861/hdd_2953.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-2" href="/assets/News/10861/hdd_2910.jpg" data-thumb="/assets/News/10861/hdd_2910.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-2" href="/assets/News/10861/hdd_2258.jpg" data-thumb="/assets/News/10861/hdd_2258.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-2" href="/assets/News/10861/hdd_2057.jpg" data-thumb="/assets/News/10861/hdd_2057.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-2" href="/assets/News/10861/hdd_2040.jpg" data-thumb="/assets/News/10861/hdd_2040.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-2" href="/assets/News/10861/hdd_1972.jpg" data-thumb="/assets/News/10861/hdd_1972.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-2" href="/assets/News/10861/hdd_1637.jpg" data-thumb="/assets/News/10861/hdd_1637.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-2" href="/assets/News/10861/hdd_1558.jpg" data-thumb="/assets/News/10861/hdd_1558.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-2" href="/assets/News/10861/hdd_1441.jpg" data-thumb="/assets/News/10861/hdd_1441.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-2" href="/assets/News/10861/hdd_1427.jpg" data-thumb="/assets/News/10861/hdd_1427.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-2" href="/assets/News/10861/hdd_1347.jpg" data-thumb="/assets/News/10861/hdd_1347.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-2" href="/assets/News/10861/hdd_1331.jpg" data-thumb="/assets/News/10861/hdd_1331.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-2" href="/assets/News/10861/hdd_1296.jpg" data-thumb="/assets/News/10861/hdd_1296.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-2" href="/assets/News/10861/hdd_1267.jpg" data-thumb="/assets/News/10861/hdd_1267.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-2" href="/assets/News/10861/hdd_1233.jpg" data-thumb="/assets/News/10861/hdd_1233.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-2" href="/assets/News/10861/dji_0764.jpg" data-thumb="/assets/News/10861/dji_0764.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-2" href="/assets/News/10861/a.jpg" data-thumb="/assets/News/10861/a.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-2" href="/assets/News/10861/975a0107.jpg" data-thumb="/assets/News/10861/975a0107.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-2" href="/assets/News/10861/975a0009.jpg" data-thumb="/assets/News/10861/975a0009.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-2" href="/assets/News/10861/2.jpg" data-thumb="/assets/News/10861/2.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-2" href="/assets/News/10861/1.jpg" data-thumb="/assets/News/10861/1.jpg" Title="">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <div class="item">
-                                                        <div class="img opacity">
-                                                            <a href="/assets/News/10853/edm-chuc-mung-20thang11-2025.jpg" data-fancybox="footer-gallery-3" title="🎉 CHÚC MỪNG NGÀY NHÀ GIÁO VIỆT NAM 20/11 🎉">
-                                                                <img loading="lazy" src="/assets/News/10853/edm-chuc-mung-20thang11-2025.jpg" alt="🎉 CHÚC MỪNG NGÀY NHÀ GIÁO VIỆT NAM 20/11 🎉">
-                                                            </a>
-                                                        </div>
-                                                        <div class="hidden">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <div class="item">
-                                                        <div class="img opacity">
-                                                            <a href="/assets/News/10816/z7066645295209_6779cfd0b620c17c94d3d628568ef275.jpg" data-fancybox="footer-gallery-4" title="Tập đoàn TTC mang mùa thu yêu thương đến các em nhỏ">
-                                                                <img loading="lazy" src="/assets/News/10816/z7066645295209_6779cfd0b620c17c94d3d628568ef275.jpg" alt="Tập đoàn TTC mang mùa thu yêu thương đến các em nhỏ">
-                                                            </a>
-                                                        </div>
-                                                        <div class="hidden">
-                                                            <a data-fancybox="footer-gallery-4" href="/assets/News/10816/z7066072409481_832d2ad0f05117237e6b7b8a7e82041e.jpg" data-thumb="/assets/News/10816/z7066072409481_832d2ad0f05117237e6b7b8a7e82041e.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-4" href="/assets/News/10816/z7066072430573_32aec120fc7a929192d44ef7064a703b.jpg" data-thumb="/assets/News/10816/z7066072430573_32aec120fc7a929192d44ef7064a703b.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-4" href="/assets/News/10816/z7066072398857_a5825df90cf76ebd37b595dc28d42cac.jpg" data-thumb="/assets/News/10816/z7066072398857_a5825df90cf76ebd37b595dc28d42cac.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-4" href="/assets/News/10816/z7066072425272_4dabd4badf5ea1f3ea3089cf21b4560d.jpg" data-thumb="/assets/News/10816/z7066072425272_4dabd4badf5ea1f3ea3089cf21b4560d.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-4" href="/assets/News/10816/z7066072346813_00b8b44c0cf3c605c95db4e090af1dd8.jpg" data-thumb="/assets/News/10816/z7066072346813_00b8b44c0cf3c605c95db4e090af1dd8.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-4" href="/assets/News/10816/z7066072320011_e9aa6ef5f3af6ddeaee061bafe44ef45.jpg" data-thumb="/assets/News/10816/z7066072320011_e9aa6ef5f3af6ddeaee061bafe44ef45.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-4" href="/assets/News/10816/z7066074006265_6ddb5cf86be51fc63dfbb524bb9f679f.jpg" data-thumb="/assets/News/10816/z7066074006265_6ddb5cf86be51fc63dfbb524bb9f679f.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-4" href="/assets/News/10816/z7066074366234_e4b2d573e9d45c0bf08fcfd70052931c.jpg" data-thumb="/assets/News/10816/z7066074366234_e4b2d573e9d45c0bf08fcfd70052931c.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-4" href="/assets/News/10816/z7066645529376_6abab05824ba0e5b8acc314ad80b04cf.jpg" data-thumb="/assets/News/10816/z7066645529376_6abab05824ba0e5b8acc314ad80b04cf.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-4" href="/assets/News/10816/z7066645177660_99980a8a2be91c9d8f1a082b2c1e6a01.jpg" data-thumb="/assets/News/10816/z7066645177660_99980a8a2be91c9d8f1a082b2c1e6a01.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-4" href="/assets/News/10816/z7066645580645_e79411656e147e6770d8d94ba29e2514.jpg" data-thumb="/assets/News/10816/z7066645580645_e79411656e147e6770d8d94ba29e2514.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-4" href="/assets/News/10816/z7066645580494_79917ff8b0c5d1d0c6653c10c0984467.jpg" data-thumb="/assets/News/10816/z7066645580494_79917ff8b0c5d1d0c6653c10c0984467.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-4" href="/assets/News/10816/z7066645529259_7462d7c119575d7fdbbb475116fb1ab9.jpg" data-thumb="/assets/News/10816/z7066645529259_7462d7c119575d7fdbbb475116fb1ab9.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-4" href="/assets/News/10816/z7066645472698_896d5d1018b433189b9f681162a13ca4.jpg" data-thumb="/assets/News/10816/z7066645472698_896d5d1018b433189b9f681162a13ca4.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-4" href="/assets/News/10816/z7066645472467_74dfdb169a3f450b444033576011a25f.jpg" data-thumb="/assets/News/10816/z7066645472467_74dfdb169a3f450b444033576011a25f.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-4" href="/assets/News/10816/z7066645411202_6994d5b62b3325fe462649970df9e57a.jpg" data-thumb="/assets/News/10816/z7066645411202_6994d5b62b3325fe462649970df9e57a.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-4" href="/assets/News/10816/z7066645354412_cfae81bcedd7403a198d59d12c05b974.jpg" data-thumb="/assets/News/10816/z7066645354412_cfae81bcedd7403a198d59d12c05b974.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-4" href="/assets/News/10816/z7066645354258_884e73699d7ba2ed93766a95ed76494e.jpg" data-thumb="/assets/News/10816/z7066645354258_884e73699d7ba2ed93766a95ed76494e.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-4" href="/assets/News/10816/z7066645295102_207a9731850eebf69744ba1f69596e2a.jpg" data-thumb="/assets/News/10816/z7066645295102_207a9731850eebf69744ba1f69596e2a.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-4" href="/assets/News/10816/z7066645234790_e7128640fdb13c2464516a84df12fa95.jpg" data-thumb="/assets/News/10816/z7066645234790_e7128640fdb13c2464516a84df12fa95.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-4" href="/assets/News/10816/z7066645234670_25c0a166d389035f2750824167577c95.jpg" data-thumb="/assets/News/10816/z7066645234670_25c0a166d389035f2750824167577c95.jpg" Title="">
-                                                            </a>
-                                                            <a data-fancybox="footer-gallery-4" href="/assets/News/10816/z7066645411315_1adb89e99eb6e1dc98232332023bd727.jpg" data-thumb="/assets/News/10816/z7066645411315_1adb89e99eb6e1dc98232332023bd727.jpg" Title="">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col w-full sm:w-1/2 xl:w-3/12">
-                        <div class='Module Module-1349'>
-                            <div class='ModuleContent'>
-                                <h3 class="headline blue bold mb-3"><a href="/truyen-thong/video">GÓC VIDEO</a></h3>
-                            </div>
-                        </div>
-                        <div class="block-video">
-                            <div class='Module Module-1350'>
-                                <div class='ModuleContent'>
-                                    <div class="swiper-media-main gallery-main">
-                                        <div class="swiper">
-                                            <div class="swiper-wrapper">
-                                                <div class="swiper-slide">
-                                                    <div class="item">
-                                                        <div class="img zoom-in">
-                                                            <a href="https://youtu.be/Tfmao4T8TF8" data-fancybox="footer-video-1" title="San sẻ tấm lòng, san sẻ yêu thương lần 5 năm 2025">
-                                                                <img loading="lazy" src="/assets/News/10809/z6981113130751_91609c721a3e48954c75b75eb68af391.jpg" alt="San sẻ tấm lòng, san sẻ yêu thương lần 5 năm 2025">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-media-thumb gallery-thumb">
-                                        <div class="swiper">
-                                            <div class="swiper-wrapper">
-                                                <div class="swiper-slide">
-                                                    <div class="item">
-                                                        <div class="img opacity">
-                                                            <a href="https://youtu.be/DXHXi6MAFlw" data-fancybox="" title="Hội nghị sơ kết 6 tháng đầu năm">
-                                                                <img loading="lazy" src="/assets/News/10786/a%CC%89nh-ma%CC%80n-hi%CC%80nh-2025-07-31-lu%CC%81c-17.18.09.png" alt="Hội nghị sơ kết 6 tháng đầu năm">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <div class="item">
-                                                        <div class="img opacity">
-                                                            <a href="https://www.youtube.com/watch?v=QZlPG8cxLbg" data-fancybox="" title="Trường Đại học Yersin Đà Lạt - Trường học hạnh phúc của những công dân toàn cầu">
-                                                                <img loading="lazy" src="/assets/News/10770/giao-duc-vtv3.png" alt="Trường Đại học Yersin Đà Lạt - Trường học hạnh phúc của những công dân toàn cầu">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <div class="item">
-                                                        <div class="img opacity">
-                                                            <a href="https://youtu.be/jeOfr7fUM7Y" data-fancybox="" title="🎬 Thước phim như một món quà ý nghĩa thay lời CHÚC MỪNG SINH NHẬT đến: Bà Huỳnh Bích Ngọc - Phó Chủ tịch Thường trực, Tổng Giám đốc Tập đoàn TTC Và">
-                                                                <img loading="lazy" src="/assets/News/10765/banner-web-mobile780x570px-01.jpg" alt="🎬 Thước phim như một món quà ý nghĩa thay lời CHÚC MỪNG SINH NHẬT đến: Bà Huỳnh Bích Ngọc - Phó Chủ tịch Thường trực, Tổng Giám đốc Tập đoàn TTC Và">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="copyright">
-                    <div class='Module Module-1351'>
-                        <div class='ModuleContent'>© 2023 TTC.All Rights Reserved.</div>
-                    </div>
-                </div>
-                <div class="policy-nav">
-                    <div class='Module Module-1352'>
-                        <div class='ModuleContent'>
-                            <ul>
-                                <li><a href="/dieu-khoan-va-quy-dinh/dieu-khoan-bao-mat">Điều khoản bảo mật</a></li>
-                                <li><a href="/dieu-khoan-va-quy-dinh/quy-dinh-phap-ly">Quy định pháp lý</a></li>
-                                <li><a href="/sitemap.aspx">Sơ đồ website</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <div id="fb-root"></div>
-
-
-
-    <input type="hidden" name="__ncforminfo" value="Hqwh5tcWdUnvt1LXQNO9vgfe7-QZVkky55PH5kEt2Uf_H5sWUw0XUoKrFpcjHxMXAytEE8JdPrGpLw5V6OJMcRjK9Rh2OTTp-jJ0Y3l5s9nramBd8dd04wyv2eP1cjewBkTtguWwk79HRW_d8FJCBa1aViwCd7rvBB37n8aYXrE=" /></form>
-<script>
-    (function(d, s, id) {
-        var js,
-            fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src =
-            "https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.0&autoLogAppEvents=1";
-        fjs.parentNode.insertBefore(js, fjs);
-    })(document, "script", "facebook-jssdk");
-</script>
-<script src="/assets/skins/default/js/core.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@dearhive/dearflip-jquery-flipbook@1.7.3/dflip/js/dflip.min.js" type="text/javascript"></script>
-<script src="/assets/skins/default/js/main1.min.js?v=1.0.1"></script>
-<script src="/assets/skins/default/js/ecommerce.js"></script>
+<body>
+<script type="text/javascript" src="assets/home/vendor/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"></script>
+<script src="assets/js/jquery.show-more.js?v=3"></script>
+<div class="wrap">
+    @include('layouts.header')
+    @yield('content')
+    @include('layouts.footer')
+</div>
+<script type="text/javascript" src="assets/home/vendor/swiper.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/1.1.6/waypoints.min.js"></script>
+<script type="text/javascript" src="assets/home/vendor/jquery.mmenu.all.js"></script>
+<script type="text/javascript" src="assets/home/vendor/jquery.mCustomScrollbar.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script type="text/javascript" src="assets/home/vendor/bootstrap.min.js"></script>
+<script src="assets/js/jquery.preload.min.js"></script>
 <script type="text/javascript">
-    $(document).ready(function() {
-        $("#pullmenucms").click(function(e) {
-            e.preventDefault();
-            if ($(this).parents(".cmsadminpanel").hasClass("toggled")) {
-                ShowToolbar();
-                // Set_Cookie('toolbarOpenState', 'open');
-            } else {
-                HideToolbar();
-                // Set_Cookie('toolbarOpenState', 'closed');
+    var $i18n = {
+        showMore: 'Xem thêm <span class="icon"><img src="assets/img-fix/chevron-down.png" alt=""></span>',
+        showLess: 'Thu gọn <span class="icon"><img src="assets/img-fix/chevron-up.png" alt=""></span>',
+    }
+</script>
+<script type="text/javascript">
+    // Function click map
+
+    $(document).ready(function () {
+        // waypoint Number
+        //$('#map-runner1').waypoint(function () {
+        //    increment(1, 8);
+        //},
+        //    { offset: '75%' });
+        //$('#map-runner2').waypoint(function () {
+        //    increment(2, 302);
+        //},
+        //    { offset: '75%' });
+
+        function increment(elem, finalVal) {
+            var currVal = parseInt(document.getElementById(elem).innerHTML, 10);
+            if (currVal < finalVal) {
+                currVal++;
+                document.getElementById(elem).innerHTML = currVal;
+
+                setTimeout(function () {
+                    increment(elem, finalVal);
+                }, 40)
+            }
+        };
+        /* Menu Moblie */
+        var windowsize = $(window).width();
+        if (windowsize <= 991) {
+            $(function () {
+                $("nav#menu").mmenu({
+                    extensions: ["effect-slide-menu", "pageshadow"],
+                    counters: true,
+                    navbar: {
+                        title: "Danh mục"
+                    },
+                    navbars: [
+                        {
+                            position: "top",
+                            // content   : [ 'searchfield' ]
+                            // }, {
+                            content: ["prev", "title", "close"]
+                        },
+                        {
+                            position: "bottom",
+                            content: []
+                        }
+                    ]
+                });
+            });
+        }
+        else {
+
+        }
+
+        // Slide banner
+        var swiper_banner = new Swiper("#slider-banner-home", {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            loop: true,
+            autoHeight: true,
+
+            autoplay: {
+                delay: 3000,
+            },
+            roundLengths: true,
+            speed: 800,
+            simulateTouch: false,
+            pagination: {
+                el: "#pagination-banner",
+                type: "bullets",
+                clickable: true
+            }
+
+
+
+        });
+        // Slide research-development
+        // var menu_pagination = ['01','02','03']
+        var swiper_research_development = new Swiper("#slide-research-development", {
+            slidesPerView: 1,
+            loop: true,
+            keyboard: {
+                enabled: true
+            },
+            roundLengths: true,
+            speed: 800,
+            pagination: {
+                el: '#pagination-research-development',
+                clickable: true,
+                renderBullet: function (index, className) {
+                    return '<span class="' + className + '">' + (index + 1) + "</span>";
+                }
+            },
+
+            breakpoints: {
+                991: {
+                    slidesPerView: 1,
+                    autoHeight: true,
+                },
+            }
+
+        });
+        $('#research .wp-research-development--right .item-picture-wp:eq(0)').addClass('active');
+        swiper_research_development.on('transitionEnd', function () {
+            $('#research .wp-research-development--right .item-picture-wp').removeClass('active');
+            $('#research .wp-research-development--right .item-picture-wp:eq(' + swiper_research_development.realIndex + ')').addClass('active');
+        });
+        if (windowsize >= 991) {
+            $(".item-picture-wp:nth-child(1) .texture-animation").click(function () {
+                setTimeout(function () {
+                    swiper_research_development.slideTo(1);
+                }, 175);
+            })
+            $(".item-picture-wp:nth-child(2) .texture-animation").click(function () {
+                setTimeout(function () {
+                    swiper_research_development.slideTo(2);
+                }, 175);
+            })
+            $(".item-picture-wp:nth-child(3) .texture-animation").click(function () {
+                setTimeout(function () {
+                    swiper_research_development.slideTo(3);
+                }, 175);
+            })
+        }
+
+        /* Slide new */
+        var swiperNew = new Swiper("#slider-new", {
+            slidesPerView: '4',
+            roundLengths: true,
+            speed: 500,
+
+            navigation: {
+                nextEl: "#next-new",
+                prevEl: "#prev-new",
+            },
+            breakpoints: {
+                991: {
+                    slidesPerView: 2,
+                    spaceBetween: 0,
+                },
+                767: {
+                    slidesPerView: 'auto',
+                    spaceBetween: 20,
+                },
+                575: {
+                    slidesPerView: 1.2,
+                    spaceBetween: 0,
+                },
+            }
+
+
+        });
+        /* Scroll menu */
+
+        $(window).scroll(function (event) {
+            offsetAdd = $(window).scrollTop();
+            if (offsetAdd >= 50) {
+                $('.wp-menu-header').addClass('scroll');
+            }
+            else {
+                $('.wp-menu-header').removeClass('scroll');
             }
         });
-        // var openState = Get_Cookie('toolbarOpenState');
-        // if (openState != null) { if (openState == 'closed') { HideToolbar(); } if (openState == 'open') {
-        // ShowToolbar(); } }
+        /* Scrollspy */
+        $('.txt-menu-dk').click(function () {
+            $('.txt-menu-dk').removeClass('active');
+            $(this).addClass('active');
+            var idMenu = '#' + $(this).attr('href').split('#')[1];
+            $('html,body').animate({
+                scrollTop: $(idMenu).offset().top - 40
+            }, 600);
+
+        });
+        $(window).scroll(function () {
+            var offsetWindow = $(window).scrollTop();
+            var wpMenu = ['research', 'products', 'sustainable', 'global'];
+            var menuActive;
+            for (var i = 0; i < wpMenu.length; i++) {
+                if ($('#' + wpMenu[i]).offset().top - 40 <= offsetWindow) {
+                    menuActive = wpMenu[i];
+                }
+            }
+            $('.txt-menu-dk').removeClass('active');
+            $(".item-menu-page a[href='/vi/#" + menuActive + "']").addClass('active');
+        });
+        /* Search */
+        $('.icon-search').click(function (event) {
+            $('.form-search').toggleClass('open-search');
+            $('.wp-menu-page').removeClass('open-menu');
+            $('.menu-language').removeClass('active');
+        });
+        function RemoveSearch(argument) {
+            $('.form-search').removeClass('open-search');
+            $('.wp-menu-page').removeClass('open-menu');
+        }
+
+        function doSearch() {
+            var kw = $('.search-trigger').val();
+            if (kw != '') {
+                window.location.href = '/vi/search.htm?keyword=' + kw;
+            }
+        }
+        $('#main-btn-search').click(function () {
+            doSearch();
+        });
+        $('.search-trigger').off('keydown').on('keydown', function (evt) {
+            if (evt.keyCode == 13) {
+                evt.preventDefault();
+                doSearch();
+                return false;
+            }
+        });
+
+        $(window).scroll(function (event) {
+            offsetAdd = $(window).scrollTop();
+            if (offsetAdd >= 0) {
+                RemoveSearch()
+            }
+
+        });
+        /* Click Language  */
+        //$('.item-language.en').hide();
+        //$(".vn").click(function () {
+        //    $('.item-language.vn').hide();
+        //    $('.item-language.en').show();
+        //});
+        //$(".en").click(function () {
+        //    $('.item-language.en').hide();
+        //    $('.item-language.vn').show();
+        //});
+        // Click tab menu detail
+        $('.icon-menu-mb').click(function (event) {
+            $('.block-menu-detail').addClass('open-menu');
+            if (windowsize > 991) {
+                $('body').addClass('menu-opened');
+            }
+        });
+        $('.icon-close-menu-detail').click(function (event) {
+            $('.block-menu-detail').removeClass('open-menu');
+            if (windowsize > 991) {
+                $('body').removeClass('menu-opened');
+            }
+        });
+        /* Click menu remove search */
+        $('.nav-menu').click(function (event) {
+            $('.form-search').removeClass('open-search');
+            $('.wp-menu-page').removeClass('open-menu');
+        });
+
+
+        // Click content andress Map
+        $('.icon-plus-map').click(function () {
+            $('.info-map-dl').removeClass('active');
+            if ($(this).hasClass('rotate')) {
+                $('.scroll-layout-map').removeClass('active');
+                $('.icon-plus-map').removeClass('rotate');
+            } else {
+                $(this).parents('.info-map-dl').addClass('active');
+                $('.scroll-layout-map').removeClass('active');
+                $('.icon-plus-map').removeClass('rotate');
+                $(this).closest('.info-map-dl').find('.scroll-layout-map').addClass('active');
+                $(this).closest('.info-map-dl').find('.icon-plus-map').addClass('rotate');
+                $(this).closest('.info-map-dl').find('.scroll-layout-map').css({
+                    top: - $(this).closest('.info-map-dl').find('.scroll-layout-map').height() / 2
+                });
+            }
+        });
+        $('.close-content-box').click(function (event) {
+            $('.scroll-layout-map').removeClass('active');
+            $('.icon-plus-map').removeClass('rotate');
+        });
+
+        // Scroll aniamtion Research & Development
+        $(window).scroll(function (event) {
+            var OffsetBox_Research = $('.wp-research-development').offset().top;
+            if ($(window).scrollTop() > OffsetBox_Research - 100) {
+                $('.wp-research-development').addClass('animation-circle');
+            }
+            else {
+
+            }
+        });
+
+        // Scroll animation Products
+
+        $(window).scroll(function (event) {
+            var OffsetBox_Research = $('.block-tab-solution-products').offset().top;
+            if ($(window).scrollTop() > OffsetBox_Research - 100) {
+                $('.block-content-solution-products').addClass('animation-circle');
+            }
+            else {
+
+            }
+        });
+
+        // Set Height block Research & Development
+
+
+        if (windowsize <= 767) {
+
+            //$('.txt-read-more').click(function (event) {
+
+            //    $('.content-item-slide').removeClass('ellipse-text');
+            //    $(this).closest('.layout-item-slide').find('.content-item-slide').addClass('ellipse-text');
+            //    var heightParent = $(this).closest('.content-item-slide').height();
+            //    var heightTotalPB = 58;
+            //    var HeightTotal = heightParent + heightTotalPB;
+            //    $('.pagination-rd').css("top", HeightTotal);
+            //});
+
+            //$('.txt-remove-more').click(function (event) {
+            //    $('.content-item-slide').removeClass('ellipse-text');
+            //    $('.pagination-rd').css("top", 244);
+
+            //});
+            //swiper_research_development.on('slideChange', function () {
+            //    $('.content-item-slide').removeClass('ellipse-text');
+            //    $('.pagination-rd').css("top", 244);
+            //});
+        }
+        $('.item-menu-products').each(function () {
+            var url = $(this).attr('data-url');
+            if (url && url.startsWith('http')) {
+                $(this).attr('href', url);
+                $(this).attr('target', '_blank');
+                return;
+            }
+        });
+        $('.item-menu-products').click(function (event) {
+            var url = $(this).attr('data-url');
+            if (url && url.startsWith('http')) {
+                //window.location.href = url;
+                return;
+            }
+            $('.layout-solutions-procuts').hide();
+            var dataId = $(this).attr('data-id');
+            $('#' + dataId).show();
+            $('.item-menu-products').removeClass('active');
+            $(this).addClass('active');
+            $('.prev-zone-btn, .next-zone-btn').hide();
+            if ($(window).width() > 768) {
+                $('.prev-zone-btn[data-slide="' + dataId + '"]').show();
+                $('.next-zone-btn[data-slide="' + dataId + '"]').show();
+                if (!$(this).hasClass('slide-inited')) {
+                    var id = dataId;
+                    // SLIDE PRODUCTS
+                    var swiper = new Swiper("#" + id, {
+                        slidesPerView: 3,
+                        slidesPerGroup: 1,
+                        spaceBetween: 40,
+                        loop: false,
+                        centeredSlides: false,
+                        roundLengths: true,
+                        speed: 800,
+                        navigation: {
+                            nextEl: $('.next-zone-btn[data-slide="' + dataId + '"]'),
+                            prevEl: $('.prev-zone-btn[data-slide="' + dataId + '"]')
+                        },
+                        pagination: {
+                            el: "#pagination-products",
+                            type: "bullets",
+                            clickable: true
+                        },
+                        breakpoints: {
+                            991: {
+                                slidesPerView: 2,
+                                slidesPerGroup: 1,
+                                centeredSlides: false
+                            },
+                            575: {
+                                slidesPerView: 1,
+                                centeredSlides: false
+                            }
+                        }
+                    });
+                    $(this).addClass('slide-inited');
+                    var swiper__slidecount = swiper.slides.length - 2;
+                    if (swiper__slidecount < 3) {
+                        $('.prev-zone-btn[data-slide="' + dataId + '"]').remove();
+                        $('.next-zone-btn[data-slide="' + dataId + '"]').remove();
+                    }
+                }
+            }
+        });
+        $('.item-menu-products:eq(0)').trigger('click');
+        //.addClass('active');
+        //$('.layout-solutions-procuts').hide();
+        //$('.layout-solutions-procuts:eq(0)').show();
+
+        function iOS() {
+            return [
+                    'iPad Simulator',
+                    'iPhone Simulator',
+                    'iPod Simulator',
+                    'iPad',
+                    'iPhone',
+                    'iPod'
+                ].includes(navigator.platform)
+                // iPad on iOS 13 detection
+                || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+        }
+        $(function () {
+            //if (!iOS()) {
+            //    $('img').preload({
+            //        placeholder: '/img-fix/img-bg-logo-green.png',
+            //        notFound: '/img-fix/img-bg-logo-green.png'
+            //    });
+            //}
+            if ($(window).width() <= 1024) {
+                $('.img-sustainable').click(function () {
+                    if ($(this).hasClass('clicked')) {
+                        $(this).removeClass('clicked');
+                    } else {
+                        $(this).addClass('clicked');
+                    }
+                });
+            }
+            if (windowsize <= 767) {
+                $('.txt-nd-item-slide').showMore({
+                    minheight: 77,
+                    buttontxtmore: $i18n.showMore,
+                    buttontxtless: $i18n.showLess,
+                    callback: function (isShow, $elm) {
+                        //$('.pagination-rd').css("top", HeightTotal);
+                        if (isShow) {
+                            setTimeout(function () {
+                                var heightParent = $elm.closest('.content-item-slide').height();
+                                var heightTotalPB = 40;
+                                var HeightTotal = heightParent + heightTotalPB;
+                                $('.pagination-rd').css("top", HeightTotal);
+                                //$('.pagination-rd').css("top", 330);
+                            }, 100)
+                        }
+                        else
+                            $('.pagination-rd').css("top", 220);
+                    }
+                });
+                swiper_research_development.on('slideChange', function () {
+                    $('.pagination-rd').css("top", 220);
+                    $('.txt-nd-item-slide').css('max-height', '77px');
+                    $('.showmore-button').html($i18n.showMore)
+                });
+            }
+        })
     });
 
-    function HideToolbar() {
-        $(".cmsadminpanel").addClass("toggled");
-        $(".fa-chevron-circle-right").addClass("fa-rotate-180");
-    }
 
-    function ShowToolbar() {
-        $(".cmsadminpanel").removeClass("toggled");
-        $(".fa-chevron-circle-right").removeClass("fa-rotate-180");
-    }
 </script>
-</body>
+<div id='arcontactus'></div>
+<script>
+    var arcface = '';
+    var arczalo = '';
+    var arcsky = '';
+    var arcemail = 'southernseed@ssc.com.vn';
+    var arctel = '02839483089';
+    var arCuMessages ='';
+    var btnContactText ='';
+    var btnSendEmail ='';
 
+    var language=$('.item-language').text();
+
+    if(language == 'Tiếng Việt'){
+
+        arCuMessages = ["Hello", "Can I help you?"];
+        btnContactText = 'Contact';
+        btnSendEmail ='Send Email';
+    }else{
+        arCuMessages = ["Xin chào", "SSC có thể giúp gì cho bạn?"];
+        btnContactText = 'Liên hệ';
+        btnSendEmail ='Gửi Email';
+    }
+
+    var arCuLoop = false;
+
+    var arCuCloseLastMessage = false;
+
+    var arCuPromptClosed = false;
+
+    var _arCuTimeOut = null;
+
+    var arCuDelayFirst = 2000;
+
+    var arCuTypingTime = 2000;
+
+    var arCuMessageTime = 4000;
+
+    var arCuClosedCookie = 0;
+
+    var arcItems = [];
+
+    window.addEventListener('load', function () {
+
+        arCuClosedCookie = arCuGetCookie('arcu-closed');
+
+        jQuery('#arcontactus').on('arcontactus.init', function () {
+
+            if (arCuClosedCookie) {
+
+                return false;
+
+            }
+
+            arCuShowMessages();
+
+        });
+
+        jQuery('#arcontactus').on('arcontactus.openMenu', function () {
+
+            clearTimeout(_arCuTimeOut);
+
+            arCuPromptClosed = true;
+
+            jQuery('#contact').contactUs('hidePrompt');
+
+            arCuCreateCookie('arcu-closed', 1, 30);
+
+        });
+
+        jQuery('#arcontactus').on('arcontactus.hidePrompt', function () {
+
+            clearTimeout(_arCuTimeOut);
+
+            arCuPromptClosed = true;
+
+            arCuCreateCookie('arcu-closed', 1, 30);
+
+        });
+
+
+
+        var arcItem = {};
+
+        arcItem.id = 'msg-item-1';
+
+        arcItem.class = 'msg-item-facebook-messenger';
+
+        arcItem.title = 'Messenger';
+
+        arcItem.icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M224 32C15.9 32-77.5 278 84.6 400.6V480l75.7-42c142.2 39.8 285.4-59.9 285.4-198.7C445.8 124.8 346.5 32 224 32zm23.4 278.1L190 250.5 79.6 311.6l121.1-128.5 57.4 59.6 110.4-61.1-121.1 128.5z"></path></svg>';
+
+        arcItem.href = 'https://m.me/' + arcface;
+
+        arcItem.color = '#567AFF';
+
+        if (arcface != '') {
+            arcItems.push(arcItem);
+        }
+
+
+
+        var arcItem = {};
+
+        arcItem.id = 'msg-item-9';
+
+        arcItem.class = 'msg-item-telegram-plane';
+
+        arcItem.title = 'Zalo Chat';
+
+        arcItem.icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M446.7 98.6l-67.6 318.8c-5.1 22.5-18.4 28.1-37.3 17.5l-103-75.9-49.7 47.8c-5.5 5.5-10.1 10.1-20.7 10.1l7.4-104.9 190.9-172.5c8.3-7.4-1.8-11.5-12.9-4.1L117.8 284 16.2 252.2c-22.1-6.9-22.5-22.1 4.6-32.7L418.2 66.4c18.4-6.9 34.5 4.1 28.5 32.2z"></path></svg>';
+
+        arcItem.href = 'https://zalo.me/' + arczalo;
+
+        arcItem.color = '#1EBEA5';
+
+        if (arczalo != '') {
+            arcItems.push(arcItem);
+        }
+        var arcItem = {};
+
+        arcItem.id = 'msg-item-6';
+
+        arcItem.class = 'msg-item-skype';
+
+        arcItem.title = 'Skype Chat';
+
+        arcItem.icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M424.7 299.8c2.9-14 4.7-28.9 4.7-43.8 0-113.5-91.9-205.3-205.3-205.3-14.9 0-29.7 1.7-43.8 4.7C161.3 40.7 137.7 32 112 32 50.2 32 0 82.2 0 144c0 25.7 8.7 49.3 23.3 68.2-2.9 14-4.7 28.9-4.7 43.8 0 113.5 91.9 205.3 205.3 205.3 14.9 0 29.7-1.7 43.8-4.7 19 14.6 42.6 23.3 68.2 23.3 61.8 0 112-50.2 112-112 .1-25.6-8.6-49.2-23.2-68.1zm-194.6 91.5c-65.6 0-120.5-29.2-120.5-65 0-16 9-30.6 29.5-30.6 31.2 0 34.1 44.9 88.1 44.9 25.7 0 42.3-11.4 42.3-26.3 0-18.7-16-21.6-42-28-62.5-15.4-117.8-22-117.8-87.2 0-59.2 58.6-81.1 109.1-81.1 55.1 0 110.8 21.9 110.8 55.4 0 16.9-11.4 31.8-30.3 31.8-28.3 0-29.2-33.5-75-33.5-25.7 0-42 7-42 22.5 0 19.8 20.8 21.8 69.1 33 41.4 9.3 90.7 26.8 90.7 77.6 0 59.1-57.1 86.5-112 86.5z"></path></svg>';
+
+        arcItem.href = 'skype://' + arcsky + '?chat';
+
+        arcItem.color = '#1C9CC5';
+
+        if (arcsky != '') {
+            arcItems.push(arcItem);
+        }
+
+        var arcItem = {};
+
+        arcItem.id = 'msg-item-7';
+
+        arcItem.class = 'msg-item-envelope';
+
+        arcItem.title = btnSendEmail;
+
+        arcItem.icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M464 64H48C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM48 96h416c8.8 0 16 7.2 16 16v41.4c-21.9 18.5-53.2 44-150.6 121.3-16.9 13.4-50.2 45.7-73.4 45.3-23.2.4-56.6-31.9-73.4-45.3C85.2 197.4 53.9 171.9 32 153.4V112c0-8.8 7.2-16 16-16zm416 320H48c-8.8 0-16-7.2-16-16V195c22.8 18.7 58.8 47.6 130.7 104.7 20.5 16.4 56.7 52.5 93.3 52.3 36.4.3 72.3-35.5 93.3-52.3 71.9-57.1 107.9-86 130.7-104.7v205c0 8.8-7.2 16-16 16z"></path></svg>';
+
+        arcItem.href = 'mailto:' + arcemail;
+
+        arcItem.color = '#FF643A';
+
+        if (arcemail != '') {
+            arcItems.push(arcItem);
+        }
+
+        var arcItem = {};
+
+        arcItem.id = 'msg-item-8';
+
+        arcItem.class = 'msg-item-phone';
+
+        arcItem.title = 'Call ' + arctel;
+
+        arcItem.icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z"></path></svg>';
+
+        arcItem.href = 'tel:' + arctel;
+
+        arcItem.color = '#4EB625';
+
+        if (arctel != '') {
+            arcItems.push(arcItem);
+        }
+
+
+
+        jQuery('#arcontactus').contactUs({
+
+            items: arcItems
+
+        });
+
+    });
+
+</script>
+<style>
+    .arcontactus-widget.right.arcontactus-message { right: 20px }
+    .arcontactus-widget.right.arcontactus-message { bottom: 20px }
+    .arcontactus-widget .arcontactus-message-button
+    .pulsation { -webkit-animation-duration: 2s; animation-duration: 2s }
+    .arcontactus-widget.md .arcontactus-message-button, .arcontactus-widget.md.arcontactus-message { width: 60px; height: 60px }
+    .arcontactus-widget { opacity: 0; transition: .2s opacity }
+    .arcontactus-widget * { box-sizing: border-box }
+    .arcontactus-widget.left.arcontactus-message { left: 20px; right: auto }
+    .arcontactus-widget.left .arcontactus-message-button { right: auto; left: 0 }
+    .arcontactus-widget.left .arcontactus-prompt { left: 80px; right: auto; transform-origin: 0 50% }
+    .arcontactus-widget.left .arcontactus-prompt:before { border-right: 8px solid #FFF; border-top: 8px solid transparent; border-left: 8px solid transparent; border-bottom: 8px solid transparent; right: auto; left: -15px }
+    .arcontactus-widget.left .messangers-block { right: auto; left: 0; -webkit-transform-origin: 10% 105%; -ms-transform-origin: 10% 105%; transform-origin: 10% 105% }
+    .arcontactus-widget.left .callback-countdown-block { left: 0; right: auto }
+    .arcontactus-widget.left .callback-countdown-block::before, .arcontactus-widget.left .messangers-block::before { left: 25px; right: auto }
+    .arcontactus-widget.md .callback-countdown-block, .arcontactus-widget.md .messangers-block { bottom: 70px }
+    .arcontactus-widget.md .arcontactus-prompt { bottom: 5px }
+    .arcontactus-widget.md.left .callback-countdown-block:before, .arcontactus-widget.md.left .messangers-block:before { left: 21px }
+    .arcontactus-widget.md.left .arcontactus-prompt { left: 70px }
+    .arcontactus-widget.md.right .callback-countdown-block:before, .arcontactus-widget.md.right .messangers-block:before { right: 21px }
+    .arcontactus-widget.md.right .arcontactus-prompt { right: 70px }
+    .arcontactus-widget.md .arcontactus-message-button .pulsation { width: 74px; height: 74px }
+    .arcontactus-widget.md .arcontactus-message-button .callback-state, .arcontactus-widget.md .arcontactus-message-button .icons { width: 40px; height: 40px; margin-top: -20px; margin-left: -20px }
+    .arcontactus-widget.sm .arcontactus-message-button, .arcontactus-widget.sm.arcontactus-message { width: 50px; height: 50px }
+    .arcontactus-widget.sm .callback-countdown-block, .arcontactus-widget.sm .messangers-block { bottom: 60px }
+    .arcontactus-widget.sm .arcontactus-prompt { bottom: 0 }
+    .arcontactus-widget.sm.left .callback-countdown-block:before, .arcontactus-widget.sm.left .messangers-block:before { left: 16px }
+    .arcontactus-widget.sm.left .arcontactus-prompt { left: 60px }
+    .arcontactus-widget.sm.right .callback-countdown-block:before, .arcontactus-widget.sm.right .messangers-block:before { right: 16px }
+    .arcontactus-widget.sm.right .arcontactus-prompt { right: 60px }
+    .arcontactus-widget.sm .arcontactus-message-button .pulsation { width: 64px; height: 64px }
+    .arcontactus-widget.sm .arcontactus-message-button .icons { width: 40px; height: 40px; margin-top: -20px; margin-left: -20px }
+    .arcontactus-widget.sm .arcontactus-message-button .static { margin-top: -16px }
+    .arcontactus-widget.sm .arcontactus-message-button .callback-state { width: 40px; height: 40px; margin-top: -20px; margin-left: -20px }
+    .arcontactus-widget.active { opacity: 1 }
+    .arcontactus-widget .icons.hide, .arcontactus-widget .static.hide { opacity: 0; transform: scale(0) }
+    .arcontactus-widget.arcontactus-message { z-index: 10000; right: 20px; bottom: 20px; position: fixed !important; height: 70px; width: 70px }
+    .arcontactus-widget .arcontactus-message-button { width: 70px; position: absolute; height: 70px; right: 0; background-color: #18A850; border-radius: 50px; -webkit-box-sizing: border-box; box-sizing: border-box; text-align: center; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; cursor: pointer }
+    .arcontactus-widget .arcontactus-message-button p { font-family: Ubuntu,Arial,sans-serif; color: #fff; font-weight: 700; font-size: 10px; line-height: 11px; margin: 0 }
+    .arcontactus-widget .arcontactus-message-button .pulsation { width: 84px; height: 84px; background-color: red; border-radius: 50px; position: absolute; left: -7px; top: -7px; z-index: -1; -webkit-transform: scale(0); -ms-transform: scale(0); transform: scale(0); -webkit-animation: arcontactus-pulse 2s infinite; animation: arcontactus-pulse 2s infinite }
+    .arcontactus-widget .arcontactus-message-button .icons { background-color: #fff; width: 44px; height: 44px; border-radius: 50px; position: absolute; overflow: hidden; top: 50%; left: 50%; margin-top: -22px; margin-left: -22px }
+    .arcontactus-widget .arcontactus-message-button .static { position: absolute; top: 50%; left: 50%; margin-top: -19px; margin-left: -26px; width: 52px; height: 52px; text-align: center }
+    .arcontactus-widget .arcontactus-message-button .static img { display: inline }
+    .arcontactus-widget .arcontactus-message-button .static svg { width: 24px; height: 24px; color: #FFF }
+    .arcontactus-widget .arcontactus-message-button.no-text .static { margin-top: -12px }
+    .arcontactus-widget .pulsation:nth-of-type(2n) { -webkit-animation-delay: .5s; animation-delay: .5s }
+    .arcontactus-widget .pulsation.stop { -webkit-animation: none; animation: none }
+    .arcontactus-widget .icons-line { top: 10px; left: 12px; display: -webkit-box; display: -ms-flexbox; display: flex; position: absolute; -webkit-transition: cubic-bezier(.13,1.49,.14,-.4); -o-transition: cubic-bezier(.13,1.49,.14,-.4); -webkit-animation-delay: 0s; animation-delay: 0s; -webkit-transform: translateX(30px); -ms-transform: translateX(30px); transform: translateX(30px); height: 24px; transition: .2s all }
+    .arcontactus-widget .icons, .arcontactus-widget .static { transition: .2s all }
+    .arcontactus-widget .icons-line.stop { -webkit-animation-play-state: paused; animation-play-state: paused }
+    .arcontactus-widget .icons-line span { display: inline-block; width: 24px; height: 24px; color: red }
+    .arcontactus-widget .icons-line span i, .arcontactus-widget .icons-line span svg { width: 24px; height: 24px }
+    .arcontactus-widget .icons-line span i { display: block; font-size: 24px; line-height: 24px }
+    .arcontactus-widget .icons-line img, .arcontactus-widget .icons-line span { margin-right: 40px }
+    .arcontactus-widget .icons.hide .icons-line { transform: scale(0) }
+    .arcontactus-widget .icons .icon:first-of-type { margin-left: 0 }
+    .arcontactus-widget .arcontactus-close { color: #FFF }
+    .arcontactus-widget .arcontactus-close svg { -webkit-transform: rotate(180deg) scale(0); -ms-transform: rotate(180deg) scale(0); transform: rotate(180deg) scale(0); -webkit-transition: ease-in .12s all; -o-transition: ease-in .12s all; transition: ease-in .12s all; display: block }
+    .arcontactus-widget .arcontactus-close.show-messageners-block svg { -webkit-transform: rotate(0) scale(1); -ms-transform: rotate(0) scale(1); transform: rotate(0) scale(1) }
+    .arcontactus-widget .arcontactus-prompt, .arcontactus-widget .messangers-block { background: center no-repeat #FFF; box-shadow: 0 0 10px rgba(0,0,0,.6); width: 235px; position: absolute; bottom: 80px; right: 0; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: start; -ms-flex-align: start; align-items: flex-start; padding: 14px 0; -webkit-box-sizing: border-box; box-sizing: border-box; border-radius: 7px; -webkit-transform-origin: 80% 105%; -ms-transform-origin: 80% 105%; transform-origin: 80% 105%; -webkit-transform: scale(0); -ms-transform: scale(0); transform: scale(0); -webkit-transition: ease-out .12s all; -o-transition: ease-out .12s all; transition: ease-out .12s all; z-index: 10000 }
+    .arcontactus-widget .arcontactus-prompt:before, .arcontactus-widget .messangers-block:before { position: absolute; bottom: -7px; right: 25px; left: auto; display: inline-block !important; border-right: 8px solid transparent; border-top: 8px solid #FFF; border-left: 8px solid transparent; content: '' }
+    .arcontactus-widget .arcontactus-prompt.show-messageners-block, .arcontactus-widget .messangers-block.show-messageners-block { -webkit-transform: scale(1); -ms-transform: scale(1); transform: scale(1) }
+    .arcontactus-widget .arcontactus-prompt { color: #787878; font-family: Arial,sans-serif; font-size: 16px; line-height: 18px; width: auto; bottom: 10px; right: 80px; white-space: nowrap; padding: 18px 20px 14px }
+    .arcontactus-widget .arcontactus-prompt:before { border-right: 8px solid transparent; border-top: 8px solid transparent; border-left: 8px solid #FFF; border-bottom: 8px solid transparent; bottom: 16px; right: -15px }
+    .arcontactus-widget .arcontactus-prompt.active { -webkit-transform: scale(1); -ms-transform: scale(1); transform: scale(1) }
+    .arcontactus-widget .arcontactus-prompt .arcontactus-prompt-close { position: absolute; right: 6px; top: 6px; cursor: pointer; z-index: 100; height: 14px; width: 14px; padding: 2px }
+    .arcontactus-widget .arcontactus-prompt .arcontactus-prompt-close svg { height: 10px; width: 10px; display: block }
+    .arcontactus-widget .arcontactus-prompt .arcontactus-prompt-typing { border-radius: 10px; display: inline-block; left: 3px; padding: 0; position: relative; top: 4px; width: 50px }
+    .arcontactus-widget .arcontactus-prompt .arcontactus-prompt-typing > div { position: relative; float: left; border-radius: 50%; width: 10px; height: 10px; background: #ccc; margin: 0 2px; -webkit-animation: arcontactus-updown 2s infinite; animation: arcontactus-updown 2s infinite }
+    .arcontactus-widget .arcontactus-prompt .arcontactus-prompt-typing > div:nth-child(2) { animation-delay: .1s }
+    .arcontactus-widget .arcontactus-prompt .arcontactus-prompt-typing > div:nth-child(3) { animation-delay: .2s }
+    .arcontactus-widget .messangers-block.sm .messanger { padding-left: 50px; min-height: 44px }
+    .arcontactus-widget .messangers-block.sm .messanger span { height: 32px; width: 32px; margin-top: -16px }
+    .arcontactus-widget .messangers-block.sm .messanger span svg { height: 20px; width: 20px; margin-top: -10px; margin-left: -10px }
+    .arcontactus-widget .messanger { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -ms-flex-align: center; align-items: center; margin: 0; cursor: pointer; width: 100%; padding: 8px 20px 8px 60px; position: relative; min-height: 54px; text-decoration: none }
+    .arcontactus-widget .messanger:hover { background-color: #EEE }
+    .arcontactus-widget .messanger:before { background-repeat: no-repeat; background-position: center }
+    .arcontactus-widget .messanger.facebook span { background: #0084ff }
+    .arcontactus-widget .messanger.viber span { background: #7c529d }
+    .arcontactus-widget .messanger.telegram span { background: #2ca5e0 }
+    .arcontactus-widget .messanger.skype span { background: #31c4ed }
+    .arcontactus-widget .messanger.email span { background: #ff8400 }
+    .arcontactus-widget .messanger.contact span { background: #7eb105 }
+    .arcontactus-widget .messanger.call-back span { background: #54cd81 }
+    .arcontactus-widget .messanger span { position: absolute; left: 10px; top: 50%; margin-top: -20px; display: block; width: 40px; height: 40px; border-radius: 50%; background-color: #0084ff; margin-right: 10px; color: #FFF; text-align: center; vertical-align: middle }
+    .arcontactus-widget .messanger span i, .arcontactus-widget .messanger span svg { width: 24px; height: 24px; vertical-align: middle; text-align: center; display: block; position: absolute; top: 50%; left: 50%; margin-top: -12px; margin-left: -12px }
+    .arcontactus-widget .messanger span i { font-size: 24px; line-height: 24px }
+    .arcontactus-widget .messanger p { margin: 0; font-family: Arial,sans-serif; font-size: 14px; color: rgba(0,0,0,.87) }
+
+    @-webkit-keyframes arcontactus-pulse {
+        0% { -webkit-transform: scale(0); transform: scale(0); opacity: 1 }
+        50% { opacity: .5 }
+        100% { -webkit-transform: scale(1); transform: scale(1); opacity: 0 }
+    }
+
+    @media (max-width:468px) {
+        .arcontactus-widget.opened.arcontactus-message, .arcontactus-widget.opened.left.arcontactus-message { width: auto; right: 20px; left: 20px }
+    }
+
+    @keyframes arcontactus-updown {
+        0%,100%,43% { transform: translate(0,0) }
+        25%,35% { transform: translate(0,-10px) }
+    }
+
+    @-webkit-keyframes arcontactus-updown {
+        0%,100%,43% { transform: translate(0 0) }
+        25%,35% { transform: translate(-10px 0) }
+    }
+
+    @keyframes arcontactus-pulse {
+        0% { -webkit-transform: scale(0); transform: scale(0); opacity: 1 }
+        50% { opacity: .5 }
+        100% { -webkit-transform: scale(1); transform: scale(1); opacity: 0 }
+    }
+
+    @-webkit-keyframes arcontactus-show-stat {
+        0%,100%,20%,85% { -webkit-transform: scale(1); transform: scale(1) }
+        21%,84% { -webkit-transform: scale(0); transform: scale(0) }
+    }
+
+    @keyframes arcontactus-show-stat {
+        0%,100%,20%,85% { -webkit-transform: scale(1); transform: scale(1) }
+        21%,84% { -webkit-transform: scale(0); transform: scale(0) }
+    }
+
+    @-webkit-keyframes arcontactus-show-icons {
+        0%,100%,20%,85% { -webkit-transform: scale(0); transform: scale(0) }
+        21%,84% { -webkit-transform: scale(1); transform: scale(1) }
+    }
+
+    @keyframes arcontactus-show-icons {
+        0%,100%,20%,85% { -webkit-transform: scale(0); transform: scale(0) }
+        21%,84% { -webkit-transform: scale(1); transform: scale(1) }
+    }
+</style>
+<script>
+    function arCuGetCookie(t) { return document.cookie.length > 0 && (c_start = document.cookie.indexOf(t + "="), -1 != c_start) ? (c_start = c_start + t.length + 1, c_end = document.cookie.indexOf(";", c_start), -1 == c_end && (c_end = document.cookie.length), unescape(document.cookie.substring(c_start, c_end))) : 0 } function arCuCreateCookie(t, e, s) { var n; if (s) { var i = new Date; i.setTime(i.getTime() + 24 * s * 60 * 60 * 1e3), n = "; expires=" + i.toGMTString() } else n = ""; document.cookie = t + "=" + e + n + "; path=/" } function arCuShowMessage(t) { if (arCuPromptClosed) return !1; void 0 !== arCuMessages[t] ? (jQuery("#arcontactus").contactUs("showPromptTyping"), _arCuTimeOut = setTimeout(function () { if (arCuPromptClosed) return !1; jQuery("#arcontactus").contactUs("showPrompt", { content: arCuMessages[t] }), t++ , _arCuTimeOut = setTimeout(function () { if (arCuPromptClosed) return !1; arCuShowMessage(t) }, arCuMessageTime) }, arCuTypingTime)) : (arCuCloseLastMessage && jQuery("#arcontactus").contactUs("hidePrompt"), arCuLoop && arCuShowMessage(0)) } function arCuShowMessages() { setTimeout(function () { clearTimeout(_arCuTimeOut), arCuShowMessage(0) }, arCuDelayFirst) } !function (t) { function e(s, n) { this._initialized = !1, this.settings = null, this.options = t.extend({}, e.Defaults, n), this.$element = t(s), this.init(), this.x = 0, this.y = 0, this._interval, this._menuOpened = !1, this._callbackOpened = !1, this.countdown = null } e.Defaults = { align: "right", countdown: 0, drag: !1, buttonText: btnContactText, buttonSize: "large", menuSize: "normal", items: [], iconsAnimationSpeed: 1200, theme: "#18A850", buttonIcon: '<svg width="20" height="20" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Canvas" transform="translate(-825 -308)"><g id="Vector"><use xlink:href="#path0_fill0123" transform="translate(825 308)" fill="#FFFFFF"/></g></g><defs><path id="path0_fill0123" d="M 19 4L 17 4L 17 13L 4 13L 4 15C 4 15.55 4.45 16 5 16L 16 16L 20 20L 20 5C 20 4.45 19.55 4 19 4ZM 15 10L 15 1C 15 0.45 14.55 0 14 0L 1 0C 0.45 0 0 0.45 0 1L 0 15L 4 11L 14 11C 14.55 11 15 10.55 15 10Z"/></defs></svg>', closeIcon: '<svg width="12" height="13" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Canvas" transform="translate(-4087 108)"><g id="Vector"><use xlink:href="#path0_fill" transform="translate(4087 -108)" fill="currentColor"></use></g></g><defs><path id="path0_fill" d="M 14 1.41L 12.59 0L 7 5.59L 1.41 0L 0 1.41L 5.59 7L 0 12.59L 1.41 14L 7 8.41L 12.59 14L 14 12.59L 8.41 7L 14 1.41Z"></path></defs></svg>' }, e.prototype.init = function () { this.destroy(), this.settings = t.extend({}, this.options), this.$element.addClass("arcontactus-widget").addClass("arcontactus-message"), "left" === this.settings.align ? this.$element.addClass("left") : this.$element.addClass("right"), this.settings.items.length ? (this._initCallbackBlock(), this._initMessengersBlock(), this._initMessageButton(), this._initPrompt(), this._initEvents(), this.startAnimation(), this.$element.addClass("active")) : console.info("jquery.contactus:no items"), this._initialized = !0, this.$element.trigger("arcontactus.init") }, e.prototype.destroy = function () { if (!this._initialized) return !1; this.$element.html(""), this._initialized = !1, this.$element.trigger("arcontactus.destroy") }, e.prototype._initCallbackBlock = function () { }, e.prototype._initMessengersBlock = function () { var e = t("<div>", { class: "messangers-block" }); "normal" !== this.settings.menuSize && "large" !== this.settings.menuSize || e.addClass("lg"), "small" === this.settings.menuSize && e.addClass("sm"), this._appendMessengerIcons(e), this.$element.append(e) }, e.prototype._appendMessengerIcons = function (e) { t.each(this.settings.items, function (s) { if ("callback" == this.href) var n = t("<div>", { class: "messanger call-back " + (this.class ? this.class : "") }); else if (n = t("<a>", { class: "messanger " + (this.class ? this.class : ""), id: this.id ? this.id : null, href: this.href, target: this.target ? this.target : "_blank" }), this.onClick) { var i = this; n.on("click", function (t) { i.onClick(t) }) } var a = t("<span>", { style: this.color ? "background-color:" + this.color : null }); a.append(this.icon), n.append(a), n.append("<p>" + this.title + "</p>"), e.append(n) }) }, e.prototype._initMessageButton = function () { var e = this, s = t("<div>", { class: "arcontactus-message-button", style: this._backgroundStyle() }); "large" === this.settings.buttonSize && this.$element.addClass("lg"), "medium" === this.settings.buttonSize && this.$element.addClass("md"), "small" === this.settings.buttonSize && this.$element.addClass("sm"); var n = t("<div>", { class: "static" }); n.append(this.settings.buttonIcon), !1 !== this.settings.buttonText ? n.append("<p>" + this.settings.buttonText + "</p>") : s.addClass("no-text"); var i = t("<div>", { class: "callback-state", style: e._colorStyle() }); i.append(this.settings.callbackStateIcon); var a = t("<div>", { class: "icons hide" }), o = t("<div>", { class: "icons-line" }); t.each(this.settings.items, function (s) { var n = t("<span>", { style: e._colorStyle() }); n.append(this.icon), o.append(n) }), a.append(o); var r = t("<div>", { class: "arcontactus-close" }); r.append(this.settings.closeIcon); var c = t("<div>", { class: "pulsation", style: e._backgroundStyle() }), l = t("<div>", { class: "pulsation", style: e._backgroundStyle() }); s.append(n).append(i).append(a).append(r).append(c).append(l), this.$element.append(s) }, e.prototype._initPrompt = function () { var e = t("<div>", { class: "arcontactus-prompt" }), s = t("<div>", { class: "arcontactus-prompt-close", style: this._colorStyle() }); s.append(this.settings.closeIcon); var n = t("<div>", { class: "arcontactus-prompt-inner" }); e.append(s).append(n), this.$element.append(e) }, e.prototype._initEvents = function () { var e = this.$element, s = this; e.find(".arcontactus-message-button").on("mousedown", function (t) { s.x = t.pageX, s.y = t.pageY }).on("mouseup", function (t) { t.pageX === s.x && t.pageY === s.y && (s.toggleMenu(), t.preventDefault()) }), this.settings.drag && (e.draggable(), e.get(0).addEventListener("touchmove", function (t) { var s = t.targetTouches[0]; e.get(0).style.left = s.pageX - 25 + "px", e.get(0).style.top = s.pageY - 25 + "px", t.preventDefault() }, !1)), t(document).on("click", function (t) { s.closeMenu() }), e.on("click", function (t) { t.stopPropagation() }), e.find(".call-back").on("click", function () { s.openCallbackPopup() }), e.find(".callback-countdown-block-close").on("click", function () { null != s.countdown && (clearInterval(s.countdown), s.countdown = null), s.closeCallbackPopup() }), e.find(".arcontactus-prompt-close").on("click", function () { s.hidePrompt() }) }, e.prototype.show = function () { this.$element.addClass("active"), this.$element.trigger("arcontactus.show") }, e.prototype.hide = function () { this.$element.removeClass("active"), this.$element.trigger("arcontactus.hide") }, e.prototype.openMenu = function () { var t = this.$element; t.find(".messangers-block").hasClass("show-messageners-block") || (this.stopAnimation(), t.find(".messangers-block, .arcontactus-close").addClass("show-messageners-block"), t.find(".icons, .static").addClass("hide"), t.find(".pulsation").addClass("stop"), this._menuOpened = !0, this.$element.trigger("arcontactus.openMenu")) }, e.prototype.closeMenu = function () { var t = this.$element; t.find(".messangers-block").hasClass("show-messageners-block") && (t.find(".messangers-block, .arcontactus-close").removeClass("show-messageners-block"), t.find(".icons, .static").removeClass("hide"), t.find(".pulsation").removeClass("stop"), this.startAnimation(), this._menuOpened = !1, this.$element.trigger("arcontactus.closeMenu")) }, e.prototype.toggleMenu = function () { var t = this.$element; if (this.hidePrompt(), t.find(".callback-countdown-block").hasClass("display-flex")) return !1; t.find(".messangers-block").hasClass("show-messageners-block") ? this.closeMenu() : this.openMenu(), this.$element.trigger("arcontactus.toggleMenu") }, e.prototype.openCallbackPopup = function () { var t = this.$element; t.addClass("opened"), this.closeMenu(), this.stopAnimation(), t.find(".icons, .static").addClass("hide"), t.find(".pulsation").addClass("stop"), t.find(".callback-countdown-block").addClass("display-flex"), this._callbackOpened = !0, this.$element.trigger("arcontactus.openCallbackPopup") }, e.prototype.closeCallbackPopup = function () { var t = this.$element; t.removeClass("opened"), t.find(".messangers-block").removeClass("show-messageners-block"), t.find(".arcontactus-close").removeClass("show-messageners-block"), t.find(".icons, .static").removeClass("hide"), this.startAnimation(), this._callbackOpened = !1, this.$element.trigger("arcontactus.closeCallbackPopup") }, e.prototype.startAnimation = function () { var t = this.$element, e = t.find(".icons-line"), s = t.find(".static"), n = t.find(".icons-line>span:first-child").width() + 40; if ("large" === this.settings.buttonSize) var i = 2, a = 0; "medium" === this.settings.buttonSize && (i = 4, a = -2), "small" === this.settings.buttonSize && (i = 4, a = -2); var o = t.find(".icons-line>span").length, r = 0; if (this.stopAnimation(), 0 === this.settings.iconsAnimationSpeed) return !1; this._interval = setInterval(function () { 0 === r && (e.parent().removeClass("hide"), s.addClass("hide")); var t = "translate(" + -(n * r + i) + "px, " + a + "px)"; e.css({ "-webkit-transform": t, "-ms-transform": t, transform: t }), ++r > o && (r > o + 1 && (r = 0), e.parent().addClass("hide"), s.removeClass("hide"), t = "translate(" + -i + "px, " + a + "px)", e.css({ "-webkit-transform": t, "-ms-transform": t, transform: t })) }, this.settings.iconsAnimationSpeed) }, e.prototype.stopAnimation = function () { clearInterval(this._interval); var t = this.$element, e = t.find(".icons-line"), s = t.find(".static"); e.parent().addClass("hide"), s.removeClass("hide"); var n = "translate(-2px, 0px)"; e.css({ "-webkit-transform": n, "-ms-transform": n, transform: n }) }, e.prototype.showPrompt = function (t) { var e = this.$element.find(".arcontactus-prompt"); t && t.content && e.find(".arcontactus-prompt-inner").html(t.content), e.addClass("active"), this.$element.trigger("arcontactus.showPrompt") }, e.prototype.hidePrompt = function () { this.$element.find(".arcontactus-prompt").removeClass("active"), this.$element.trigger("arcontactus.hidePrompt") }, e.prototype.showPromptTyping = function () { this.$element.find(".arcontactus-prompt").find(".arcontactus-prompt-inner").html(""), this._insertPromptTyping(), this.showPrompt({}), this.$element.trigger("arcontactus.showPromptTyping") }, e.prototype._insertPromptTyping = function () { var e = this.$element.find(".arcontactus-prompt-inner"), s = t("<div>", { class: "arcontactus-prompt-typing" }), n = t("<div>"); s.append(n), s.append(n.clone()), s.append(n.clone()), e.append(s) }, e.prototype.hidePromptTyping = function () { this.$element.find(".arcontactus-prompt").removeClass("active"), this.$element.trigger("arcontactus.hidePromptTyping") }, e.prototype._backgroundStyle = function () { return "background-color: " + this.settings.theme }, e.prototype._colorStyle = function () { return "color: " + this.settings.theme }, t.fn.contactUs = function (s) { var n = Array.prototype.slice.call(arguments, 1); return this.each(function () { var i = t(this), a = i.data("ar.contactus"); a || (a = new e(this, "object" == typeof s && s), i.data("ar.contactus", a)), "string" == typeof s && "_" !== s.charAt(0) && a[s].apply(a, n) }) }, t.fn.contactUs.Constructor = e }(jQuery);
+</script>
+<style>
+    .support-online{display:none!important;}
+    .arcontactus-widget.right.arcontactus-message{bottom:80px!important;right:10px!important;}
+    /*
+    .arcontactus-message-button{background-color:#18A850!important;}
+    .arcontactus-widget .icons-line span{color:#789a3d!important;}
+    */
+</style>
+</body>
 </html>
