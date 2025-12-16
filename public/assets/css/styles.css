@@ -20,6 +20,9 @@ body{
     margin-left: 8px;
     font-size: 16px;
 }
+.btn-search i{
+    color: #fff;
+}
 .search-box-wrapper {
     padding: 20px 0;
     position: absolute;
@@ -647,6 +650,12 @@ body{
     }
 }
 @media (max-width: 768px) {
+    .bg-slide-banner{
+        height: 320px !important;
+    }
+    .search-box-wrapper{
+        top: 100px;
+    }
     #form-dk .form-group{
         width: 100%;
     }
