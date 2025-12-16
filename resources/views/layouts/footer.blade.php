@@ -5,9 +5,9 @@
         <footer class="footer">
             <div class="footer-top">
                 <div class="container">
-                    <div class="footer-grid">
+                    <div class="row">
                         <!-- Cột 1 -->
-                        <div class="footer-col">
+                        <div class="footer-col col-12 col-md-6">
                             <h4 class="footer-title">{{__('lang.htdv')}}</h4>
                             <p>{{__('lang.tvgdtm')}}</p>
 
@@ -36,7 +36,7 @@
                         </div>
 
                         <!-- Cột 2 -->
-                        <div class="footer-col">
+                        <div class="footer-col col-12 col-md-2">
                             <h4 class="footer-title">{{__('lang.info')}}</h4>
                             <ul class="footer-links">
                                 <li>
@@ -59,7 +59,7 @@
                         </div>
 
                         <!-- Cột 3 -->
-                        <div class="footer-col">
+                        <div class="footer-col col-12 col-md-4">
                             <h4 class="footer-title">{{__('lang.nhanemail')}}</h4>
                             <p>
                                 {{__('lang.txtnhanemail')}}

@@ -3,7 +3,7 @@
 <div class="top-bar">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-md-6 col-12 text-md-left text-center">
+            <div class="col-md-6 col-12 text-md-left">
                 @php
                     $locale = app()->getLocale();
                 @endphp
@@ -28,7 +28,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-12 text-md-right text-center">
+            <div class="col-md-6 col-12 text-md-right text-center bar-right">
                 <a href="tel:{{$setting->phone}}">
                 <i class="fas fa-phone"></i> {{$setting->phone}}</a>
                 <span class="mx-2">|</span>
@@ -42,10 +42,19 @@
             <i class="fas fa-search"></i>
           </a>
         </span>
-                <div class="search-box">
-                    <input type="text" class="form-control form-control-sm"
-                           placeholder="{{__('lang.search')}}...">
-                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="search-box-wrapper">
+        <div class="container">
+            <div class="d-flex justify-content-center">
+                <form action="tim-kiem" method="GET" class="search-box">
+                    <input type="text" name="name" class="form-control" placeholder="{{__('lang.search')}}" required>
+                    <button type="submit" class="btn-search">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
             </div>
         </div>
     </div>
@@ -55,7 +64,11 @@
 <header class="main-header">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
-
+            <div class="d-block d-md-none div-logo">
+                <div>
+                    <img src="{{Storage::disk('admin')->url($setting->logo)}}" alt="Logo">
+                </div>
+            </div>
             <!-- LEFT MENU -->
             <div class="collapse navbar-collapse navbar-left">
                 <ul class="navbar-nav w-100 justify-content-end">
@@ -66,8 +79,8 @@
             </div>
 
             <!-- LOGO CENTER -->
-            <a class="navbar-brand navbar-logo" href="/">
-                <div id="div-logo">
+            <a class="navbar-brand navbar-logo d-none d-md-block" href="/">
+                <div class="div-logo">
                     <div>
                         <img src="{{Storage::disk('admin')->url($setting->logo)}}" alt="Logo">
                     </div>
@@ -84,10 +97,11 @@
             </div>
 
             <!-- TOGGLER -->
-            <button class="navbar-toggler" type="button"
+            <button class="navbar-toggler collapsed" type="button"
                     data-toggle="collapse"
-                    data-target=".navbar-collapse">
-                <span class="navbar-toggler-icon"></span>
+                    data-target=".navbar-collapse"
+                    aria-expanded="false">
+                <i class="fas fa-bars"></i>
             </button>
         </nav>
     </div>

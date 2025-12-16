@@ -241,30 +241,30 @@
                             </div>
 
                             <div class="img-sustainable picture-2">
-                                <img src="{{Storage::disk('admin')->url($setting->img_lvkd2)}}" alt="">
+                                <img src="{{Storage::disk('admin')->url($setting->img_lvkd_cd1)}}" alt="">
                             </div>
 
                             <div class="img-sustainable picture-3">
-                                <img src="{{Storage::disk('admin')->url($setting->img_lvkd3)}}" alt="">
+                                <img src="{{Storage::disk('admin')->url($setting->img_lvkd_cd2)}}" alt="">
                             </div>
 
                             <div class="img-sustainable picture-4">
-                                <img src="{{Storage::disk('admin')->url($setting->img_lvkd4)}}" alt="">
+                                <img src="{{Storage::disk('admin')->url($setting->img_lvkd_cd3)}}" alt="">
                             </div>
 
                         </div>
                         <div class="list-content-sustainable">
 
-                            <div class="item-txt-sustainable item-ct-1">
-                                <img src="{{Storage::disk('admin')->url($setting->img_lvkd_cd1)}}" alt="">
+                            <div class="item-txt-sustainable item-ct-1 img-sustainable">
+                                <img src="{{Storage::disk('admin')->url($setting->img_lvkd2)}}" alt="">
                             </div>
 
-                            <div class="item-txt-sustainable item-ct-2">
-                                <img src="{{Storage::disk('admin')->url($setting->img_lvkd_cd2)}}" alt="">
+                            <div class="item-txt-sustainable item-ct-2 img-sustainable">
+                                <img src="{{Storage::disk('admin')->url($setting->img_lvkd3)}}" alt="">
                             </div>
 
-                            <div class="item-txt-sustainable item-ct-3">
-                                <img src="{{Storage::disk('admin')->url($setting->img_lvkd_cd3)}}" alt="">
+                            <div class="item-txt-sustainable item-ct-3 img-sustainable">
+                                <img src="{{Storage::disk('admin')->url($setting->img_lvkd4)}}" alt="">
                             </div>
 
                         </div>

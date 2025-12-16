@@ -98,9 +98,9 @@ class SettingsController extends AdminController
         $form->image('img_lvkd2', __('Ảnh lĩnh vực kinh doanh 2'));
         $form->image('img_lvkd3', __('Ảnh lĩnh vực kinh doanh 3'));
         $form->image('img_lvkd4', __('Ảnh lĩnh vực kinh doanh 4'));
-        $form->image('img_lvkd_cd1', __('Ảnh lĩnh vực kinh doanh cố định 1'));
-        $form->image('img_lvkd_cd2', __('Ảnh lĩnh vực kinh doanh cố định 2'));
-        $form->image('img_lvkd_cd3', __('Ảnh lĩnh vực kinh doanh cố định 3'));
+        $form->image('img_lvkd_cd1', __('Ảnh lĩnh vực kinh doanh 5'));
+        $form->image('img_lvkd_cd2', __('Ảnh lĩnh vực kinh doanh 6'));
+        $form->image('img_lvkd_cd3', __('Ảnh lĩnh vực kinh doanh 7'));
         $form->tinyEditor('linhvuc', __('Text Lĩnh vực kinh doanh'));
         $form->tinyEditor('linhvuc_en', __('Text Lĩnh vực kinh doanh (EN)'));
         $form->image('image_tag', __('Ảnh hạt giống chất lượng cao'));

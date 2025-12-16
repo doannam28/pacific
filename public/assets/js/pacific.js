@@ -1,9 +1,6 @@
 $(function () {
     $('.search-toggle').on('click', function (e) {
         e.preventDefault();
-        $('.search-box').toggle();
+        $('.search-box-wrapper').toggle();
     });
-    $('#send-email').click(function () {
-        $('#email-dk').
-    })
 });
