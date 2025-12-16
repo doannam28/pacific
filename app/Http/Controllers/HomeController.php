@@ -8,6 +8,7 @@ use App\Models\Number;
 use App\Models\Page;
 use App\Models\Post;
 use App\Models\Settings;
+use App\Models\Slider;
 use App\Models\Tag;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -48,9 +49,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-
+        $sliders = Slider::where('status',1)->orderBy('order','asc')->get();
         return view('homes.index', [
-
+            'sliders'=>$sliders
         ]);
     }
     public function category($slug='')

@@ -15,101 +15,59 @@
     <meta name="twitter:title" content="{{$setting->site_title}}"/>
     <meta name="twitter:description" content="{{$setting->meta_description}}"/>
 @endsection
+@php
+    $locale = app()->getLocale();
+    $end = $locale == 'en'?'_en':'';
+@endphp
 @section('content')
     <div class="main-page">
         <!-- SECTION BANNER -->
         <div class="wp-banner-page">
             <div class="swiper-container" id="slider-banner-home">
                 <div class="swiper-wrapper">
-
-                    <div class="swiper-slide" style="background-image: url(http://storage.ssc.com.vn/Data/2021/10/01/banner1v2-637686972191755857.jpg);">
+                    @foreach($sliders as $row)
+                        <div class="swiper-slide" style="background-image: url({{Storage::disk('admin')->url($row->image)}});">
                         <div class="bg-slide-banner" style="background: linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,.5))!important">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="content-banner">
-                                            <h2><p>Cung cấp giải pháp kỹ thuật và các loại hạt giống lúa, bắp, rau và hoa công nghệ cao hàng đầu khu vực</p>
-                                            </h2>
-                                            <p></p>
-                                            <div class="btn-banner">
-
-                                                <div class="btn__banner btn__banner--left">
-                                                    <a href="/vi/linh-vuc-kinh-doanh/">Các dòng sản phẩm</a>
-                                                </div>
-
-                                                <div class="btn__banner btn__banner--right">
-                                                    <a href="/vi/gioi-thieu/">Thông tin công ty</a>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="circle-animation-banner">
-                                <span class="circle-style-banner"></span>
-                                <span class="circle-style-banner"></span>
-                                <span class="circle-style-banner"></span>
-                                <span class="circle-style-banner"></span>
-                            </div>
                         </div>
-                    </div>
-
-                    <div class="swiper-slide" style="background-image: url(http://storage.ssc.com.vn/Data/2021/10/11/banner2-637695618918316999.jpg);">
-                        <div class="bg-slide-banner" style="background: linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,.5))!important">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="content-banner">
-                                            <h2><p>Tham gia chuỗi liên kết cung ứng nông sản sạch, an toàn từ đồng ruộng đến bàn ăn</p>
-                                            </h2>
-                                            <p></p>
-                                            <div class="btn-banner">
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="circle-animation-banner">
-                                <span class="circle-style-banner"></span>
-                                <span class="circle-style-banner"></span>
-                                <span class="circle-style-banner"></span>
-                                <span class="circle-style-banner"></span>
-                            </div>
                         </div>
-                    </div>
-
-                    <div class="swiper-slide" style="background-image: url(http://storage.ssc.com.vn/Data/2021/08/02/banner3-637635180052986374.jpg);">
-                        <div class="bg-slide-banner" style="background: linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,.5))!important">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="content-banner">
-                                            <h2><p><span style="color:#ffffff;">Nâng cao giá trị hàng nông sản Việt Nam vươn tầm ra thế giới</span></p>
-                                            </h2>
-                                            <p></p>
-                                            <div class="btn-banner">
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="circle-animation-banner">
-                                <span class="circle-style-banner"></span>
-                                <span class="circle-style-banner"></span>
-                                <span class="circle-style-banner"></span>
-                                <span class="circle-style-banner"></span>
-                            </div>
-                        </div>
-                    </div>
-
+                    @endforeach
                 </div>
             </div>
             <div class="swiper-pagination pagination-slider-banner circle-pagination" id="pagination-banner"></div>
         </div>
         <!-- END SECTION BANNER -->
+        <section class="about-section">
+            <div class="container">
+
+                <!-- TITLE -->
+                <div class="section-title text-center">
+                    <h2>{{__('lang.about')}}</h2>
+                    <p class="slogan text-center">{{__('lang.slogan_about')}}</p>
+                </div>
+
+                <div class="row align-items-center">
+                    <!-- LEFT CONTENT -->
+                    <div class="col-lg-6 about-content">
+                        <div>
+                            {!! $setting["about".$end] !!}
+                        </div>
+
+                        <p class="text-center">
+                            <a href="/gioi-thieu" class="btn btn-outline-success about-btn">
+                                {{__('lang.hayden')}}
+                                <i class="fas fa-thumbs-up ml-1"></i>
+                            </a>
+                        </p>
+                    </div>
+
+                    <!-- RIGHT IMAGE -->
+                    <div class="col-lg-6 about-image text-center">
+                        <img src="{{Storage::disk('admin')->url($setting->img_soicau)}}" alt="Giới thiệu" class="img-fluid">
+                    </div>
+                </div>
+
+            </div>
+        </section>
 
         <!-- SECTION Sustainable Development -->
 
@@ -279,44 +237,34 @@
                         <div class="list-picture-content-sustainable">
 
                             <div class="img-sustainable picture-1">
-                                <img src="http://storage.ssc.com.vn/Data/2021/08/30/236740360-637659341685002397.jpg" alt="">
+                                <img src="{{Storage::disk('admin')->url($setting->img_lvkd1)}}" alt="">
                             </div>
 
                             <div class="img-sustainable picture-2">
-                                <img src="http://storage.ssc.com.vn/Data/2021/01/11/img-sustainable-2-637459576956257262.png" alt="">
+                                <img src="{{Storage::disk('admin')->url($setting->img_lvkd2)}}" alt="">
                             </div>
 
                             <div class="img-sustainable picture-3">
-                                <img src="http://storage.ssc.com.vn/Data/2021/01/11/img-sustainable-3-637459576956413385.png" alt="">
+                                <img src="{{Storage::disk('admin')->url($setting->img_lvkd3)}}" alt="">
                             </div>
 
                             <div class="img-sustainable picture-4">
-                                <img src="http://storage.ssc.com.vn/Data/2021/01/11/img-sustainable-4-637459576956413385.png" alt="">
+                                <img src="{{Storage::disk('admin')->url($setting->img_lvkd4)}}" alt="">
                             </div>
 
                         </div>
                         <div class="list-content-sustainable">
 
                             <div class="item-txt-sustainable item-ct-1">
-                                <p class="number-ct">Top 5</p>
-                                <div class="txt-nd"><p>Công ty hàng đầu cung ứng hạt giống lúa, bắp, rau và hoa tại Việt Nam</p>
-
-                                    <p><meta charset="utf-8" /></p>
-                                </div>
+                                <img src="{{Storage::disk('admin')->url($setting->img_lvkd_cd1)}}" alt="">
                             </div>
 
                             <div class="item-txt-sustainable item-ct-2">
-                                <p class="number-ct">14000</p>
-                                <div class="txt-nd"><p><meta charset="utf-8" />tấn hạt giống cung ứng mỗi năm</p>
-                                </div>
+                                <img src="{{Storage::disk('admin')->url($setting->img_lvkd_cd2)}}" alt="">
                             </div>
 
                             <div class="item-txt-sustainable item-ct-3">
-                                <p class="number-ct">23%</p>
-                                <div class="txt-nd"><p>mục tiêu thị phần trong vùng rau màu phía Nam</p>
-
-                                    <p><meta charset="utf-8" /></p>
-                                </div>
+                                <img src="{{Storage::disk('admin')->url($setting->img_lvkd_cd3)}}" alt="">
                             </div>
 
                         </div>
@@ -325,1065 +273,531 @@
                     </div>
                     <div class="block-title-page">
                         <div class="title--line-page">
-                            <div class="line"></div>
-                            <h2 class="txt-name-block">Sứ mệnh, tầm nhìn, giá trị cốt lõi, triết lý kinh doanh</h2>
+                            <h2 class="txt-name-block">{{__('lang.linhvuc')}}</h2>
                         </div>
-                        <div class="txt-nd-block"><p><span style="color:#27ae60;"><strong>SỨ MỆNH</strong></span>: Chọn tạo, sản xuất, cung ứng hạt giống tốt nhất, cùng nông dân làm giàu.</p>
-
-                            <p><strong><span style="color:#27ae60;">TẦM NHÌN</span>:</strong> Trở thành công ty giống hàng đầu cung cấp các loại hạt giống lúa, bắp, rau và hoa chất lượng cao nhằm tham gia chuỗi cung ứng, góp phần nâng cao giá trị nông sản và phát triển bền vững cho nông dân Việt Nam</p>
-
-                            <p><span style="color:#27ae60;"><strong>GIÁ TRỊ CỐT LÕI</strong></span>: Trách nhiệm – Chủ động – Sáng tạo – Đam mê – Hiệu quả</p>
+                        <div class="txt-nd-block">
+                           {!! $setting["linhvuc".$end] !!}
                         </div>
-                        <a href="/vi/gioi-thieu/gioi-thieu-chung/tam-nhin-su-menh/" class="learn-more">Xem thêm</a>
                     </div>
                 </div>
 
-            </div>
-            <div class="texture-block-sustainable">
-                <img src="assets/home/img-fix/texture-sustainable.png" alt="">
             </div>
         </div>
-
-        <!-- END SECTION Sustainable Development -->
-
-        <!-- SECTION Research & Development  -->
-
-        <div class="wp-research-development" id="research">
-            <div class="container">
-                <div class="layout-wp-research-development">
-                    <div class="wp-research-development--left">
-                        <div class="block-title-page">
-                            <div class="title--line-page">
-                                <div class="line"></div>
-                                <h2 class="txt-name-block">Nghiên cứu & Phát triển</h2>
-                            </div>
-                        </div>
-
-                        <div class="block-slide-research-development">
-                            <div class="swiper-container" id="slide-research-development">
-                                <div class="swiper-wrapper">
-
-                                    <div class="swiper-slide">
-                                        <div class="layout-item-slide">
-                                            <div class="content-item-slide">
-                                                <h3 class="name-title-item-slide">Ứng dụng các kỹ thuật nghiên cứu lai tạo tiên tiến nhất trên thế giới</h3>
-                                                <div class="txt-nd-item-slide">
-                                                    <p>Trung tâm nghiên cứu trực thuộc Tập đoàn triển khai ứng dụng công nghệ tiên tiến của thế giới như: Nuôi cấy bao phấn, nuôi cấy noãn để tạo dòng thuần, kỹ thuật xử lý đa bội, kỹ thuật chuyển gen kháng bệnh trên cây trồng, marker phân tử để đánh giá các tính trạng, kỹ thuật thanh lọc bệnh để chọn tạo giống kháng bệnh thích ứng với biến đổi khí hậu.</p>
-
-                                                </div>
-
-
-                                            </div>
-                                            <!-- Picture màn 991 trở xuống -->
-                                            <div class="item-picture-wp">
-                                                <div class="picture-item">
-                                                    <img src="assets/home/img-fix/Research-Development-1.png" alt="">
-                                                </div>
-                                                <div class="texture-animation">
-                                                    <div class="img-texture-amimation">
-                                                        <img src="assets/home/img-fix/item-development-1.png" alt="">
-                                                    </div>
-                                                    <div class="block-circle-animation-1">
-                                                        <div class="circle-animation-1">
-                                                            <span class="circle-style circle-chil-1"></span>
-                                                            <span class="circle-style circle-chil-2"></span>
-                                                            <span class="circle-style circle-chil-3"></span>
-                                                            <span class="circle-style circle-chil-4"></span>
-                                                        </div>
-                                                        <div class="circle-animation-2">
-                                                            <span class="circle-style circle-chil-1"></span>
-                                                            <span class="circle-style circle-chil-2"></span>
-                                                            <span class="circle-style circle-chil-3"></span>
-                                                            <span class="circle-style circle-chil-4"></span>
-                                                        </div>
-                                                        <div class="circle-animation-3">
-                                                            <span class="circle-style circle-chil-1"></span>
-                                                            <span class="circle-style circle-chil-2"></span>
-                                                            <span class="circle-style circle-chil-3"></span>
-                                                            <span class="circle-style circle-chil-4"></span>
-                                                        </div>
-                                                        <div class="circle-animation-4">
-                                                            <span class="circle-style circle-chil-1"></span>
-                                                            <span class="circle-style circle-chil-2"></span>
-                                                            <span class="circle-style circle-chil-3"></span>
-                                                            <span class="circle-style circle-chil-4"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="swiper-slide">
-                                        <div class="layout-item-slide">
-                                            <div class="content-item-slide">
-                                                <h3 class="name-title-item-slide">Phóng thích nhanh các sản phẩm mang mang hàm lượng kỹ thuật cao</h3>
-                                                <div class="txt-nd-item-slide">
-                                                    <p>Từ ứng dụng các kỹ thuật tiên tiến trong nghiên cứu, SSC đã tạo ra được những bộ sản phẩm mang hàm lượng công nghệ cao thuộc tầm tiên tiến trên thế giới, những sản phẩm có giá trị cao trong đó làm chủ công nghệ mà trước nay một số chủng loại Việt Nam hoàn toàn nhập khẩu từ nước ngoài như dưa hấu không hạt, dưa leo trinh sinh...</p>
-
-                                                </div>
-
-
-                                            </div>
-                                            <!-- Picture màn 991 trở xuống -->
-                                            <div class="item-picture-wp">
-                                                <div class="picture-item">
-                                                    <img src="assets/home/img-fix/Research-Development-1.png" alt="">
-                                                </div>
-                                                <div class="texture-animation">
-                                                    <div class="img-texture-amimation">
-                                                        <img src="assets/home/img-fix/item-development-1.png" alt="">
-                                                    </div>
-                                                    <div class="block-circle-animation-1">
-                                                        <div class="circle-animation-1">
-                                                            <span class="circle-style circle-chil-1"></span>
-                                                            <span class="circle-style circle-chil-2"></span>
-                                                            <span class="circle-style circle-chil-3"></span>
-                                                            <span class="circle-style circle-chil-4"></span>
-                                                        </div>
-                                                        <div class="circle-animation-2">
-                                                            <span class="circle-style circle-chil-1"></span>
-                                                            <span class="circle-style circle-chil-2"></span>
-                                                            <span class="circle-style circle-chil-3"></span>
-                                                            <span class="circle-style circle-chil-4"></span>
-                                                        </div>
-                                                        <div class="circle-animation-3">
-                                                            <span class="circle-style circle-chil-1"></span>
-                                                            <span class="circle-style circle-chil-2"></span>
-                                                            <span class="circle-style circle-chil-3"></span>
-                                                            <span class="circle-style circle-chil-4"></span>
-                                                        </div>
-                                                        <div class="circle-animation-4">
-                                                            <span class="circle-style circle-chil-1"></span>
-                                                            <span class="circle-style circle-chil-2"></span>
-                                                            <span class="circle-style circle-chil-3"></span>
-                                                            <span class="circle-style circle-chil-4"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="swiper-slide">
-                                        <div class="layout-item-slide">
-                                            <div class="content-item-slide">
-                                                <h3 class="name-title-item-slide">Chuyển giao các sản phẩm công nghệ, sản phẩm thích ứng biến đổi khí hậu đến nông dân</h3>
-                                                <div class="txt-nd-item-slide">
-                                                    <p>Mục tiêu của SSC là phát triểm sản phẩm mang dấu ấn khoa học công nghệ, chiếm ít nhất trên 80% sản phẩm mang hàm lượng khoa học công nghệ, các sản phẩm của SSC có mức độ thích ứng rộng, hợp thị hiếu tiêu dùng, góp phần cải thiện năng suất và nâng cao thu nhập cho nông dân và hướng đến xuất khẩu ra thế giới.</p>
-
-                                                    <div id="gtx-trans">
-                                                        <div>&nbsp;</div>
-                                                    </div>
-
-                                                </div>
-
-
-                                            </div>
-                                            <!-- Picture màn 991 trở xuống -->
-                                            <div class="item-picture-wp">
-                                                <div class="picture-item">
-                                                    <img src="assets/home/img-fix/Research-Development-1.png" alt="">
-                                                </div>
-                                                <div class="texture-animation">
-                                                    <div class="img-texture-amimation">
-                                                        <img src="assets/home/img-fix/item-development-1.png" alt="">
-                                                    </div>
-                                                    <div class="block-circle-animation-1">
-                                                        <div class="circle-animation-1">
-                                                            <span class="circle-style circle-chil-1"></span>
-                                                            <span class="circle-style circle-chil-2"></span>
-                                                            <span class="circle-style circle-chil-3"></span>
-                                                            <span class="circle-style circle-chil-4"></span>
-                                                        </div>
-                                                        <div class="circle-animation-2">
-                                                            <span class="circle-style circle-chil-1"></span>
-                                                            <span class="circle-style circle-chil-2"></span>
-                                                            <span class="circle-style circle-chil-3"></span>
-                                                            <span class="circle-style circle-chil-4"></span>
-                                                        </div>
-                                                        <div class="circle-animation-3">
-                                                            <span class="circle-style circle-chil-1"></span>
-                                                            <span class="circle-style circle-chil-2"></span>
-                                                            <span class="circle-style circle-chil-3"></span>
-                                                            <span class="circle-style circle-chil-4"></span>
-                                                        </div>
-                                                        <div class="circle-animation-4">
-                                                            <span class="circle-style circle-chil-1"></span>
-                                                            <span class="circle-style circle-chil-2"></span>
-                                                            <span class="circle-style circle-chil-3"></span>
-                                                            <span class="circle-style circle-chil-4"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="swiper-pagination pagination-rd" id="pagination-research-development">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="wp-research-development--right">
-
-                        <div class="item-picture-wp">
-                            <div class="picture-item">
-                                <img src="http://storage.ssc.com.vn/Data/2021/01/11/research-development-1-637459553700480287.png?w=400&h=0&mode=crop" alt="">
-                            </div>
-                            <div class="texture-animation">
-                                <div class="img-texture-amimation">
-                                    <img src="http://storage.ssc.com.vn/Data/2021/01/11/item-development-1-637459553700480287.png?w=100&h=0&mode=crop" alt="">
-                                </div>
-                                <div class="block-circle-animation-1">
-                                    <div class="circle-animation-1">
-                                        <span class="circle-style circle-chil-1"></span>
-                                        <span class="circle-style circle-chil-2"></span>
-                                        <span class="circle-style circle-chil-3"></span>
-                                        <span class="circle-style circle-chil-4"></span>
-                                    </div>
-                                    <div class="circle-animation-2">
-                                        <span class="circle-style circle-chil-1"></span>
-                                        <span class="circle-style circle-chil-2"></span>
-                                        <span class="circle-style circle-chil-3"></span>
-                                        <span class="circle-style circle-chil-4"></span>
-                                    </div>
-                                    <div class="circle-animation-3">
-                                        <span class="circle-style circle-chil-1"></span>
-                                        <span class="circle-style circle-chil-2"></span>
-                                        <span class="circle-style circle-chil-3"></span>
-                                        <span class="circle-style circle-chil-4"></span>
-                                    </div>
-                                    <div class="circle-animation-4">
-                                        <span class="circle-style circle-chil-1"></span>
-                                        <span class="circle-style circle-chil-2"></span>
-                                        <span class="circle-style circle-chil-3"></span>
-                                        <span class="circle-style circle-chil-4"></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="item-picture-wp">
-                            <div class="picture-item">
-                                <img src="http://storage.ssc.com.vn/Data/2021/01/11/research-development-2-637459553700480287.png?w=400&h=0&mode=crop" alt="">
-                            </div>
-                            <div class="texture-animation">
-                                <div class="img-texture-amimation">
-                                    <img src="http://storage.ssc.com.vn/Data/2021/01/11/item-development-2-637459553700480287.png?w=100&h=0&mode=crop" alt="">
-                                </div>
-                                <div class="block-circle-animation-1">
-                                    <div class="circle-animation-1">
-                                        <span class="circle-style circle-chil-1"></span>
-                                        <span class="circle-style circle-chil-2"></span>
-                                        <span class="circle-style circle-chil-3"></span>
-                                        <span class="circle-style circle-chil-4"></span>
-                                    </div>
-                                    <div class="circle-animation-2">
-                                        <span class="circle-style circle-chil-1"></span>
-                                        <span class="circle-style circle-chil-2"></span>
-                                        <span class="circle-style circle-chil-3"></span>
-                                        <span class="circle-style circle-chil-4"></span>
-                                    </div>
-                                    <div class="circle-animation-3">
-                                        <span class="circle-style circle-chil-1"></span>
-                                        <span class="circle-style circle-chil-2"></span>
-                                        <span class="circle-style circle-chil-3"></span>
-                                        <span class="circle-style circle-chil-4"></span>
-                                    </div>
-                                    <div class="circle-animation-4">
-                                        <span class="circle-style circle-chil-1"></span>
-                                        <span class="circle-style circle-chil-2"></span>
-                                        <span class="circle-style circle-chil-3"></span>
-                                        <span class="circle-style circle-chil-4"></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="item-picture-wp">
-                            <div class="picture-item">
-                                <img src="http://storage.ssc.com.vn/Data/2021/01/11/research-development-3-637459553700480287.png?w=400&h=0&mode=crop" alt="">
-                            </div>
-                            <div class="texture-animation">
-                                <div class="img-texture-amimation">
-                                    <img src="http://storage.ssc.com.vn/Data/2021/01/11/item-development-3-637459553700480287.png?w=100&h=0&mode=crop" alt="">
-                                </div>
-                                <div class="block-circle-animation-1">
-                                    <div class="circle-animation-1">
-                                        <span class="circle-style circle-chil-1"></span>
-                                        <span class="circle-style circle-chil-2"></span>
-                                        <span class="circle-style circle-chil-3"></span>
-                                        <span class="circle-style circle-chil-4"></span>
-                                    </div>
-                                    <div class="circle-animation-2">
-                                        <span class="circle-style circle-chil-1"></span>
-                                        <span class="circle-style circle-chil-2"></span>
-                                        <span class="circle-style circle-chil-3"></span>
-                                        <span class="circle-style circle-chil-4"></span>
-                                    </div>
-                                    <div class="circle-animation-3">
-                                        <span class="circle-style circle-chil-1"></span>
-                                        <span class="circle-style circle-chil-2"></span>
-                                        <span class="circle-style circle-chil-3"></span>
-                                        <span class="circle-style circle-chil-4"></span>
-                                    </div>
-                                    <div class="circle-animation-4">
-                                        <span class="circle-style circle-chil-1"></span>
-                                        <span class="circle-style circle-chil-2"></span>
-                                        <span class="circle-style circle-chil-3"></span>
-                                        <span class="circle-style circle-chil-4"></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
+    </div>
+    <section class="seed-quality">
+        <div class="container">
+            <div class="seed-grid">
+                <!-- Image -->
+                <div class="seed-image">
+                    <img src="{{Storage::disk('admin')->url($setting->image_tag)}}" alt="{{__('lang.hgclc')}}">
                 </div>
 
-            </div>
-            <div class="texture-left-wp">
-                <img src="assets/home/img-fix/texture-circle-left.png" alt="">
-            </div>
-            <div class="texture-center-wp">
-                <img src="assets/home/img-fix/texture-circle-center.png" alt="">
-            </div>
-            <div class="texture-right-wp">
-                <img src="assets/home/img-fix/texture-circle-right.png" alt="">
-            </div>
-        </div>
-
-        <!-- END SECTION Research & Development  -->
-
-        <!-- SECTION Our Solutions & Products -->
-
-        <div class="wp-our-solution-products" id="products">
-            <div class="title-solution-products">
-                <div class="container">
-                    <div class="block-title-page">
-                        <div class="title--line-page">
-                            <div class="line"></div>
-                            <h2 class="txt-name-block">Sản phẩm</h2>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="block-tab-solution-products">
-                <div class="container">
-                    <div class="tab-menu-products">
-                        <a href="javascript:;" class="item-menu-products" data-id="slider-products0">Tất cả</a>
-
-                        <a href="javascript:void(0)" data-url='/vi/linh-vuc-kinh-doanh/hat-giong-cay-trong/' class="item-menu-products" data-id="slider-products119">Hạt giống cây trồng</a>
-
-                        <a href="javascript:void(0)" data-url='/vi/linh-vuc-kinh-doanh/vat-tu-dich-vu-nong-nghiep/' class="item-menu-products" data-id="slider-products121">Vật tư nông nghiệp</a>
-
-                        <a href="javascript:void(0)" data-url='http://vinarice.vn/' class="item-menu-products" data-id="slider-products119">Nông sản & Dịch vụ</a>
-
-                    </div>
-                </div>
-            </div>
-            <div class="block-content-solution-products">
-                <div class="container">
-                    <div class="swiper-container layout-solutions-procuts product-slides" id="slider-products0">
-                        <div class="swiper-wrapper">
-
-                            <div class="swiper-slide item-solutions-procuts">
-                                <div>
-                                    <div class="picture-item">
-                                        <a href="/vi/linh-vuc-kinh-doanh/hat-giong-cay-trong/" >
-                                            <img src="http://storage.ssc.com.vn/Data/2021/08/30/hat-giong-cay-trong-637659348717814267.jpg?w=500&h=0&mode=crop" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="content-item-solutions-procuts">
-                                        <h3><a href="/vi/linh-vuc-kinh-doanh/hat-giong-cay-trong/" >Hạt giống cây trồng</a></h3>
-                                        <p><p>SSC cung cấp nhiều loại hạt giống rau, màu và hoa đáp ứng thị trường nhiều phân trong nước và khu vực&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
-                                        </p>
-                                        <div class="texture-animation">
-                                            <div class="texture-animation-inner">
-                                                <div class="img-texture-amimation">
-                                                    <img src="http://storage.ssc.com.vn/Data/2021/01/13/item-products-1-637461661795614711.png?w=68&h=0&mode=crop" alt="">
-                                                </div>
-                                                <div class="block-circle-animation-1">
-                                                    <div class="circle-animation-1">
-                                                        <span class="circle-style circle-chil-1"></span>
-                                                        <span class="circle-style circle-chil-2"></span>
-                                                        <span class="circle-style circle-chil-3"></span>
-                                                        <span class="circle-style circle-chil-4"></span>
-                                                    </div>
-                                                    <div class="circle-animation-2">
-                                                        <span class="circle-style circle-chil-1"></span>
-                                                        <span class="circle-style circle-chil-2"></span>
-                                                        <span class="circle-style circle-chil-3"></span>
-                                                        <span class="circle-style circle-chil-4"></span>
-                                                    </div>
-                                                    <div class="circle-animation-3">
-                                                        <span class="circle-style circle-chil-1"></span>
-                                                        <span class="circle-style circle-chil-2"></span>
-                                                        <span class="circle-style circle-chil-3"></span>
-                                                        <span class="circle-style circle-chil-4"></span>
-                                                    </div>
-                                                    <div class="circle-animation-4">
-                                                        <span class="circle-style circle-chil-1"></span>
-                                                        <span class="circle-style circle-chil-2"></span>
-                                                        <span class="circle-style circle-chil-3"></span>
-                                                        <span class="circle-style circle-chil-4"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide item-solutions-procuts">
-                                <div>
-                                    <div class="picture-item">
-                                        <a href="/vi/linh-vuc-kinh-doanh/vat-tu-dich-vu-nong-nghiep/" >
-                                            <img src="http://storage.ssc.com.vn/Data/2021/10/11/vat-tu-nong-nghiep-637695625040950898.jpg?w=500&h=0&mode=crop" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="content-item-solutions-procuts">
-                                        <h3><a href="/vi/linh-vuc-kinh-doanh/vat-tu-dich-vu-nong-nghiep/" >Vật tư nông nghiệp</a></h3>
-                                        <p><p>SSC cung ứng phân bón, thuốc bảo vệ thực vật giúp bảo vệ và tăng năng suất mà vẫn góp phần gia tăng giá trị nông sản&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
-                                        </p>
-                                        <div class="texture-animation">
-                                            <div class="texture-animation-inner">
-                                                <div class="img-texture-amimation">
-                                                    <img src="http://storage.ssc.com.vn/Data/2021/01/13/item-products-2-637461661795614711.png?w=68&h=0&mode=crop" alt="">
-                                                </div>
-                                                <div class="block-circle-animation-2">
-                                                    <div class="circle-animation-1">
-                                                        <span class="circle-style circle-chil-1"></span>
-                                                        <span class="circle-style circle-chil-2"></span>
-                                                        <span class="circle-style circle-chil-3"></span>
-                                                        <span class="circle-style circle-chil-4"></span>
-                                                    </div>
-                                                    <div class="circle-animation-2">
-                                                        <span class="circle-style circle-chil-1"></span>
-                                                        <span class="circle-style circle-chil-2"></span>
-                                                        <span class="circle-style circle-chil-3"></span>
-                                                        <span class="circle-style circle-chil-4"></span>
-                                                    </div>
-                                                    <div class="circle-animation-3">
-                                                        <span class="circle-style circle-chil-1"></span>
-                                                        <span class="circle-style circle-chil-2"></span>
-                                                        <span class="circle-style circle-chil-3"></span>
-                                                        <span class="circle-style circle-chil-4"></span>
-                                                    </div>
-                                                    <div class="circle-animation-4">
-                                                        <span class="circle-style circle-chil-1"></span>
-                                                        <span class="circle-style circle-chil-2"></span>
-                                                        <span class="circle-style circle-chil-3"></span>
-                                                        <span class="circle-style circle-chil-4"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide item-solutions-procuts">
-                                <div>
-                                    <div class="picture-item">
-                                        <a href="http://vinarice.vn/" target="_blank">
-                                            <img src="http://storage.ssc.com.vn/Data/2021/08/30/nong-san-va-dich-vu-home-637659339256384142.jpg?w=500&h=0&mode=crop" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="content-item-solutions-procuts">
-                                        <h3><a href="http://vinarice.vn/" target="_blank">Nông sản & Dịch vụ</a></h3>
-                                        <p><p>Cùng với tập đoàn cung cấp các mặt hàng nông sản tươi sạch theo chuỗi cung ứng khép kín và gói giải pháp kỹ thuật nâng cao chất lượng nông sản.</p>
-                                        </p>
-                                        <div class="texture-animation">
-                                            <div class="texture-animation-inner">
-                                                <div class="img-texture-amimation">
-                                                    <img src="http://storage.ssc.com.vn/Data/2021/01/13/item-products-3-637461661795614711.png?w=68&h=0&mode=crop" alt="">
-                                                </div>
-                                                <div class="block-circle-animation-3">
-                                                    <div class="circle-animation-1">
-                                                        <span class="circle-style circle-chil-1"></span>
-                                                        <span class="circle-style circle-chil-2"></span>
-                                                        <span class="circle-style circle-chil-3"></span>
-                                                        <span class="circle-style circle-chil-4"></span>
-                                                    </div>
-                                                    <div class="circle-animation-2">
-                                                        <span class="circle-style circle-chil-1"></span>
-                                                        <span class="circle-style circle-chil-2"></span>
-                                                        <span class="circle-style circle-chil-3"></span>
-                                                        <span class="circle-style circle-chil-4"></span>
-                                                    </div>
-                                                    <div class="circle-animation-3">
-                                                        <span class="circle-style circle-chil-1"></span>
-                                                        <span class="circle-style circle-chil-2"></span>
-                                                        <span class="circle-style circle-chil-3"></span>
-                                                        <span class="circle-style circle-chil-4"></span>
-                                                    </div>
-                                                    <div class="circle-animation-4">
-                                                        <span class="circle-style circle-chil-1"></span>
-                                                        <span class="circle-style circle-chil-2"></span>
-                                                        <span class="circle-style circle-chil-3"></span>
-                                                        <span class="circle-style circle-chil-4"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="swiper-btn-arrow swiper-btn-left prev-zone-btn" id="btn-slide-product-left0" data-slide="slider-products0">
-                <span class="btn-arrow">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12.075" height="18.709" viewBox="0 0 12.075 18.709">
-                        <path id="angle-left" d="M11.664,10.348,3.715,18.3a1.4,1.4,0,0,1-1.981,0L.412,16.976a1.4,1.4,0,0,1,0-1.981L6.047,9.36.412,3.726a1.4,1.4,0,0,1,0-1.981L1.727.412a1.4,1.4,0,0,1,1.981,0l7.949,7.949A1.4,1.4,0,0,1,11.664,10.348Z" transform="translate(12.075 18.709) rotate(180)" fill="#124b06" opacity="0.998" />
-                    </svg>
-                </span>
-                    </div>
-                    <div class="swiper-btn-arrow swiper-btn-right next-zone-btn" id="btn-slide-product-right0" data-slide="slider-products0">
-                <span class="btn-arrow">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12.075" height="18.709" viewBox="0 0 12.075 18.709">
-                        <path id="angle-right" d="M36.414,106.3l-7.949,7.949a1.4,1.4,0,0,1-1.981,0l-1.321-1.321a1.4,1.4,0,0,1,0-1.981L30.8,105.31l-5.635-5.634a1.4,1.4,0,0,1,0-1.981l1.315-1.333a1.4,1.4,0,0,1,1.981,0l7.949,7.949A1.4,1.4,0,0,1,36.414,106.3Z" transform="translate(-24.75 -95.95)" fill="#124b06" opacity="0.998" />
-                    </svg>
-
-                </span>
-                    </div>
-
-                    <div class="swiper-container layout-solutions-procuts product-slides" id="slider-products119">
-                        <div class="swiper-wrapper">
-
-                            <div class="swiper-slide item-solutions-procuts">
-                                <div>
-                                    <div class="picture-item">
-                                        <a href="/vi/product-list/m7/131/">
-                                            <img src="http://storage.ssc.com.vn/Data/2021/10/11/lua-banner-637695630163016275.jpg?w=500&h=390&mode=crop" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="content-item-solutions-procuts">
-                                        <h3><a href="/vi/product-list/m7/131/">Giống lúa</a></h3>
-                                        <p></p>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide item-solutions-procuts">
-                                <div>
-                                    <div class="picture-item">
-                                        <a href="/vi/product-list/m7/132/">
-                                            <img src="http://storage.ssc.com.vn/Data/2021/10/11/ngo-banner-637695619538580449.jpg?w=500&h=390&mode=crop" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="content-item-solutions-procuts">
-                                        <h3><a href="/vi/product-list/m7/132/">Giống bắp</a></h3>
-                                        <p></p>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide item-solutions-procuts">
-                                <div>
-                                    <div class="picture-item">
-                                        <a href="/vi/product-list/m7/120/">
-                                            <img src="http://storage.ssc.com.vn/Data/2021/09/17/giong-rau-637674965817642992.jpg?w=500&h=390&mode=crop" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="content-item-solutions-procuts">
-                                        <h3><a href="/vi/product-list/m7/120/">Giống rau</a></h3>
-                                        <p></p>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide item-solutions-procuts">
-                                <div>
-                                    <div class="picture-item">
-                                        <a href="/vi/product-list/m7/216/">
-                                            <img src="http://storage.ssc.com.vn/Data/2022/03/15/hoa-cuc-van-tho-menu-637829525631646418.jpg?w=500&h=390&mode=crop" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="content-item-solutions-procuts">
-                                        <h3><a href="/vi/product-list/m7/216/">Giống hoa</a></h3>
-                                        <p></p>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide item-solutions-procuts">
-                                <div>
-                                    <div class="picture-item">
-                                        <a href="/vi/product-list/m7/224/">
-                                            <img src="http://storage.ssc.com.vn/Data/2022/03/15/dau-xanh-208-menu-637829521536774332.jpg?w=500&h=390&mode=crop" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="content-item-solutions-procuts">
-                                        <h3><a href="/vi/product-list/m7/224/">Giống đậu</a></h3>
-                                        <p></p>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="swiper-btn-arrow swiper-btn-left prev-zone-btn" id="btn-slide-product-left119" data-slide="slider-products119">
-                        <span class="btn-arrow">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="12.075" height="18.709" viewBox="0 0 12.075 18.709">
-                                <path id="angle-left" d="M11.664,10.348,3.715,18.3a1.4,1.4,0,0,1-1.981,0L.412,16.976a1.4,1.4,0,0,1,0-1.981L6.047,9.36.412,3.726a1.4,1.4,0,0,1,0-1.981L1.727.412a1.4,1.4,0,0,1,1.981,0l7.949,7.949A1.4,1.4,0,0,1,11.664,10.348Z" transform="translate(12.075 18.709) rotate(180)" fill="#124b06" opacity="0.998" />
-                            </svg>
-                        </span>
-                    </div>
-                    <div class="swiper-btn-arrow swiper-btn-right next-zone-btn" id="btn-slide-product-right119" data-slide="slider-products119">
-                        <span class="btn-arrow">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="12.075" height="18.709" viewBox="0 0 12.075 18.709">
-                                <path id="angle-right" d="M36.414,106.3l-7.949,7.949a1.4,1.4,0,0,1-1.981,0l-1.321-1.321a1.4,1.4,0,0,1,0-1.981L30.8,105.31l-5.635-5.634a1.4,1.4,0,0,1,0-1.981l1.315-1.333a1.4,1.4,0,0,1,1.981,0l7.949,7.949A1.4,1.4,0,0,1,36.414,106.3Z" transform="translate(-24.75 -95.95)" fill="#124b06" opacity="0.998" />
-                            </svg>
-
-                        </span>
-                    </div>
-
-                    <div class="swiper-container layout-solutions-procuts product-slides" id="slider-products121">
-                        <div class="swiper-wrapper">
-
-                            <div class="swiper-slide item-solutions-procuts">
-                                <div>
-                                    <div class="picture-item">
-                                        <a href="/vi/product-list/m7/130/">
-                                            <img src="http://storage.ssc.com.vn/Data/2021/10/08/thuoc-bao-ve-thuc-vat-637693002937001595.jpg?w=500&h=390&mode=crop" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="content-item-solutions-procuts">
-                                        <h3><a href="/vi/product-list/m7/130/">Thuốc bảo vệ thực vật</a></h3>
-                                        <p></p>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide item-solutions-procuts">
-                                <div>
-                                    <div class="picture-item">
-                                        <a href="/vi/product-list/m7/138/">
-                                            <img src="http://storage.ssc.com.vn/Data/2021/10/08/phan-bon-banner-637693001222956951.jpg?w=500&h=390&mode=crop" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="content-item-solutions-procuts">
-                                        <h3><a href="/vi/product-list/m7/138/">Phân bón</a></h3>
-                                        <p></p>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="swiper-btn-arrow swiper-btn-left prev-zone-btn" id="btn-slide-product-left121" data-slide="slider-products121">
-                        <span class="btn-arrow">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="12.075" height="18.709" viewBox="0 0 12.075 18.709">
-                                <path id="angle-left" d="M11.664,10.348,3.715,18.3a1.4,1.4,0,0,1-1.981,0L.412,16.976a1.4,1.4,0,0,1,0-1.981L6.047,9.36.412,3.726a1.4,1.4,0,0,1,0-1.981L1.727.412a1.4,1.4,0,0,1,1.981,0l7.949,7.949A1.4,1.4,0,0,1,11.664,10.348Z" transform="translate(12.075 18.709) rotate(180)" fill="#124b06" opacity="0.998" />
-                            </svg>
-                        </span>
-                    </div>
-                    <div class="swiper-btn-arrow swiper-btn-right next-zone-btn" id="btn-slide-product-right121" data-slide="slider-products121">
-                        <span class="btn-arrow">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="12.075" height="18.709" viewBox="0 0 12.075 18.709">
-                                <path id="angle-right" d="M36.414,106.3l-7.949,7.949a1.4,1.4,0,0,1-1.981,0l-1.321-1.321a1.4,1.4,0,0,1,0-1.981L30.8,105.31l-5.635-5.634a1.4,1.4,0,0,1,0-1.981l1.315-1.333a1.4,1.4,0,0,1,1.981,0l7.949,7.949A1.4,1.4,0,0,1,36.414,106.3Z" transform="translate(-24.75 -95.95)" fill="#124b06" opacity="0.998" />
-                            </svg>
-
-                        </span>
-                    </div>
-
-                    <div class="swiper-container layout-solutions-procuts product-slides" id="slider-products119">
-                        <div class="swiper-wrapper">
-
-                            <div class="swiper-slide item-solutions-procuts">
-                                <div>
-                                    <div class="picture-item">
-                                        <a href="/vi/product-list/m7/131/">
-                                            <img src="http://storage.ssc.com.vn/Data/2021/10/11/lua-banner-637695630163016275.jpg?w=500&h=390&mode=crop" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="content-item-solutions-procuts">
-                                        <h3><a href="/vi/product-list/m7/131/">Giống lúa</a></h3>
-                                        <p></p>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide item-solutions-procuts">
-                                <div>
-                                    <div class="picture-item">
-                                        <a href="/vi/product-list/m7/132/">
-                                            <img src="http://storage.ssc.com.vn/Data/2021/10/11/ngo-banner-637695619538580449.jpg?w=500&h=390&mode=crop" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="content-item-solutions-procuts">
-                                        <h3><a href="/vi/product-list/m7/132/">Giống bắp</a></h3>
-                                        <p></p>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide item-solutions-procuts">
-                                <div>
-                                    <div class="picture-item">
-                                        <a href="/vi/product-list/m7/120/">
-                                            <img src="http://storage.ssc.com.vn/Data/2021/09/17/giong-rau-637674965817642992.jpg?w=500&h=390&mode=crop" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="content-item-solutions-procuts">
-                                        <h3><a href="/vi/product-list/m7/120/">Giống rau</a></h3>
-                                        <p></p>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide item-solutions-procuts">
-                                <div>
-                                    <div class="picture-item">
-                                        <a href="/vi/product-list/m7/216/">
-                                            <img src="http://storage.ssc.com.vn/Data/2022/03/15/hoa-cuc-van-tho-menu-637829525631646418.jpg?w=500&h=390&mode=crop" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="content-item-solutions-procuts">
-                                        <h3><a href="/vi/product-list/m7/216/">Giống hoa</a></h3>
-                                        <p></p>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide item-solutions-procuts">
-                                <div>
-                                    <div class="picture-item">
-                                        <a href="/vi/product-list/m7/224/">
-                                            <img src="http://storage.ssc.com.vn/Data/2022/03/15/dau-xanh-208-menu-637829521536774332.jpg?w=500&h=390&mode=crop" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="content-item-solutions-procuts">
-                                        <h3><a href="/vi/product-list/m7/224/">Giống đậu</a></h3>
-                                        <p></p>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="swiper-btn-arrow swiper-btn-left prev-zone-btn" id="btn-slide-product-left119" data-slide="slider-products119">
-                        <span class="btn-arrow">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="12.075" height="18.709" viewBox="0 0 12.075 18.709">
-                                <path id="angle-left" d="M11.664,10.348,3.715,18.3a1.4,1.4,0,0,1-1.981,0L.412,16.976a1.4,1.4,0,0,1,0-1.981L6.047,9.36.412,3.726a1.4,1.4,0,0,1,0-1.981L1.727.412a1.4,1.4,0,0,1,1.981,0l7.949,7.949A1.4,1.4,0,0,1,11.664,10.348Z" transform="translate(12.075 18.709) rotate(180)" fill="#124b06" opacity="0.998" />
-                            </svg>
-                        </span>
-                    </div>
-                    <div class="swiper-btn-arrow swiper-btn-right next-zone-btn" id="btn-slide-product-right119" data-slide="slider-products119">
-                        <span class="btn-arrow">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="12.075" height="18.709" viewBox="0 0 12.075 18.709">
-                                <path id="angle-right" d="M36.414,106.3l-7.949,7.949a1.4,1.4,0,0,1-1.981,0l-1.321-1.321a1.4,1.4,0,0,1,0-1.981L30.8,105.31l-5.635-5.634a1.4,1.4,0,0,1,0-1.981l1.315-1.333a1.4,1.4,0,0,1,1.981,0l7.949,7.949A1.4,1.4,0,0,1,36.414,106.3Z" transform="translate(-24.75 -95.95)" fill="#124b06" opacity="0.998" />
-                            </svg>
-
-                        </span>
-                    </div>
-
+                <!-- Content -->
+                <div class="seed-content">
+                    <h2 class="text-center">{{__('lang.hgclc')}}</h2>
+                    <div>{!! $setting["texttag".$end] !!}</div>
                 </div>
             </div>
         </div>
+    </section>
+    <section class="cta-support">
+        <div class="container">
+            <div class="cta-grid">
+                <!-- Left content -->
+                <div class="cta-left">
+                    <h3>{{__('lang.bctv')}}</h3>
+                    <p>{{__('lang.hlhn')}}</p>
 
-        <!-- END SECTION Our Solutions & Products -->
-
-
-
-        <!-- Section MAP -->
-
-        <div class="wp-map-dl" id="global">
-            <div class="container">
-                <div class="block-title-page">
-                    <div class="title--line-page">
-                        <div class="line"></div>
-                        <h2 class="txt-name-block">Mạng lưới</h2>
+                    <div class="cta-socials">
+                        <a href="{{$setting->facebook}}" target="_blank" class="fb"><i class="fab fa-facebook-f"></i></a>
+                        <a href="{{$setting->youtube}}" target="_blank" class="gp"><i class="fab fa-youtube"></i></a>
+                        <a href="{{$setting->zalo}}" target="_blank" class="social-zalo">Zalo</a>
                     </div>
-                    <p class="txt-nd-block">Mạng lưới sản xuất và kinh doanh của SSC  được bố trí khắp cả nước và một số quốc gia trong khu vực, góp phần đảm bảo nguồn cung ứng hạt giống bền vững,chất lượng đồng thời tiếp cận nhanh đến thị trường trong nước và quốc tế</p>
                 </div>
-            </div>
-            <div class="wp-content-map-dl">
 
-
-                <img src="http://storage.ssc.com.vn/Data/2022/03/28/mappc-ssc-280322-637840851329650520.png" id="map-image" />
-                <img src="http://storage.ssc.com.vn/Data/2022/03/28/mapmoblie-ssc-280322-637840851464806588.png" id="map-image-mobile" />
-
-                <div class="texture-network-left">
-                    <img src="assets/home/img-fix/texture-network-left.png" alt="">
-                </div>
-                <div class="texture-network-right">
-                    <img src="assets/home/img-fix/texture-network-right.png" alt="">
-                </div>
-            </div>
-            <div class="wp-info-map">
-                <div class="container">
-                    <div class="block-statistical-page">
-                        <div class="item-statistical-page">
-                            <h3 class="number-item"><span class="number" id="map-runner1">0</span> Lục địa</h3>
-                            <p class="nd-statistical-item">Các sản phẩm được sử dụng và tin tưởng trên khắp 3 lục địa </p>
-                        </div>
-                        <div class="item-statistical-page">
-                            <h3 class="number-item"><span class="number" id="map-runner2">0</span> Chi nhánh </h3>
-
-                            <p class="nd-statistical-item">Mạng lưới phân phối rộng khắp đã đưa các sản phẩm của SSC đến với thị trường quốc tế </p>
-                        </div>
+                <!-- Right content -->
+                <div class="cta-right row">
+                    <div class="col-6">
+                        <span class="cta-label">{{__('lang.htkh')}}</span>
+                        <a href="tel:{{$setting->phone}}" class="cta-phone">
+                            <i class="fas fa-phone-alt"></i>
+                            {{$setting->phone}}
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <a href="tel:{{$setting->phone}}" class="cta-btn">{{__('lang.callnow')}}</a>
                     </div>
                 </div>
             </div>
         </div>
-        <style>
-            #block-map-svg-container { position: relative; }
-            .map-real-point { position: absolute; width: 1px; height: 1px; background: #ccc; }
-            .jqSimpleConnect { z-index: 1; }
-            /*.info-map-dl { z-index: 10; }*/
-        </style>
-        <script src="assets/js/jqSimpleConnect.min.js"></script>
-        <script src="assets/js/leader-line.min.js"></script>
-        <link href="assets/js/leader-line.css" rel="stylesheet" />
-        <script type="text/javascript">
-            var mapCenters = null;
-            function calculateMap() {
-                var $wrapper = $('#block-map-svg-container svg');
-                var wrapperInfo = $wrapper.offset();
-                //console.log(wrapperTop)
-                var index = 1;
-                $('.info-map-dl').each(function () {
-                    var country = $(this).attr('data-country');
-                    var $elm = $(country);
-                    $elm.attr('fill', '#18A850');
-                    index++;
-                    //Trường hợp có 1 path
-                    if (country.lastIndexOf('#') != -1) {
-                        var elmInfo = $elm.offset();
-                        var top = elmInfo.top - wrapperInfo.top;
-                        var left = elmInfo.left - wrapperInfo.left;
-                        var elmSize = $elm.get(0).getBoundingClientRect();
-                        var w = elmSize.width;
-                        var h = elmSize.height;
-                        $(this).css({
-                            top: (top - 10 + h / 2 - index * 10) + 'px',
-                            left: (left - 10 + w / 2 + (index % 2 == 0 ? -100 : 100)) + 'px'
-                        });
-                        $('<span/>').addClass('map-real-point').attr('id', 'map-real-point' + index).css({
-                            top: (top + h / 2) + 'px',
-                            left: (left + w / 2) + 'px'
-                        }).appendTo('.list-info-map-dl');
-                        $(this).attr('id', 'map-fake-point' + index)
-                    } else {
-                        //Trường hợp có nhiều path
-                        var $maxElm = null;
-                        var maxW = 0;
-                        $(country).each(function () {
-                            var info = $(this).get(0).getBoundingClientRect();
-                            if (info.width > maxW) {
-                                maxW = info.width;
-                                $maxElm = $(this);
-                            }
-                        });
-                        if ($maxElm) {
-                            var elmInfo = $maxElm.offset();
-                            var elmSize = $maxElm.get(0).getBoundingClientRect();
-                            var top = elmInfo.top - wrapperInfo.top;
-                            var left = elmInfo.left - wrapperInfo.left;
-                            var w = elmSize.width;
-                            var h = elmSize.height;
-                            $(this).css({
-                                top: (top - 10 + h / 2) + 'px',
-                                left: (left - 10 + w / 2) + 'px'
-                            });
-                        }
-                    }
-                });
-                //$(".wp-content-map-dl").animate({ scrollLeft: 10000 }, 100);
-                setTimeout(function () {
-                    var index = 1;
-                    $('.info-map-dl').each(function () {
-                        index++;
-                        var line = new LeaderLine(
-                            document.getElementById('map-fake-point' + index),
-                            document.getElementById('map-real-point' + index), { color: '#666', size: 1, path: 'grid' }
-                        );
+    </section>
+    <section>
+        <div class="container my-5">
+            <div class="row">
 
-                        var x = null;
-                        $('.wp-content-map-dl').on('scroll', function () {
-                            if (x) clearTimeout(x);
-                            x = setTimeout(function () {
-                                line.position();
-                            }, 5);
-                        })
-                        //jqSimpleConnect.connect('#map-fake-point' + index, '#map-real-point' + index, {
-                        //    color: '#999',
-                        //    radius: 1,
-                        //    roundedCorners: false,
-                        //    anchorA: 'horizontal',
-                        //    anchorB: 'horizontal'
-                        //});
-                    });
-                }, 1000)
-            }
-            $(function () {
-                if ($('#block-map-svg-container').length > 0) {
-                    mapCenters = JSON.parse('');
-                    calculateMap();
-                    var doit;
-                    window.onresize = function () {
-                        clearTimeout(doit);
-                        doit = setTimeout(calculateMap, 100);
-                    };
+                <!-- LEFT -->
+                <div class="col-md-6">
+                    <h5 class="contact-title">{{__('lang.viewmap')}}</h5>
+
+                    <div class="map-box mb-3">
+                        <!-- Google Map -->
+                        <iframe
+                            src="{{$content->googlemap}}">
+                        </iframe>
+                    </div>
+
+                    <div class="company-name">
+                        {{$setting->name}}
+                    </div>
+
+                    <div class="rating mb-1">
+                        ★★★★★
+                    </div>
+
+                    <div class="text-muted">
+                        <i class="fas fa-map-marker-alt"></i> {{__('lang.address')}}: {{$setting["address".$end]}}
+                    </div>
+                </div>
+
+                <!-- RIGHT -->
+                <div class="col-md-6">
+                    <h5 class="contact-title">{{__('lang.gyccct')}}</h5>
+                    <form class="needs-validation form-contact" novalidate>
+                        <div class="form-group">
+                            <input type="text" class="form-control"
+                                   placeholder="{{__('lang.fullname')}}" required>
+                            <div class="invalid-feedback">
+                                {{__('lang.plsfullname')}}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" class="form-control"
+                                   placeholder="Email" required>
+                            <div class="invalid-feedback">
+                                {{__('lang.emailkhl')}}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="tel" class="form-control"
+                                   placeholder="{{__('lang.sdt')}}" minlength="10" required>
+                            <div class="invalid-feedback">
+                                {{__('lang.plssdt')}}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                    <textarea class="form-control"
+                              rows="4"
+                              placeholder="{{__('lang.inputcontent')}}"
+                              required></textarea>
+                            <div class="invalid-feedback">
+                                {{__('lang.plsinputcontent')}}
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-submit text-white">
+                            {{__('lang.guidi')}}
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        // Function click map
+        $(document).ready(function () {
+            // Slide banner
+            var swiper_banner = new Swiper("#slider-banner-home", {
+                slidesPerView: 1,
+                slidesPerGroup: 1,
+                loop: true,
+                autoHeight: true,
+
+                autoplay: {
+                    delay: 3000,
+                },
+                roundLengths: true,
+                speed: 800,
+                simulateTouch: false,
+                pagination: {
+                    el: "#pagination-banner",
+                    type: "bullets",
+                    clickable: true
                 }
             });
-        </script>
+            // Slide research-development
+            // var menu_pagination = ['01','02','03']
+            var swiper_research_development = new Swiper("#slide-research-development", {
+                slidesPerView: 1,
+                loop: true,
+                keyboard: {
+                    enabled: true
+                },
+                roundLengths: true,
+                speed: 800,
+                pagination: {
+                    el: '#pagination-research-development',
+                    clickable: true,
+                    renderBullet: function (index, className) {
+                        return '<span class="' + className + '">' + (index + 1) + "</span>";
+                    }
+                },
 
-        <!-- Section MAP -->
+                breakpoints: {
+                    991: {
+                        slidesPerView: 1,
+                        autoHeight: true,
+                    },
+                }
 
-        <!-- SECTION new -->
+            });
+            $('#research .wp-research-development--right .item-picture-wp:eq(0)').addClass('active');
+            swiper_research_development.on('transitionEnd', function () {
+                $('#research .wp-research-development--right .item-picture-wp').removeClass('active');
+                $('#research .wp-research-development--right .item-picture-wp:eq(' + swiper_research_development.realIndex + ')').addClass('active');
+            });
+            if (windowsize >= 991) {
+                $(".item-picture-wp:nth-child(1) .texture-animation").click(function () {
+                    setTimeout(function () {
+                        swiper_research_development.slideTo(1);
+                    }, 175);
+                })
+                $(".item-picture-wp:nth-child(2) .texture-animation").click(function () {
+                    setTimeout(function () {
+                        swiper_research_development.slideTo(2);
+                    }, 175);
+                })
+                $(".item-picture-wp:nth-child(3) .texture-animation").click(function () {
+                    setTimeout(function () {
+                        swiper_research_development.slideTo(3);
+                    }, 175);
+                })
+            }
 
-        <div class="wp-new-reports-home">
-            <div class="title-solution-products">
-                <div class="container">
-                    <div class="block-title-page">
-                        <div class="line"></div>
-                        <h2 class="txt-name-block">Tin tức</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="slide-new-reports-home">
-                <div class="swiper-container" id="slider-new">
-                    <div class="swiper-wrapper">
+            /* Slide new */
+            var swiperNew = new Swiper("#slider-new", {
+                slidesPerView: '4',
+                roundLengths: true,
+                speed: 500,
 
-                        <div class="swiper-slide">
-                            <div class="item-new" style="background: url(http://storage.ssc.com.vn/Data/2024/12/20/frame-30-638702890416402592.jpg?w=800&h=0&mode=crop)">
-                                <div class="content-item-news">
-                                    <p class="category-item">Sự kiện</p>
-                                    <h3><a href="/vi/news/m-1/ssc-ra-mat-giong-bap-nep-lai-f1-diamond-999-moi-tai-tay-ninh-1276.htm">SSC Ra Mắt Giống Bắp Nếp Lai F1 DIAMOND 999 Mới Tại Tây Ninh</a></h3>
-                                    <p class="date-item">20/12/2024</p>
-                                </div>
-                                <a href="/vi/news/m-1/ssc-ra-mat-giong-bap-nep-lai-f1-diamond-999-moi-tai-tay-ninh-1276.htm" style="position: absolute; width: 100%; height: 100%; display: block; top: 0; left: 0;"></a>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="item-new" style="background: url(http://storage.ssc.com.vn/Data/2024/12/20/467775591-529218053270194-5790160773364786467-n-638702861598628635.jpg?w=800&h=0&mode=crop)">
-                                <div class="content-item-news">
-                                    <p class="category-item">Chuyển giao kỹ thuật</p>
-                                    <h3><a href="/vi/news/m-1/ssc-chinh-thuc-duoc-quyen-khai-thac-san-xuat-kinh-doanh-giong-lua-thuan-om-34-cua-vien-lua-dbscl-1275.htm">SSC Chính Thức Được Quyền Khai Thác Sản Xuất & Kinh Doanh Giống Lúa Thuần OM 34 Của Viện Lúa ĐBSCL</a></h3>
-                                    <p class="date-item">20/12/2024</p>
-                                </div>
-                                <a href="/vi/news/m-1/ssc-chinh-thuc-duoc-quyen-khai-thac-san-xuat-kinh-doanh-giong-lua-thuan-om-34-cua-vien-lua-dbscl-1275.htm" style="position: absolute; width: 100%; height: 100%; display: block; top: 0; left: 0;"></a>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="item-new" style="background: url(http://storage.ssc.com.vn/Data/2024/12/30/dsc05875-121639-200-121640-160601-638711514286003637.jpg?w=800&h=0&mode=crop)">
-                                <div class="content-item-news">
-                                    <p class="category-item">Tin SSC</p>
-                                    <h3><a href="/vi/news/m-1/giong-lua-lai-kcr06-1-tu-dong-ruong-man-moi-den-thi-truong-quoc-te-1277.htm">Giống lúa lai KCR06-1: Từ đồng ruộng mặn mòi đến thị trường quốc tế</a></h3>
-                                    <p class="date-item">30/12/2024</p>
-                                </div>
-                                <a href="/vi/news/m-1/giong-lua-lai-kcr06-1-tu-dong-ruong-man-moi-den-thi-truong-quoc-te-1277.htm" style="position: absolute; width: 100%; height: 100%; display: block; top: 0; left: 0;"></a>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="item-new" style="background: url(http://storage.ssc.com.vn/Data/2024/04/04/24012024-kcr06-1-01-638478390729660412.jpg?w=800&h=0&mode=crop)">
-                                <div class="content-item-news">
-                                    <p class="category-item">Tin SSC</p>
-                                    <h3><a href="/vi/news/m-1/giong-lua-lai-kcr06-1-thach-thuc-truoc-bien-doi-khi-hau-vung-dbscl-1263.htm">Giống lúa lai KCR06-1 thách thức trước biến đổi khí hậu vùng ĐBSCL</a></h3>
-                                    <p class="date-item">24/1/2024</p>
-                                </div>
-                                <a href="/vi/news/m-1/giong-lua-lai-kcr06-1-thach-thuc-truoc-bien-doi-khi-hau-vung-dbscl-1263.htm" style="position: absolute; width: 100%; height: 100%; display: block; top: 0; left: 0;"></a>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="item-new" style="background: url(http://storage.ssc.com.vn/Data/2024/09/04/hc6-bt2-638610620392308246.jpg?w=800&h=0&mode=crop)">
-                                <div class="content-item-news">
-                                    <p class="category-item">Thông tin thị trường</p>
-                                    <h3><a href="/vi/news/m-1/giong-lua-huong-chau-6-nang-suat-dat-80-ta-ha-1273.htm">Giống lúa Hương Châu 6 - năng suất đạt 80 tạ/ha</a></h3>
-                                    <p class="date-item">4/9/2024</p>
-                                </div>
-                                <a href="/vi/news/m-1/giong-lua-huong-chau-6-nang-suat-dat-80-ta-ha-1273.htm" style="position: absolute; width: 100%; height: 100%; display: block; top: 0; left: 0;"></a>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="item-new" style="background: url(http://storage.ssc.com.vn/Data/2024/08/16/160824-hnkh-thumbnail-638594210145488927.jpg?w=800&h=0&mode=crop)">
-                                <div class="content-item-news">
-                                    <p class="category-item">Tin SSC</p>
-                                    <h3><a href="/vi/news/m-1/ssc-hoi-nghi-tri-an-khach-hang-doanh-so-lon-hop-tac-thinh-vuong-1272.htm">SSC - Hội Nghị Tri Ân Khách Hàng Doanh Số Lớn - Hợp Tác Thịnh Vượng</a></h3>
-                                    <p class="date-item">16/8/2024</p>
-                                </div>
-                                <a href="/vi/news/m-1/ssc-hoi-nghi-tri-an-khach-hang-doanh-so-lon-hop-tac-thinh-vuong-1272.htm" style="position: absolute; width: 100%; height: 100%; display: block; top: 0; left: 0;"></a>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="item-new" style="background: url(/img-fix/img-bg-logo-color.jpg)">
-                                <div class="content-item-news">
-                                    <p class="category-item">Công bố thông tin</p>
-                                    <h3><a href="/vi/news/m-1/nghi-quyet-cua-hdqt-v-v-thanh-toan-co-tuc-dot-2-nam-2023-bang-tien-1274.htm">Nghị quyết của HĐQT v/v Thanh toán cổ tức đợt 2 năm 2023 bằng tiền</a></h3>
-                                    <p class="date-item">11/9/2024</p>
-                                </div>
-                                <a href="/vi/news/m-1/nghi-quyet-cua-hdqt-v-v-thanh-toan-co-tuc-dot-2-nam-2023-bang-tien-1274.htm" style="position: absolute; width: 100%; height: 100%; display: block; top: 0; left: 0;"></a>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="item-new" style="background: url(/img-fix/img-bg-logo-color.jpg)">
-                                <div class="content-item-news">
-                                    <p class="category-item">Công bố thông tin</p>
-                                    <h3><a href="/vi/news/m-1/cong-bo-thong-tin-bat-thuong-v-v-thay-doi-thanh-vien-hoi-dong-quan-tri-ssc-thang-04-2024-1267.htm">Công bố thông tin bất thường v/v thay đổi thành viên Hội đồng quản trị SSC tháng 04/2024</a></h3>
-                                    <p class="date-item">23/4/2024</p>
-                                </div>
-                                <a href="/vi/news/m-1/cong-bo-thong-tin-bat-thuong-v-v-thay-doi-thanh-vien-hoi-dong-quan-tri-ssc-thang-04-2024-1267.htm" style="position: absolute; width: 100%; height: 100%; display: block; top: 0; left: 0;"></a>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="item-new" style="background: url(/img-fix/img-bg-logo-color.jpg)">
-                                <div class="content-item-news">
-                                    <p class="category-item">Công bố thông tin</p>
-                                    <h3><a href="/vi/news/m-1/cbtt-v-v-bien-ban-va-nghi-quyet-dai-hoi-dong-co-dong-thuong-nien-nam-2024-1266.htm">CBTT v/v Biên bản và Nghị quyết Đại hội đồng cổ đông thường niên năm 2024</a></h3>
-                                    <p class="date-item">23/4/2024</p>
-                                </div>
-                                <a href="/vi/news/m-1/cbtt-v-v-bien-ban-va-nghi-quyet-dai-hoi-dong-co-dong-thuong-nien-nam-2024-1266.htm" style="position: absolute; width: 100%; height: 100%; display: block; top: 0; left: 0;"></a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="control-slide-new">
-                    <div class="item-btn-new-slide btn-prev-new" id="prev-new">
-                        <img src="assets/home/img-fix/icon-left.png" alt="">
-                    </div>
-                    <div class="item-btn-new-slide btn-next-new" id="next-new">
-                        <img src="assets/home/img-fix/icon-right.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- SECTION new -->
+                navigation: {
+                    nextEl: "#next-new",
+                    prevEl: "#prev-new",
+                },
+                breakpoints: {
+                    991: {
+                        slidesPerView: 2,
+                        spaceBetween: 0,
+                    },
+                    767: {
+                        slidesPerView: 'auto',
+                        spaceBetween: 20,
+                    },
+                    575: {
+                        slidesPerView: 1.2,
+                        spaceBetween: 0,
+                    },
+                }
 
 
-    </div>
+            });
+            /* Scroll menu */
+
+            $(window).scroll(function (event) {
+                offsetAdd = $(window).scrollTop();
+                if (offsetAdd >= 50) {
+                    $('.wp-menu-header').addClass('scroll');
+                }
+                else {
+                    $('.wp-menu-header').removeClass('scroll');
+                }
+            });
+            /* Scrollspy */
+            $('.txt-menu-dk').click(function () {
+                $('.txt-menu-dk').removeClass('active');
+                $(this).addClass('active');
+                var idMenu = '#' + $(this).attr('href').split('#')[1];
+                $('html,body').animate({
+                    scrollTop: $(idMenu).offset().top - 40
+                }, 600);
+
+            });
+            $(window).scroll(function () {
+                var offsetWindow = $(window).scrollTop();
+                var wpMenu = ['research', 'products', 'sustainable', 'global'];
+                var menuActive;
+                for (var i = 0; i < wpMenu.length; i++) {
+                    if ($('#' + wpMenu[i]).offset().top - 40 <= offsetWindow) {
+                        menuActive = wpMenu[i];
+                    }
+                }
+                $('.txt-menu-dk').removeClass('active');
+                $(".item-menu-page a[href='/vi/#" + menuActive + "']").addClass('active');
+            });
+            /* Search */
+            $('.icon-search').click(function (event) {
+                $('.form-search').toggleClass('open-search');
+                $('.wp-menu-page').removeClass('open-menu');
+                $('.menu-language').removeClass('active');
+            });
+            function RemoveSearch(argument) {
+                $('.form-search').removeClass('open-search');
+                $('.wp-menu-page').removeClass('open-menu');
+            }
+
+            function doSearch() {
+                var kw = $('.search-trigger').val();
+                if (kw != '') {
+                    window.location.href = '/vi/search.htm?keyword=' + kw;
+                }
+            }
+            $('#main-btn-search').click(function () {
+                doSearch();
+            });
+            $('.search-trigger').off('keydown').on('keydown', function (evt) {
+                if (evt.keyCode == 13) {
+                    evt.preventDefault();
+                    doSearch();
+                    return false;
+                }
+            });
+
+            $(window).scroll(function (event) {
+                offsetAdd = $(window).scrollTop();
+                if (offsetAdd >= 0) {
+                    RemoveSearch()
+                }
+
+            });
+            /* Click Language  */
+            //$('.item-language.en').hide();
+            //$(".vn").click(function () {
+            //    $('.item-language.vn').hide();
+            //    $('.item-language.en').show();
+            //});
+            //$(".en").click(function () {
+            //    $('.item-language.en').hide();
+            //    $('.item-language.vn').show();
+            //});
+            // Click tab menu detail
+            $('.icon-menu-mb').click(function (event) {
+                $('.block-menu-detail').addClass('open-menu');
+                if (windowsize > 991) {
+                    $('body').addClass('menu-opened');
+                }
+            });
+            $('.icon-close-menu-detail').click(function (event) {
+                $('.block-menu-detail').removeClass('open-menu');
+                if (windowsize > 991) {
+                    $('body').removeClass('menu-opened');
+                }
+            });
+            /* Click menu remove search */
+            $('.nav-menu').click(function (event) {
+                $('.form-search').removeClass('open-search');
+                $('.wp-menu-page').removeClass('open-menu');
+            });
+
+
+            // Click content andress Map
+            $('.icon-plus-map').click(function () {
+                $('.info-map-dl').removeClass('active');
+                if ($(this).hasClass('rotate')) {
+                    $('.scroll-layout-map').removeClass('active');
+                    $('.icon-plus-map').removeClass('rotate');
+                } else {
+                    $(this).parents('.info-map-dl').addClass('active');
+                    $('.scroll-layout-map').removeClass('active');
+                    $('.icon-plus-map').removeClass('rotate');
+                    $(this).closest('.info-map-dl').find('.scroll-layout-map').addClass('active');
+                    $(this).closest('.info-map-dl').find('.icon-plus-map').addClass('rotate');
+                    $(this).closest('.info-map-dl').find('.scroll-layout-map').css({
+                        top: - $(this).closest('.info-map-dl').find('.scroll-layout-map').height() / 2
+                    });
+                }
+            });
+            $('.close-content-box').click(function (event) {
+                $('.scroll-layout-map').removeClass('active');
+                $('.icon-plus-map').removeClass('rotate');
+            });
+
+            // Scroll aniamtion Research & Development
+            $(window).scroll(function (event) {
+                var OffsetBox_Research = $('.wp-research-development').offset().top;
+                if ($(window).scrollTop() > OffsetBox_Research - 100) {
+                    $('.wp-research-development').addClass('animation-circle');
+                }
+                else {
+
+                }
+            });
+
+            // Scroll animation Products
+
+            $(window).scroll(function (event) {
+                var OffsetBox_Research = $('.block-tab-solution-products').offset().top;
+                if ($(window).scrollTop() > OffsetBox_Research - 100) {
+                    $('.block-content-solution-products').addClass('animation-circle');
+                }
+                else {
+
+                }
+            });
+
+            // Set Height block Research & Development
+
+
+            if (windowsize <= 767) {
+
+                //$('.txt-read-more').click(function (event) {
+
+                //    $('.content-item-slide').removeClass('ellipse-text');
+                //    $(this).closest('.layout-item-slide').find('.content-item-slide').addClass('ellipse-text');
+                //    var heightParent = $(this).closest('.content-item-slide').height();
+                //    var heightTotalPB = 58;
+                //    var HeightTotal = heightParent + heightTotalPB;
+                //    $('.pagination-rd').css("top", HeightTotal);
+                //});
+
+                //$('.txt-remove-more').click(function (event) {
+                //    $('.content-item-slide').removeClass('ellipse-text');
+                //    $('.pagination-rd').css("top", 244);
+
+                //});
+                //swiper_research_development.on('slideChange', function () {
+                //    $('.content-item-slide').removeClass('ellipse-text');
+                //    $('.pagination-rd').css("top", 244);
+                //});
+            }
+            $('.item-menu-products').each(function () {
+                var url = $(this).attr('data-url');
+                if (url && url.startsWith('http')) {
+                    $(this).attr('href', url);
+                    $(this).attr('target', '_blank');
+                    return;
+                }
+            });
+            $('.item-menu-products').click(function (event) {
+                var url = $(this).attr('data-url');
+                if (url && url.startsWith('http')) {
+                    //window.location.href = url;
+                    return;
+                }
+                $('.layout-solutions-procuts').hide();
+                var dataId = $(this).attr('data-id');
+                $('#' + dataId).show();
+                $('.item-menu-products').removeClass('active');
+                $(this).addClass('active');
+                $('.prev-zone-btn, .next-zone-btn').hide();
+                if ($(window).width() > 768) {
+                    $('.prev-zone-btn[data-slide="' + dataId + '"]').show();
+                    $('.next-zone-btn[data-slide="' + dataId + '"]').show();
+                    if (!$(this).hasClass('slide-inited')) {
+                        var id = dataId;
+                        // SLIDE PRODUCTS
+                        var swiper = new Swiper("#" + id, {
+                            slidesPerView: 3,
+                            slidesPerGroup: 1,
+                            spaceBetween: 40,
+                            loop: false,
+                            centeredSlides: false,
+                            roundLengths: true,
+                            speed: 800,
+                            navigation: {
+                                nextEl: $('.next-zone-btn[data-slide="' + dataId + '"]'),
+                                prevEl: $('.prev-zone-btn[data-slide="' + dataId + '"]')
+                            },
+                            pagination: {
+                                el: "#pagination-products",
+                                type: "bullets",
+                                clickable: true
+                            },
+                            breakpoints: {
+                                991: {
+                                    slidesPerView: 2,
+                                    slidesPerGroup: 1,
+                                    centeredSlides: false
+                                },
+                                575: {
+                                    slidesPerView: 1,
+                                    centeredSlides: false
+                                }
+                            }
+                        });
+                        $(this).addClass('slide-inited');
+                        var swiper__slidecount = swiper.slides.length - 2;
+                        if (swiper__slidecount < 3) {
+                            $('.prev-zone-btn[data-slide="' + dataId + '"]').remove();
+                            $('.next-zone-btn[data-slide="' + dataId + '"]').remove();
+                        }
+                    }
+                }
+            });
+            $('.item-menu-products:eq(0)').trigger('click');
+            //.addClass('active');
+            //$('.layout-solutions-procuts').hide();
+            //$('.layout-solutions-procuts:eq(0)').show();
+
+            function iOS() {
+                return [
+                        'iPad Simulator',
+                        'iPhone Simulator',
+                        'iPod Simulator',
+                        'iPad',
+                        'iPhone',
+                        'iPod'
+                    ].includes(navigator.platform)
+                    // iPad on iOS 13 detection
+                    || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+            }
+            $(function () {
+                //if (!iOS()) {
+                //    $('img').preload({
+                //        placeholder: '/img-fix/img-bg-logo-green.png',
+                //        notFound: '/img-fix/img-bg-logo-green.png'
+                //    });
+                //}
+                if ($(window).width() <= 1024) {
+                    $('.img-sustainable').click(function () {
+                        if ($(this).hasClass('clicked')) {
+                            $(this).removeClass('clicked');
+                        } else {
+                            $(this).addClass('clicked');
+                        }
+                    });
+                }
+                if (windowsize <= 767) {
+                    $('.txt-nd-item-slide').showMore({
+                        minheight: 77,
+                        buttontxtmore: $i18n.showMore,
+                        buttontxtless: $i18n.showLess,
+                        callback: function (isShow, $elm) {
+                            //$('.pagination-rd').css("top", HeightTotal);
+                            if (isShow) {
+                                setTimeout(function () {
+                                    var heightParent = $elm.closest('.content-item-slide').height();
+                                    var heightTotalPB = 40;
+                                    var HeightTotal = heightParent + heightTotalPB;
+                                    $('.pagination-rd').css("top", HeightTotal);
+                                    //$('.pagination-rd').css("top", 330);
+                                }, 100)
+                            }
+                            else
+                                $('.pagination-rd').css("top", 220);
+                        }
+                    });
+                    swiper_research_development.on('slideChange', function () {
+                        $('.pagination-rd').css("top", 220);
+                        $('.txt-nd-item-slide').css('max-height', '77px');
+                        $('.showmore-button').html($i18n.showMore)
+                    });
+                }
+            })
+        });
+    </script>
 @stop
 

@@ -11,8 +11,8 @@ return [
     | login page.
     |
     */
-    'name' => 'Admin Nuoilo66',
-
+    'name' => 'Admin Pacific',
+    'locale' => 'en',
     /*
     |--------------------------------------------------------------------------
     | Laravel-admin logo

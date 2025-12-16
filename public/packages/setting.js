@@ -8,6 +8,12 @@ function initEditor() {
         max_height: 400,
         placeholder: 'Nhập nội dung bài viết',
         resize: true,
+        valid_elements: 'p,ul,ol,li,strong,em,b,i[class],span[class|style],a[href|target],img[src|alt|title]',
+        extended_valid_elements: 'span[style],i[class]',
+        valid_styles: {
+            '*': 'color,font-weight,text-decoration'
+        },
+        custom_elements: 'i',
         forced_root_block: 'p',
         autoresize_bottom_margin: 100,
         menu: {
