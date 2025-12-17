@@ -4,8 +4,9 @@ namespace App\Admin\Controllers;
 
 use App\Helpers\Utility;
 use App\Models\Category;
-use App\Models\Post;
+use App\Models\Product;
 use App\Models\Tag;
+use App\Models\TaxonomyItem;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Illuminate\Contracts\Foundation\Application;
@@ -15,14 +16,14 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
-class PostController extends BaseAdminController
+class ProductController extends BaseAdminController
 {
     /**
      * Title for current resource.
      *
      * @var string
      */
-    protected $title = 'Post';
+    protected $title = 'Danh sách sản phẩm';
     protected $ajax = true;
 
     /**
@@ -34,7 +35,7 @@ class PostController extends BaseAdminController
     {
 
 
-        $grid = new Grid(new Post());
+        $grid = new Grid(new Product());
         // Sắp xếp mặc định theo ID giảm dần
         $grid->model()->orderBy('id', 'desc');
         //filter
@@ -55,11 +56,11 @@ class PostController extends BaseAdminController
             return "<img src='".Storage::disk('admin')->url($thumbnail)."' style='max-width: 100px; max-height: 100px;'>";
         });
         $grid->column('parent_id', __('Danh mục'))->display(function(){
-            $cat = Category::where('id',$this->parent_id)->first();
+            $cat = TaxonomyItem::where('id',$this->parent_id)->first();
             return isset($cat->name)?$cat->name:'';
         });
         $grid->column('status', __('Trạng thái'))->switch();
-        //$grid->column('hot', __('Tin hot'))->switch();
+        $grid->column('view', __('Lượt view'));
         $grid->column('created_at', __('Ngày tạo'))->display(function ($created_at) {
             return date('d/m/Y H:i', strtotime($created_at));
         });
@@ -79,7 +80,7 @@ class PostController extends BaseAdminController
      */
     protected function detail($id): \Illuminate\Foundation\Application|Redirector|RedirectResponse|Application
     {
-        return redirect("/admin/posts/$id/edit");
+        return redirect("/admin/Products/$id/edit");
     }
 
     /**
@@ -91,7 +92,7 @@ class PostController extends BaseAdminController
     {
 
 
-        $form = new Form(new Post());
+        $form = new Form(new Product());
         $form->setTitle($this->title);
         $form->tools(function ($tools) {
             $tools->disableView();
@@ -111,7 +112,7 @@ class PostController extends BaseAdminController
        /* $form->checkbox('categories', __('Danh mục'))->options(function (){
             return \App\Models\Category::all()->pluck('name', 'id');
         });*/
-        $cats = Category::orderBy('order','ASC')->get();
+        $cats = TaxonomyItem::orderBy('order','ASC')->get();
         $listdatas = array();
         foreach($cats as $k => $v){
             $tmp['id'] = $v['id'];
@@ -128,30 +129,53 @@ class PostController extends BaseAdminController
         }
         $form->select('parent_id', __('Danh mục'))
             ->options($options);
-        $form->image('image', __('Image'))->rules('image|mimes:jpeg,png,jpg,gif,svg')
-            //->help('<b style="color:red">(Nên upload ảnh có độ phân giải 1440x960)</b>')
+        $form->image('image', __('Image 1'))->rules('image|mimes:jpeg,png,jpg,gif,svg')
             ->name(function ($file) {
                 return \App\Files\Storage::getFileName($file);
             });
-        /*$form->multipleSelect('tags', 'Từ khóa')
-            ->options(Tag::pluck('name', 'id')->toArray());*/
+        $form->image('image1', __('Image 2'))->rules('image|mimes:jpeg,png,jpg,gif,svg')
+            ->name(function ($file) {
+                return \App\Files\Storage::getFileName($file);
+            });
+        $form->image('image2', __('Image 3'))->rules('image|mimes:jpeg,png,jpg,gif,svg')
+            ->name(function ($file) {
+                return \App\Files\Storage::getFileName($file);
+            });
+        $form->image('image3', __('Image 4'))->rules('image|mimes:jpeg,png,jpg,gif,svg')
+            ->name(function ($file) {
+                return \App\Files\Storage::getFileName($file);
+            });
+        $form->image('image4', __('Image 5'))->rules('image|mimes:jpeg,png,jpg,gif,svg')
+            ->name(function ($file) {
+                return \App\Files\Storage::getFileName($file);
+            });
+        $form->image('image5', __('Image 6'))->rules('image|mimes:jpeg,png,jpg,gif,svg')
+            ->name(function ($file) {
+                return \App\Files\Storage::getFileName($file);
+            });
+        $form->multipleSelect('tags', 'Từ khóa')
+            ->options(Tag::pluck('name', 'id')->toArray());
+        $form->text('donggoi', __('Đóng gói'));
+        $form->text('donggoi_en', __('Đóng gói (EN)'));
+        $form->tinyEditor('des', __('Mô tả'));
+        $form->tinyEditor('des_en', __('Mô tả (EN)'));
         $form->tinyEditor('content', __('Nôi dung'));
-        $form->tinyEditor('content_eg', __('Nôi dung (EN)'));
+        $form->tinyEditor('content_en', __('Nôi dung (EN)'));
         // Multiple Select tags
 
-        $form->text('title_web', __('Title website'));
+        //$form->text('title_web', __('Title website'));
         $form->textarea('meta', __('Meta description'));
         $form->switch('status', __('Trạng thái'))->default(1);
-        $form->switch('hot', __('Tin hot'))->default(10);
+        //$form->switch('hot', __('Tin hot'))->default(10);
         $form->saving(function (\Encore\Admin\Form $form) {
             $request = Request::all();
             if(!isset($request["_edit_inline"]) && !empty($form->title)) {
                 if (empty(trim(strip_tags($form->slug)))) {
-                    $form->slug = Utility::slug(trim(strip_tags($form->title)), "post", $form->model()->id);
+                    $form->slug = Utility::slug(trim(strip_tags($form->title)), "Product", $form->model()->id);
                 } else {
-                    $count = Post::where('slug', $form->slug)->where('id', '<>', $form->model()->id)->count();
+                    $count = Product::where('slug', $form->slug)->where('id', '<>', $form->model()->id)->count();
                     if ($count) {
-                        $form->slug = Utility::slug(trim(strip_tags($form->title)), "post");
+                        $form->slug = Utility::slug(trim(strip_tags($form->title)), "Product");
                     }
                 }
                 if(!empty($form->content)){

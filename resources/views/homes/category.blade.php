@@ -12,26 +12,76 @@
     <meta property="og:image" content="{{Storage::disk('admin')->url($cat->image_og)}}"/>
 @endsection
 @section('content')
-    <section id="body-content">
-        <div id="breadcrumbs" xmlns:v="http://rdf.data-vocabulary.org/#">
-            <span typeof="v:Breadcrumb"><a href="/" rel="v:url" property="v:title">Trang chủ</a></span> › <span typeof="v:Breadcrumb"><span class="breadcrumb_last" property="v:title">{{$cat->name}}</span></span></div>
-       <?php foreach ($posts as $row) {?>
-           <div class="list1"> <span style="color: #EE0000;"> ✪ </span> &nbsp;
-               <a href="/{{$cat->slug}}/{{$row->slug}}" title="{{$row->title}}"> {{$row->title}}</a>
-               <?php if($row->hot == 1){?>
-               <img src="/assets/images/HOT.gif">
-               <?php }?>
-           </div>
-        <?php } ?>
-        <div id="div-pagination-new" class="col-12 d-flex justify-content-center">
-            {{$posts->links('homes.pagination')}}
+    <!-- BANNER -->
+    <div class="page-banner mb-4" style="background: url('{{Storage::disk('admin')->url($setting->banner)}}') center / cover no-repeat;"></div>
+
+    <!-- CONTENT -->
+    <div class="container">
+        <div class="row">
+            <!-- ===== SIDEBAR ===== -->
+            <div class="col-lg-3 col-md-4">
+                <div class="sidebar-wrapper">
+                    <div class="sidebar">
+                        <div class="title-nav">
+                            <h3 class="text">{{__('lang.news')}}</h3>
+                            <div class="line"><span class="color-line"></span></div>
+                        </div>
+                        @foreach($cats as $row)
+                            <div class="big-item-nav-hoz {{$cat->id == $row->id ? "active":""}}">
+                                <a href="{{url('/').'/tin-tuc/'.$row->slug}}" class="item-nav-hoz-vns">{{$row["name".$end]}}
+                                </a>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+
+            <!-- MAIN CONTENT -->
+            <div class="col-lg-9 col-md-8">
+                <div class="content-box">
+                    <div class="custom-breadcrumb">
+                        <a href="/">{{__('lang.home')}}</a>
+                        <span class="sep">»</span>
+                        <a href="/tin-tuc">{{__('lang.news')}}</a>
+                        <span class="sep">»</span>
+                        <span class="current">{{$cat["name".$end]}}</span>
+                    </div>
+                    <h4 class="content-title">{{$cat["name".$end]}}</h4>
+                    <div id="content">
+                        <section class="news-section py-5">
+                            <div class="container">
+                                    @foreach($posts as $k=>$row)
+                                        <?php if($k%3==0) echo '<div class="row">'?>
+                                    <!-- Item -->
+                                    <div class="col-lg-4 col-md-6 mb-4">
+                                        <a href="/bai-viet/{{$row["slug"]}}" title="{{$row["title".$end]}}">
+                                            <div class="news-card">
+                                                <div class="news-thumb">
+                                                    <img src="{{Storage::disk('admin')->url($row->image)}}" alt="">
+                                                </div>
+                                                <h3 class="news-title">
+                                                    {{$row["title".$end]}}
+                                                </h3>
+                                                <div class="news-meta">
+                                                    <span class="news-tag">{{$cat["name".$end]}}</span>
+                                                    <span class="news-date">{{date('d/m/Y',strtotime($row->created_at))}}</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                     <?php if($k%3==2) echo '</div>'?>
+                                     @endforeach
+                                     <?php if(isset($k) && $k%3 > 0) echo '</div>'?>
+                                </div>
+                                {{ $posts->links('homes.pagination') }}
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </section>
-    <section>
-        <div class="list1">
-            {!! $cat->content !!}
-        </div>
-    </section>
+    </div>
 @stop
 @push('js')
 @endpush

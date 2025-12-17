@@ -2,20 +2,20 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\Keys;
+use App\Models\Email;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 
-class KeysController extends BaseAdminController
+class EmailController extends BaseAdminController
 {
     /**
      * Title for current resource.
      *
      * @var string
      */
-    protected $title = 'Ký hiệu';
+    protected $title = 'Email';
 
     /**
      * Make a grid builder.
@@ -24,15 +24,17 @@ class KeysController extends BaseAdminController
      */
     protected function grid()
     {
-        $grid = new Grid(new Keys());
-        $grid->model()->orderBy('date', 'desc');
+        $grid = new Grid(new Email());
+        $grid->model()->orderBy('created_at', 'desc');
         $grid->column('id', __('Id'));
-        $grid->column('title', __('Title'));
-        $grid->column('date', __('Date'));
-        $grid->column('status', __('Status'))->switch();
+        $grid->column('email', __('Email'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
-
+        $grid->actions(function ($actions) {
+            $actions->disableEdit();   // ❌ bỏ Edit
+            // $actions->disableView(); // (nếu muốn bỏ luôn View)
+            // delete vẫn giữ mặc định
+        });
         return $grid;
     }
 
@@ -44,12 +46,10 @@ class KeysController extends BaseAdminController
      */
     protected function detail($id)
     {
-        $show = new Show(Keys::findOrFail($id));
+        $show = new Show(Email::findOrFail($id));
 
         $show->field('id', __('Id'));
-        $show->field('title', __('Name'));
-        $show->field('date', __('Date'));
-        $show->field('status', __('Status'));
+        $show->field('email', __('Email'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -63,7 +63,7 @@ class KeysController extends BaseAdminController
      */
     protected function form()
     {
-        $form = new Form(new Keys());
+        $form = new Form(new Email());
 
         $form->text('title', __('Name'));
         $form->date('date', 'Ngày')

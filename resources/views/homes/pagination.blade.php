@@ -1,72 +1,74 @@
-@if(count($elements[0]) > 1)
-    <ul id="ul-paginate" class="pagination pagination-sm no-margin pull-right">
-        <!-- Previous Page Link -->
-        @if ($paginator->onFirstPage())
-            <li class="page-item disabled">
-            <span class="page-link no-border">
-                  <svg width="49" height="48" viewBox="0 0 49 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M24.5 44C35.5457 44 44.5 35.0457 44.5 24C44.5 12.9543 35.5457 4 24.5 4C13.4543 4 4.5 12.9543 4.5 24C4.5 35.0457 13.4543 44 24.5 44Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M31.5 24H19.5" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M23.5 18L17.5 24L23.5 30" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-            </span>
-            </li>
-        @else
-            <li class="page-item no-border btn-prev">
-                <a class="page-link no-border" href="{{ $paginator->previousPageUrl() }}" rel="prev">
-                    <svg width="49" height="48" viewBox="0 0 49 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M24.5 44C35.5457 44 44.5 35.0457 44.5 24C44.5 12.9543 35.5457 4 24.5 4C13.4543 4 4.5 12.9543 4.5 24C4.5 35.0457 13.4543 44 24.5 44Z" stroke="#BB2C26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M17.5 24H29.5" stroke="#BB2C26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M25.5 30L31.5 24L25.5 18" stroke="#BB2C26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+<div class="pagination-list-new" style="display: none">
+    <div class="pg-technology-item active-item">
+        <div class="text-svg">1</div>
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 58 42.333" style="cursor: pointer;" xml:space="preserve"> <style
+                type="text/css">.st0 {
+                    fill: none;
+                    stroke: #789A3D;
+                    stroke-width: 2;
+                }</style>
+            <path class="st0"
+                  d="M53.637,38.716v-2.52c0-16.967-13.838-30.72-30.907-30.72h-2.535H6.008H3.475v2.519 c0,16.967,13.837,30.721,30.905,30.721h2.535h14.187H53.637z"
+                  style="cursor: pointer;"></path></svg>
+    </div>
+</div>
+@if ($paginator->lastPage() > 1)
+    <div class="pagination-list-new">
+
+        {{-- PREV --}}
+        @if (!$paginator->onFirstPage())
+            <div class="pg-technology-item icon-pagination prev-pagination">
+                <a href="{{ $paginator->previousPageUrl() }}">
+                    <img src="/img-fix/prev-arrow-slider.png" alt="">
                 </a>
-            </li>
+            </div>
         @endif
-             <!-- Pagination Elements -->
+
+        {{-- PAGE NUMBERS --}}
         @foreach ($elements as $element)
-            <!-- "Three Dots" Separator -->
-                @if (is_string($element))
-                    <li class="page-item disabled show-desktop"><span class="page-link">{{ $element }}</span></li>
-                @endif
 
-            <!-- Array Of Links -->
-                @if (is_array($element))
-                    @foreach ($element as $page => $url)
+            {{-- "..." --}}
+            @if (is_string($element))
+                <div class="pg-technology-item disabled">
+                    <span>{{ $element }}</span>
+                </div>
+            @endif
+
+            {{-- PAGE LINKS --}}
+            @if (is_array($element))
+                @foreach ($element as $page => $url)
+                    <div class="pg-technology-item {{ $page == $paginator->currentPage() ? 'active-item' : '' }}">
                         @if ($page == $paginator->currentPage())
-                            <li class="page-item active show-desktop"><span class="page-link">{{ $page }}</span></li>
+                            <div class="text-svg">{{ $page }}</div>
                         @else
-                            <li class="page-item show-desktop"><a class="page-link" href="{{ $url }}">{{ $page }}</a></li>
+                            <a href="{{ $url }}">
+                                <div class="text-svg">{{ $page }}</div>
+                            </a>
                         @endif
-                    @endforeach
-                @endif
-            @endforeach
-        {{-- Danh sách các trang --}}
-        @php
-            $lastPage = $paginator->lastPage(); // Tổng số trang
-            $currentPage = $paginator->currentPage(); // Trang hiện tại
-        @endphp
 
-    <!-- Next Page Link -->
+                        {{-- SVG giữ nguyên --}}
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 58 42.333">
+                            <path class="st0"
+                                  d="M53.637,38.716v-2.52c0-16.967-13.838-30.72-30.907-30.72h-2.535H6.008H3.475v2.519
+                              c0,16.967,13.837,30.721,30.905,30.721h2.535h14.187H53.637z"></path>
+                        </svg>
+                    </div>
+                @endforeach
+            @endif
+
+        @endforeach
+
+        {{-- NEXT --}}
         @if ($paginator->hasMorePages())
-            <li class="page-item">
-                <a class="page-link no-border" href="{{ $paginator->nextPageUrl() }}" rel="next">
-                    <svg width="49" height="48" viewBox="0 0 49 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M24.5 44C35.5457 44 44.5 35.0457 44.5 24C44.5 12.9543 35.5457 4 24.5 4C13.4543 4 4.5 12.9543 4.5 24C4.5 35.0457 13.4543 44 24.5 44Z" stroke="#BB2C26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M17.5 24H29.5" stroke="#BB2C26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M25.5 30L31.5 24L25.5 18" stroke="#BB2C26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+            <div class="pg-technology-item icon-pagination next-pagination">
+                <a href="{{ $paginator->nextPageUrl() }}">
+                    <img src="/img-fix/next-arrow-slider.png" alt="">
                 </a>
-            </li>
-        @else
-            <li class="page-item disabled next-disable">
-            <span class="page-link no-border">
-             <svg width="49" height="48" viewBox="0 0 49 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M24.5 44C35.5457 44 44.5 35.0457 44.5 24C44.5 12.9543 35.5457 4 24.5 4C13.4543 4 4.5 12.9543 4.5 24C4.5 35.0457 13.4543 44 24.5 44Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M31.5 24H19.5" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M23.5 18L17.5 24L23.5 30" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-            </span>
-            </li>
+            </div>
         @endif
-    </ul>
+
+    </div>
 @endif

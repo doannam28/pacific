@@ -15,10 +15,6 @@
     <meta name="twitter:title" content="{{$setting->site_title}}"/>
     <meta name="twitter:description" content="{{$setting->meta_description}}"/>
 @endsection
-@php
-    $locale = app()->getLocale();
-    $end = $locale == 'en'?'_en':'';
-@endphp
 @section('content')
     <div class="main-page">
         <!-- SECTION BANNER -->
@@ -362,17 +358,18 @@
                 <!-- RIGHT -->
                 <div class="col-md-6">
                     <h5 class="contact-title">{{__('lang.gyccct')}}</h5>
-                    <form class="needs-validation form-contact" novalidate>
+                    <form class="needs-validation form-contact" novalidate id="contactForm">
+                        @csrf
                         <div class="form-group">
                             <input type="text" class="form-control"
-                                   placeholder="{{__('lang.fullname')}}" required>
+                                   placeholder="{{__('lang.fullname')}}" name="name" required>
                             <div class="invalid-feedback">
                                 {{__('lang.plsfullname')}}
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <input type="email" class="form-control"
+                            <input type="email" class="form-control" name="email"
                                    placeholder="Email" required>
                             <div class="invalid-feedback">
                                 {{__('lang.emailkhl')}}
@@ -380,8 +377,8 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="tel" class="form-control"
-                                   placeholder="{{__('lang.sdt')}}" minlength="10" required>
+                            <input type="tel" class="form-control" name="phone"
+                                   placeholder="{{__('lang.sdt')}}" minlength="10" maxlength="15" required>
                             <div class="invalid-feedback">
                                 {{__('lang.plssdt')}}
                             </div>
@@ -390,6 +387,7 @@
                         <div class="form-group">
                     <textarea class="form-control"
                               rows="4"
+                              name="content"
                               placeholder="{{__('lang.inputcontent')}}"
                               required></textarea>
                             <div class="invalid-feedback">
@@ -397,7 +395,7 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-submit text-white">
+                        <button type="submit" id="btn-contact" class="btn btn-submit text-white">
                             {{__('lang.guidi')}}
                         </button>
                     </form>
@@ -797,6 +795,37 @@
                     });
                 }
             })
+        });
+    </script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const form = this;
+            if (!form.checkValidity()) {
+                form.classList.add('was-validated');
+                return;
+            }
+            $('#btn-contact').prop('disabled', true);
+            const formData = new FormData(form);
+
+            fetch("{{ url('/send-ajax') }}", {
+                method: "POST",
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('input[name=_token]').value
+                },
+                body: formData
+            })
+                .then(res => res.json())
+                .then(data => {
+                    toastr.success(data.message, "Thành công");
+                    form.reset();
+                    $('#btn-contact').prop('disabled', false);
+                })
+                .catch(err => {
+                    toastr.error("{{__('lang.clxr')}}", "Lỗi");
+                    $('#btn-contact').prop('disabled', false);
+                });
         });
     </script>
 @stop

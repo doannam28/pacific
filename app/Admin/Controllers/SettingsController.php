@@ -89,6 +89,7 @@ class SettingsController extends AdminController
         $form->text('email_receive', __('Email nhận liên hệ'));
         $form->image('logo', __('Logo'));
         $form->image('favicon', __('Favicon'));
+        $form->image('banner', __('Banner'));
         $form->image('image_og', __('Ảnh show trên social'));
         $form->image('img_soicau', __('Ảnh giới thiệu'));
         $form->tinyEditor('about', __('Mô tả giới thiệu'));

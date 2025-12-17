@@ -26,7 +26,7 @@ class ContactRequest extends FormRequest
             'phone' => 'required|string',
             'email' => 'nullable|email',
             'content' => 'required|string',
-            'title' => 'required|string',
+            'name' => 'required|string',
         ];
     }
 
@@ -38,7 +38,7 @@ class ContactRequest extends FormRequest
         return [
             'email.required' => 'Tên không được để trống',
             'phone.required' => 'Số điện thoại không được để trống',
-            'title.required' => 'Tiêu đề không được để trống',
+            'name.required' => 'Họ tên không được để trống',
             'content.required' => 'Tin nhắn không được để trống',
         ];
     }

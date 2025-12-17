@@ -63,6 +63,7 @@ class CategoryController extends BaseAdminController
 
         $show->field('id', __('Id'));
         $show->field('name', __('Name'));
+        $show->field('name_en', __('Name (EN)'));
         $show->field('slug', __('Slug'));
         $show->field('status', __('Status'))->using([0 => 'Inactive', 1 => 'Active']);
         //$show->field('menu', __('Menu'))->using([0 => 'Inactive', 1 => 'Active']);
@@ -97,6 +98,7 @@ class CategoryController extends BaseAdminController
         }
         $form = new Form(new Category());
         $form->text('name', __('Name'));
+        $form->text('name_en', __('Name (EN)'));
         $form->text('slug', __('Slug'));
         $form->number('order', __('Order'));
         $form->switch('menu', __('Show trang chủ'))->default(1);
@@ -108,7 +110,7 @@ class CategoryController extends BaseAdminController
         //$form->switch('menu', __('Menu'))->default(0);
        /* $form->select('parent_id', __('Parent'))
             ->options($options);*/
-        $form->tinyEditor('content', __('Nôi dung'));
+        //$form->tinyEditor('content', __('Nôi dung'));
         $form->saving(function (\Encore\Admin\Form $form) {
             $request = Request::all();
             if(!isset($request["_edit_inline"]) && !empty($form->name)) {

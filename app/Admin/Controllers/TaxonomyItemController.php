@@ -19,7 +19,7 @@ class TaxonomyItemController extends BaseAdminController
      *
      * @var string
      */
-    protected $title = 'TaxonomyItem';
+    protected $title = 'Danh mục sản phẩm';
 
     /**
      * Make a grid builder.
@@ -44,10 +44,10 @@ class TaxonomyItemController extends BaseAdminController
         $grid->column('name', __('Name'));
         $grid->column('slug', __('Slug'));
         $grid->column('order', __('Order'))->text();
-        $grid->column('parent_id', __('Parent'))->display(function(){
+       /* $grid->column('parent_id', __('Parent'))->display(function(){
            $cat = TaxonomyItem::where('id',$this->parent_id)->first();
             return isset($cat->name)?$cat->name:'';
-        });
+        });*/
         $grid->column('status', __('Status'))->switch();
         //$grid->column('menu', __('Menu'))->switch();
         $grid->column('created_at', __('Created at'));
@@ -71,8 +71,8 @@ class TaxonomyItemController extends BaseAdminController
         $show->field('name', __('Name'));
         $show->field('slug', __('Slug'));
         $show->field('status', __('Status'))->using([0 => 'Inactive', 1 => 'Active']);
-        $show->field('menu', __('Menu'))->using([0 => 'Inactive', 1 => 'Active']);
-        $show->field('taxonomy_id', __('Taxonomy id'));
+        /*$show->field('menu', __('Menu'))->using([0 => 'Inactive', 1 => 'Active']);
+        $show->field('taxonomy_id', __('Taxonomy id'));*/
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -112,13 +112,18 @@ class TaxonomyItemController extends BaseAdminController
         }
         $form = new Form(new TaxonomyItem());
         $form->text('name', __('Name'));
+        $form->text('name_en', __('Name (EN)'));
         $form->text('slug', __('Slug'));
+        $form->textarea('description', __('Mô tả'));
+        $form->textarea('description_en', __('Mô tả (EN)'));
+        $form->text('title_web', __('Title website'));
+        $form->textarea('meta', __('Meta description'));
         $form->number('order', __('Order'));
         $form->switch('status', __('Status'))->default(1);
         //$form->switch('menu', __('Menu'))->default(0);
         $form->hidden('taxonomy_id')->value($vid);
-        $form->select('parent_id', __('Parent'))
-            ->options($options);
+       /* $form->select('parent_id', __('Parent'))
+            ->options($options);*/
         //$form->tinyEditor('content', __('Nôi dung'));
         $form->saving(function (Form $form) {
             if(empty($form->slug)){

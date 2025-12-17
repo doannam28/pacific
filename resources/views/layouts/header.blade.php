@@ -72,9 +72,9 @@
             <!-- LEFT MENU -->
             <div class="collapse navbar-collapse navbar-left">
                 <ul class="navbar-nav w-100 justify-content-end">
-                    <li class="nav-item"><a class="nav-link" href="#"> <i class="fas fa-home mr-1"></i>{{ __('lang.home') }}</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">{{ __('lang.about') }}</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">{{ __('lang.product') }}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/"> <i class="fas fa-home mr-1"></i>{{ __('lang.home') }}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/gioi-thieu">{{ __('lang.about') }}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/san-pham">{{ __('lang.product') }}</a></li>
                 </ul>
             </div>
 
@@ -90,9 +90,9 @@
             <!-- RIGHT MENU -->
             <div class="collapse navbar-collapse navbar-right">
                 <ul class="navbar-nav w-100 justify-content-start">
-                    <li class="nav-item"><a class="nav-link" href="#">{{ __('lang.news') }}</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">{{ __('lang.career') }}</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">{{ __('lang.contact') }}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/tin-tuc">{{ __('lang.news') }}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/tuyen-dung">{{ __('lang.career') }}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/lien-he">{{ __('lang.contact') }}</a></li>
                 </ul>
             </div>
 

@@ -40,20 +40,20 @@
                             <h4 class="footer-title">{{__('lang.info')}}</h4>
                             <ul class="footer-links">
                                 <li>
-                                    <a href="#">{{__('lang.aboutus')}}</a>
+                                    <a href="/gioi-thieu">{{__('lang.aboutus')}}</a>
                                 </li>
                                 <li>
-                                    <a href="#">{{__('lang.career')}}</a>
+                                    <a href="/tuyen-dung">{{__('lang.career')}}</a>
                                 </li>
                                 <li>
-                                    <a href="#">{{__('lang.news')}}</a>
+                                    <a href="/tin-tuc">{{__('lang.news')}}</a>
                                 </li>
                                 <li>
-                                    <a href="#">{{__('lang.contact')}}</a>
+                                    <a href="/lien-he">{{__('lang.contact')}}</a>
                                 </li>
-                                <li>
+                                {{--<li>
                                     <a href="#">Video</a>
-                                </li>
+                                </li>--}}
                             </ul>
 
                         </div>
@@ -65,9 +65,11 @@
                                 {{__('lang.txtnhanemail')}}
                             </p>
                             <form class="needs-validation subscribe-form" id="form-dk" novalidate>
+                                @csrf
                                 <div class="form-group d-flex">
                                     <input
                                         id="email-dk"
+                                        name="email"
                                         type="email"
                                         class="form-control"
                                         placeholder="{{ __('lang.youremail') }}"
@@ -105,6 +107,8 @@
         </footer>
     </div>
 </div>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v24.0&appId=341260583271076"></script>
 <script>
     (function () {
         'use strict';
@@ -122,4 +126,40 @@
             });
         }, false);
     })();
+</script>
+<script>
+    document.getElementById('form-dk').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const form = this;
+        if (!form.checkValidity()) {
+            form.classList.add('was-validated');
+            return;
+        }
+        $('#send-email').prop('disabled', true);
+        const formData = new FormData(form);
+
+        fetch("{{ url('/register-email') }}", {
+            method: "POST",
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('input[name=_token]').value
+            },
+            body: formData
+        })
+            .then(res => res.json())
+            .then(data => {
+                if(data.status == 'error'){
+                    toastr.warning(data.msg);
+                }else{
+                    toastr.success(data.msg);
+                    form[0].reset();
+                    form.removeClass('was-validated');
+                }
+                $('#send-email').prop('disabled', false);
+            })
+            .catch(err => {
+                toastr.error("{{__('lang.clxr')}}", "Lỗi");
+                $('#send-email').prop('disabled', false);
+            });
+    });
 </script>

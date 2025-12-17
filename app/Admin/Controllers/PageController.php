@@ -37,19 +37,27 @@ class PageController extends BaseAdminController
         // Sắp xếp mặc định theo ID giảm dần
         $grid->model()->orderBy('id', 'desc');
         //filter
-        $grid->filter(function ($filter) {
+        $options = [
+            "Giới thiệu",
+            "Tuyển dụng"
+        ];
+        $grid->filter(function ($filter) use ($options) {
             $filter->disableIdFilter();
             $filter->like('title', __('Tiêu đề'));
+            $filter->equal('type', __('Thuộc'))->select($options);
             $filter->equal('status', __('Trạng thái'))->select([1 => 'Kích hoạt', 0 => 'Không kích hoạt']);
         });
 
         $grid->column('id', __('Id'));
         $grid->column('title', __('Tiêu đề'));
-        $grid->column('title_detail', __('Tiêu đề trang chi tiết'));
+        $grid->column('title_en', __('Tiêu đề (EN)'));
         $grid->column('slug', __('Link'));
+        $grid->column('type', __('Thuộc'))->display(function ($value) {
+            return $value == "0" ? "Giới thiệu" : "Tuyển dụng";
+        });
         $grid->column('order', __('Order'))->editable()->sortable();
         $grid->column('status', __('Trạng thái'))->switch();
-        $grid->column('menu', __('Menu'))->switch();
+
         $grid->column('created_at', __('Ngày tạo'))->display(function ($created_at) {
             return date('d/m/Y H:i', strtotime($created_at));
         });
@@ -94,15 +102,21 @@ class PageController extends BaseAdminController
             $footer->disableCreatingCheck();
         });
         $form->text('title', __('Tiêu đề'))->required();
+        $form->text('title_en', __('Tiêu đề (EN)'));
         $form->text('slug', __('Link'));
         //$form->text('name', __('Label'));
-        $form->text('title_detail', __('Tiêu đề trang chi tiết'));
+        $options = [
+            "Giới thiệu",
+            "Tuyển dụng"
+        ];
+        $form->select('type', __('Thuộc'))
+            ->options($options);
         $form->number('order', __('Vị trí'))->default(0);
         $form->image('image_og', __('Og image'))->rules('image|mimes:jpeg,png,jpg,gif,svg,webp');
         $form->textarea('meta_description', __('Meta description'));
         $form->tinyEditor('content', __('Nôi dung'));
+        $form->tinyEditor('content_en', __('Nôi dung(EN)'));
         $form->switch('status', __('Trạng thái'))->default(1);
-        $form->switch('menu', __('Menu'))->default(0);
         $form->saving(function (\Encore\Admin\Form $form) {
             $request = Request::all();
             if(!isset($request["_edit_inline"]) && !empty($form->title)) {

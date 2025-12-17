@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Email;
 use App\Models\Keys;
 use App\Models\Number;
 use App\Models\Page;
@@ -54,98 +55,96 @@ class HomeController extends Controller
             'sliders'=>$sliders
         ]);
     }
-    public function category($slug='')
+    public function category(string $slug = null)
     {
-        $cat = Category::where('slug', $slug)->firstOrFail();
-        $posts = Post::where('parent_id',$cat->id)->where('status',1)->orderBy('position','ASC')->orderBy('updated_at','DESC')->paginate(10);
-        return view('homes.category', [
-            'cat' => $cat,
-            'posts' => $posts,
-        ]);
-    }
-    public function tag($slug='')
-    {
-        $cat = Tag::where('slug', $slug)->firstOrFail();
+        // Danh sách category
+        $cats = Category::where('status', 1)
+            ->orderBy('order', 'ASC')
+            ->get();
 
-        $posts = $cat->posts()->where('status',1)->with('category')
-            ->orderBy('position', 'ASC')
-            ->orderBy('updated_at', 'DESC')
-            ->paginate(10); // phân trang 10 bài / trang
-        return view('homes.tag', [
-            'cat' => $cat,
-            'posts' => $posts,
-        ]);
-    }
-    public function page($slug='')
-    {
-        $cat = Page::where('slug', $slug)->firstOrFail();
-        return view('homes.page', [
-            'cat' => $cat,
-        ]);
-    }
-    public function noiquy()
-    {
-        $title = 'Nội quy và điều khoản';
-        return view('homes.noiquy', [
-            'title' => $title,
-        ]);
-    }
-    public function detail($slug='',$slug1='')
-    {
-        $post = Post::where('slug', $slug1)->with('tags')->firstOrFail();
-        if($slug=='bai-viet'){
-            $cat = Category::where('id', $post->parent_id)->firstOrFail();
-        }else{
-            $cat = Category::where('slug', $slug)->firstOrFail();
+        // Nếu không có category nào
+        if ($cats->isEmpty()) {
+            abort(404);
         }
-        $posts = Post::where('parent_id',$post->parent_id)->where('id','<>',$post->id)->where('status',1)->orderBy('position','ASC')->orderBy('updated_at','DESC')->limit(5)->get();
+
+        // Category hiện tại
+        $cat = $slug
+            ? Category::where('slug', $slug)->where('status', 1)->firstOrFail()
+            : $cats->first();
+
+        // Bài viết theo category + phân trang
+        $posts = Post::where('parent_id', $cat->id)
+            ->where('status', 1)
+            ->orderBy('order', 'ASC')
+            ->orderBy('updated_at', 'DESC')
+            ->paginate(6)
+            ->withQueryString(); // giữ ?page, ?p, ?z...
+
+        return view('homes.category', compact('cats', 'cat', 'posts'));
+    }
+    public function page(string $type, string $slug = null)
+    {
+        $typeMap = [
+            'gioi-thieu' => 0,
+            'tuyen-dung' => 1,
+        ];
+        $type = $typeMap[$type];
+        $pages = Page::where('type', $type)->where('status', 1)->orderBy('order','asc')->get();
+        $page = Page::where('type', $type);
+        if($slug != ""){
+            $page = $page->where('slug', $slug)->firstOrFail();
+        }else{
+            $page = $page->where('status', 1)->orderBy('order','asc')->firstOrFail();
+        }
+        return view('homes.page', [
+            'title' => $type==0 ? __('lang.about'): __('lang.career'),
+            'link' => url('/').'/'.($type==0 ? 'gioi-thieu': 'tuyen-dung'),
+            'page' => $page,
+            'pages' => $pages,
+        ]);
+    }
+    public function products()
+    {
+        return view('homes.contact', []);
+    }
+    public function detail_product()
+    {
+        return view('homes.contact', []);
+    }
+    public function registerEmail()
+    {
+        $input = Request::all();
+        if(empty(strip_tags($input['email']))){
+            return Response::json(['status' => 'error', 'msg' => __('lang.plscheckInfo')], 201);
+        }
+        $check = Email::where('email',strip_tags($input['email']))->first();
+        if(!empty($check->id)) {
+            return Response::json(['status' => 'error', 'msg' => __('lang.emailexitx')], 201);
+        }
+        $email = new Email();
+        $email->email = strip_tags($input['email']);
+        $email->save();
+        return Response::json(['status' => 'success', 'msg' => __('lang.registersuccess')], 200);
+    }
+    public function contact()
+    {
+        return view('homes.contact', []);
+    }
+    public function detail($slug='')
+    {
+        $post = Post::where('slug', $slug)->with('tags')->firstOrFail();
+        $cat = Category::where('id', $post->parent_id)->firstOrFail();
+        $cats = Category::where('status', 1)
+            ->orderBy('order', 'ASC')
+            ->get();
+
+        $posts = Post::where('parent_id',$post->parent_id)->where('id','<>',$post->id)->where('status',1)->orderBy('order','ASC')->orderBy('updated_at','DESC')->limit(5)->get();
         return view('homes.detail', [
             'cat' => $cat,
+            'cats' => $cats,
             'post' => $post,
             'posts' => $posts,
         ]);
     }
-    public function ketqua()
-    {
-        $request = Request::all();
-        //KET QUA XO SO
-        //Thong ke dau
-        $mang_dau=array();
-        $obj = new Number();
-        $cat_id = 13;
-        if(isset($request['date'])){
-            $date = $request['date'];
-        }else{
-            $obj2 = $obj->where('cat_id',intval($cat_id))->orderBy('date','desc')->first();
-            $date = isset($obj2->date) ? $obj2->date : date('Y-m-d');
-        }
-        $kyhieu =new Keys();
-        $kyhieu = $kyhieu->where('cat_id',intval($cat_id))->where('date',$date)->first();
-        $obj1 = $obj->where('cat_id',intval($cat_id))->where('date',$date)->orderBy('giai','asc')->get();
-        $mang=array();
-        foreach ($obj1 as $row){
-            $mang[intval($row->giai)][]=$row->number;
-        }
-        $dau = $obj->where('cat_id',intval($cat_id))->where('date',$date)->orderBy('duoi','asc')->get();
 
-        foreach ($dau as $row){
-            $mang_dau[intval(substr($row['duoi'],0,1))][]=$row->duoi;
-        }
-
-        //Thong ke  duoi
-        $mang_duoi=array();
-        foreach ($dau as $row){
-            $mang_duoi[intval(substr($row['duoi'],1,1))][]=$row->duoi;
-        }
-        $title = 'KẾT QUẢ XỔ SỐ Miền Bắc (Hà Nội) NGÀY '.date('d-m-Y',strtotime($date));
-        $list_date = Number::where('cat_id',intval($cat_id))->where('giai',0)->orderBy('date','DESC')->get();
-        return view('homes.ketqua', [
-            'title' => $title,
-            'mang' => $mang,
-            'kyhieu' => $kyhieu,
-            'dau' => $mang_dau,
-            'duoi' => $mang_duoi,
-            'list_date' => $list_date,
-        ]);
-    }
 }

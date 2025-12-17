@@ -3,27 +3,58 @@
     <?php use App\Helpers\Utility;$setting = Utility::setting();
     $content = isset($setting->content) ? json_decode($setting->content) : '';
     ?>
-    <title>{{$cat->title}}</title>
-    <meta name="description" content="{{$cat->meta_description}}">
-    <meta property="og:title" content="{{$cat->title}}">
-    <meta name="keywords" content="{{$cat->title}}">
-    <meta property="og:description" content="{{$cat->meta_description}}">
+    <title>{{$page->title}}</title>
+    <meta name="description" content="{{$page->meta_description}}">
+    <meta property="og:title" content="{{$page->title}}">
+    <meta name="keywords" content="{{$page->title}}">
+    <meta property="og:description" content="{{$page->meta_description}}">
     <meta property="og:type" content="article">
-    <meta property="og:image" content="{{Storage::disk('admin')->url($cat->image_og)}}"/>
+    <meta property="og:image" content="{{Storage::disk('admin')->url($page->image_og)}}"/>
 @endsection
 @section('content')
-    <section id="body-content">
-        <div id="breadcrumbs" xmlns:v="http://rdf.data-vocabulary.org/#">
-            <span typeof="v:Breadcrumb"><a href="/" rel="v:url" property="v:title">Trang chủ</a></span> › <span
-                typeof="v:Breadcrumb"><span class="breadcrumb_last" property="v:title">{{$cat->title}}</span></span>
+    <!-- BANNER -->
+    <div class="page-banner mb-4" style="background: url('{{Storage::disk('admin')->url($setting->banner)}}') center / cover no-repeat;"></div>
+
+    <!-- CONTENT -->
+    <div class="container">
+        <div class="row">
+            <!-- ===== SIDEBAR ===== -->
+            <div class="col-lg-3 col-md-4">
+                <div class="sidebar-wrapper">
+                    <div class="sidebar">
+                        <div class="title-nav">
+                            <h3 class="text">{{$title}}</h3>
+                            <div class="line"><span class="color-line"></span></div>
+                        </div>
+                        @foreach($pages as $row)
+                            <div class="big-item-nav-hoz {{$page->id == $row->id ? "active":""}}">
+                                <a href="{{$link.'/'.$row->slug}}" class="item-nav-hoz-vns">{{$row["title".$end]}}
+                                </a>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+
+            <!-- MAIN CONTENT -->
+            <div class="col-lg-9 col-md-8">
+                <div class="content-box">
+                    <div class="custom-breadcrumb">
+                        <a href="/">{{__('lang.home')}}</a>
+                        <span class="sep">»</span>
+                        <a href="{{$link}}">{{$title}}</a>
+                        <span class="sep">»</span>
+                        <span class="current">{{$page["title".$end]}}</span>
+                    </div>
+                    <h4 class="content-title">{{$page["title".$end]}}</h4>
+                    <div id="content">
+                        {!! $page["content".$end] !!}
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <div id="content-new">
-            <?php if(!empty($cat->title_detail)) {?>
-            <h2 class="dudoanxs">{{$cat->title_detail}}</h2>
-            <?php }?>
-            {!! $cat->content !!}
-        </div>
-    </section>
+    </div>
 @stop
 @push('js')
 @endpush

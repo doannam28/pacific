@@ -21,7 +21,8 @@ Route::group([
     $router->resource('settings', SettingsController::class);
     $router->resource('numbers', \App\Admin\Controllers\NumberController::class);
     $router->resource('category', \App\Admin\Controllers\CategoryController::class);
-    $router->resource('keys', \App\Admin\Controllers\KeysController::class);
+    $router->resource('emails', \App\Admin\Controllers\EmailController::class);
+    $router->resource('products', \App\Admin\Controllers\ProductController::class);
     $router->resource('sliders', \App\Admin\Controllers\SliderController::class);
     $router->resource('menus', \App\Admin\Controllers\MenuController::class);
     $router->resource('pages', \App\Admin\Controllers\PageController::class);
