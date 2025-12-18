@@ -39,12 +39,6 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script type="text/javascript" src="/assets/home/vendor/bootstrap.min.js"></script>
 <script src="/assets/js/jquery.preload.min.js"></script>
-<script type="text/javascript">
-    var $i18n = {
-        showMore: 'Xem thêm <span class="icon"><img src="/assets/img-fix/chevron-down.png" alt=""></span>',
-        showLess: 'Thu gọn <span class="icon"><img src="/assets/img-fix/chevron-up.png" alt=""></span>',
-    }
-</script>
 <script src="/assets/js/pacific.js"></script>
 @stack('js')
 </body>
