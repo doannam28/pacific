@@ -44,7 +44,7 @@
                         <span class="sep">»</span>
                         <a href="/san-pham">{{__('lang.product')}}</a>
                         <span class="sep">»</span>
-                        <span class="current">{{$title}}</span>
+                        <span class="current">{{$cat["name".$end]??$title}}</span>
                     </div>
                     @if(!empty($cat["name"]))
                         <h4 class="content-title">{{$cat["name".$end]}}</h4>

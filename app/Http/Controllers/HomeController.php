@@ -137,7 +137,7 @@ class HomeController extends Controller
             $cat = $slug
                 ? TaxonomyItem::where('slug', $slug)->where('status', 1)->firstOrFail()
                 : $cats->first();
-            $title=$cat["name".$end];
+            $title=$cat["name"];
             $posts= $posts->where('parent_id', $cat->id);
         }
         // Bài viết theo category + phân trang
