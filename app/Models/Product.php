@@ -24,4 +24,8 @@ class Product extends BaseModel
     {
         return $this->belongsToMany(Tag::class, 'product_tag', 'product_id', 'tag_id');
     }
+    public function votes()
+    {
+        return $this->hasMany(Vote::class, 'product_id');
+    }
 }

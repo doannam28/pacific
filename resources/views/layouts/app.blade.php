@@ -46,5 +46,6 @@
     }
 </script>
 <script src="/assets/js/pacific.js"></script>
+@stack('js')
 </body>
 </html>

@@ -155,8 +155,8 @@ class ProductController extends BaseAdminController
             });
         $form->multipleSelect('tags', 'Từ khóa')
             ->options(Tag::pluck('name', 'id')->toArray());
-        $form->text('donggoi', __('Đóng gói'));
-        $form->text('donggoi_en', __('Đóng gói (EN)'));
+        $form->text('donggoi', __('Khối lượng tịnh'));
+        $form->text('donggoi_en', __('Khối lượng tịnh (EN)'));
         $form->tinyEditor('des', __('Mô tả'));
         $form->tinyEditor('des_en', __('Mô tả (EN)'));
         $form->tinyEditor('content', __('Nôi dung'));

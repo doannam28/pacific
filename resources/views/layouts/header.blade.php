@@ -49,7 +49,7 @@
     <div class="search-box-wrapper">
         <div class="container">
             <div class="d-flex justify-content-center">
-                <form action="tim-kiem" method="GET" class="search-box">
+                <form action="/san-pham" method="GET" class="search-box">
                     <input type="text" name="name" class="form-control" placeholder="{{__('lang.search')}}" required>
                     <button type="submit" class="btn-search">
                         <i class="fas fa-search"></i>

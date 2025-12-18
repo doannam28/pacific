@@ -117,6 +117,10 @@ class TaxonomyItemController extends BaseAdminController
         $form->textarea('description', __('Mô tả'));
         $form->textarea('description_en', __('Mô tả (EN)'));
         $form->text('title_web', __('Title website'));
+        $form->image('image_og', __('OG Image'))->rules('image|mimes:jpeg,png,jpg,gif,svg')
+            ->name(function ($file) {
+                return \App\Files\Storage::getFileName($file);
+            });
         $form->textarea('meta', __('Meta description'));
         $form->number('order', __('Order'));
         $form->switch('status', __('Status'))->default(1);
@@ -125,9 +129,18 @@ class TaxonomyItemController extends BaseAdminController
        /* $form->select('parent_id', __('Parent'))
             ->options($options);*/
         //$form->tinyEditor('content', __('Nôi dung'));
-        $form->saving(function (Form $form) {
-            if(empty($form->slug)){
-                $form->slug = Utility::slug($form->name, 'taxonomyitem');
+        $form->saving(function (\Encore\Admin\Form $form) {
+            $request = Request::all();
+            if(!isset($request["_edit_inline"]) && !empty($form->name)) {
+                if (empty(trim(strip_tags($form->slug)))) {
+                    $form->slug = Utility::slug(trim(strip_tags($form->name)), "taxonomyitem", $form->model()->id);
+                } else {
+                    $count = TaxonomyItem::where('slug', $form->slug)->where('id', '<>', $form->model()->id)->count();
+                    if ($count) {
+                        $form->slug = Utility::slug(trim(strip_tags($form->name)), "taxonomyitem");
+                    }
+                }
+
             }
         });
         return $form;

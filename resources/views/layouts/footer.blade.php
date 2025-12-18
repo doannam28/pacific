@@ -43,6 +43,9 @@
                                     <a href="/gioi-thieu">{{__('lang.aboutus')}}</a>
                                 </li>
                                 <li>
+                                    <a href="/san-pham">{{__('lang.product')}}</a>
+                                </li>
+                                <li>
                                     <a href="/tuyen-dung">{{__('lang.career')}}</a>
                                 </li>
                                 <li>

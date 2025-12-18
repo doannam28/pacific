@@ -33,6 +33,7 @@ class TagController extends BaseAdminController
         $grid->model()->orderBy('id', 'desc');
         $grid->column('id', __('Id'));
         $grid->column('name', __('Name'));
+        $grid->column('name_en', __('Name (EN)'));
         $grid->column('slug', __('Slug'));
         $grid->column('order', __('Order'))->editable()->sortable();
         $grid->column('status', __('Status'))->switch();
@@ -87,6 +88,7 @@ class TagController extends BaseAdminController
         }
         $form = new Form(new Tag());
         $form->text('name', __('Name'));
+        $form->text('name_en', __('Name (EN)'));
         $form->text('slug', __('Slug'));
         $form->number('order', __('Order'));
         $form->switch('status', __('Status'))->default(1);
