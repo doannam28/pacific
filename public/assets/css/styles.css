@@ -964,6 +964,9 @@ body{
     .about-image {
         margin-top: 30px;
     }
+    .div-logo{
+        height: 84px;
+    }
 }
 @media (max-width: 768px) {
     .bor-contact{
