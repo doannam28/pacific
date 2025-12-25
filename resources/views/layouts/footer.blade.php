@@ -104,8 +104,8 @@
                 Copyright © 2025 bancaygiong.com.vn
             </div>
             <!-- Back to top -->
-            <a href="#" class="back-to-top">
-                <i class="fas fa-chevron-up"></i>
+            <a class="back-to-top">
+                <span><i class="fa fa-angle-double-up" style="cursor: pointer;"></i></span>
             </a>
         </footer>
     </div>
@@ -164,5 +164,27 @@
                 toastr.error("{{__('lang.clxr')}}", "Lỗi");
                 $('#send-email').prop('disabled', false);
             });
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const backToTop = document.querySelector('.back-to-top');
+
+        // Hiện nút khi scroll xuống
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        // Click để scroll lên top
+        backToTop.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
     });
 </script>
