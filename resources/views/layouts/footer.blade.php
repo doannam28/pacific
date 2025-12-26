@@ -101,7 +101,7 @@
 
             <!-- Copyright -->
             <div class="footer-bottom">
-                Copyright © 2025 bancaygiong.com.vn
+                Copyright © 2025 by seedpacific.vn
             </div>
             <!-- Back to top -->
             <a class="back-to-top">

@@ -3,8 +3,8 @@
     <?php use App\Helpers\Utility;$setting = Utility::setting();
     $content = isset($setting->content) ? json_decode($setting->content) : '';
     ?>
-    <title>{{$product["title_web"]}}</title>
-    <meta name="description" content="{{$product->meta_description}}">
+    <title>{{$product["title_web"] ?? $product["title".$end]}}</title>
+    <meta name="description" content="{{$product->meta}}">
     <meta property="og:title" content="{{$product["title_web"]}}">
     <meta name="keywords" content="{{$product["title".$end]}}">
     <meta property="og:description" content="{{$product->meta}}">

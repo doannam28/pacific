@@ -10,10 +10,10 @@
                 <div class="dropdown d-inline-block lang-dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         @if ($locale === 'en')
-                            <img src="https://flagcdn.com/w20/gb.png" alt="EN">
+                            <img src="https://flagcdn.com/h20/gb.png" alt="EN">
                             EN
                         @else
-                            <img src="https://flagcdn.com/w20/vn.png" alt="VN">
+                            <img src="https://flagcdn.com/h20/vn.png" alt="VN">
                             VN
                         @endif
                     </a>
@@ -65,7 +65,9 @@
         <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
             <div class="d-block d-md-none div-logo">
                 <div>
-                    <img src="{{Storage::disk('admin')->url($setting->logo)}}" alt="Logo">
+                    <a href="/">
+                        <img src="{{Storage::disk('admin')->url($setting->logo)}}" alt="Logo">
+                    </a>
                 </div>
             </div>
             <!-- LEFT MENU -->

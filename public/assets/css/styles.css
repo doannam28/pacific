@@ -78,13 +78,13 @@ body{
 }
 
 .navbar-brand img {
-    height: 70px;
+    height: 80px;
 }
 
 .nav-link {
-    font-weight: 600;
+    font-weight: bolder;
     color: #2f7d32 !important;
-    padding: 20px 15px;
+    font-size: 17px;
 }
 
 .nav-link:hover {
@@ -109,6 +109,7 @@ body{
 }
 .navbar-nav{
     justify-content: space-around !important;
+    margin-top: 20px;
 }
 .nav-link i {
     font-size: 16px;
@@ -146,7 +147,7 @@ body{
     top: 0px;
     background: #fff;
     border-radius: 50%;
-    padding: 12px;
+    padding: 12px 25px;
 }
 .div-logo{
     position: relative;
@@ -217,7 +218,7 @@ body{
 }
 
 #sustainable{
-    background: #ece7e7;
+    background: #f5f5f5;
 }
 .item-txt-sustainable{
     padding: 1px !important;
@@ -229,13 +230,16 @@ body{
 .about-content ul{
     margin-left: 25px;
 }
+.about-content ul li{
+    padding-bottom: 12px;
+}
 .about-content i{
     padding-right: 10px;
 }
 #bg_head_foot {
     background: url(../images/bgheadfoot.png) no-repeat top center;
     background-size: cover;
-    height: 244px;
+    height: 255px;
     width: 100%;
 }
 .footerNav2 {
@@ -315,7 +319,7 @@ body{
 }
 .panel-default{border:none}
 .footer {
-    background: linear-gradient(90deg, #0ea84f, #0aa44a);
+    background: #12a44a;
     color: #fff;
     font-size: 14px;
     position: relative;
@@ -336,6 +340,8 @@ body{
     margin-bottom: 15px;
     position: relative;
     text-transform: uppercase;
+    font-size: 17px;
+    color: #afffcf;
 }
 
 .footer-title::after {
@@ -610,7 +616,7 @@ body{
     background: #15a64a;
 }
 .form-contact input, .form-contact textarea{
-    background: #e7e3e3;
+    background: #ededed;
 }
 #form-dk .invalid-feedback{
     position: absolute;
@@ -624,6 +630,9 @@ body{
     border: none;
     outline: none;
     font-size: 24px;
+    position: absolute;
+    top: 26px;
+    right: 0px;
 }
 
 .navbar-toggler i {
@@ -991,10 +1000,14 @@ body{
         width: 120px;
     }
     .main-header{
-        padding-bottom: 8px;
+        padding-bottom: 0px;
     }
 }
 @media (max-width: 768px) {
+
+    .div-logo div {
+    padding: 12px;
+    }
     .bor-contact{
         padding-left: 0px;
     }
@@ -1006,7 +1019,7 @@ body{
         margin-bottom: 20px;
     }
     .bg-slide-banner{
-        height: 320px !important;
+        height: 400px !important;
     }
     .search-box-wrapper{
         top: 100px;

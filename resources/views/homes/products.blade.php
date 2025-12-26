@@ -4,7 +4,7 @@
     $content = isset($setting->content) ? json_decode($setting->content) : '';
     ?>
     <title>{{$cat->title_web ?? $title}}</title>
-    <meta name="description" content="{{$cat->meta_description ?? $title}}">
+    <meta name="description" content="{{$cat->meta ?? $title}}">
     <meta property="og:title" content="{{$cat->title_web ?? $title}}">
     <meta name="keywords" content="{{$cat->name ?? $title}}">
     <meta property="og:description" content="{{$cat->meta ?? $title}}">

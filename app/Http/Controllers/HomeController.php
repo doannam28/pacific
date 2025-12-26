@@ -131,7 +131,7 @@ class HomeController extends Controller
             ->get();
         $posts = Product::where('status', 1);
         if(!empty($input["name"])){
-            $title=__('lang.result');
+            $title=__('lang.result',['name'=>$input["name"]]);
             $posts= $posts->where('title','like','%'.$input["name"].'%');
         }else{
             $cat = $slug

@@ -52,7 +52,7 @@ return [
     'plscs' => 'Please select a star rating',
     'votesuccess' => 'Vote successful',
     'detailinfo' => 'DETAILED INFORMATION',
-    'result' => 'Search Results',
+    'result'=>'Search results for keyword ":name"',
     'hlhn' => 'Contact us now to get the best prices.
                         Instructions on planting and caring for red agarwood trees most effectively!',
     'txtnhanemail' => 'To receive the latest and fastest product information, please subscribe to our email to get promotions',

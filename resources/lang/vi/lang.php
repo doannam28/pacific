@@ -52,7 +52,7 @@ return [
     'plscs'=>'Xin hãy chọn sao',
     'votesuccess'=>'Vote thành công',
     'detailinfo'=>'THÔNG TIN CHI TIẾT',
-    'result'=>'Kết quả tìm kiếm',
+    'result'=>'Kết quả tìm kiếm cho từ khóa ":name"',
     'hlhn'=>'Hãy liên hệ ngay với chúng tôi để được có giá ưu đãi nhất.
                         Hướng dẫn cách trồng và chăm sóc cây sưa đỏ có hiệu quả cao nhất !',
     'txtnhanemail'=>'Để có những thông tin sản phẩm mới nhất, nhanh nhất. Hãy đăng ký ngay email với chúng tôi để nhận tin khuyến mãi',
