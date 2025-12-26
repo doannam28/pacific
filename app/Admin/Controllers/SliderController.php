@@ -33,6 +33,10 @@ class SliderController extends BaseAdminController
             if (!$thumbnail) return '';
             return "<img src='".Storage::disk('admin')->url($thumbnail)."' style='max-width: 100px; max-height: 100px;'>";
         });
+        $grid->column('image_mobile', __('Image mobile'))->display(function ($thumbnail) {
+            if (!$thumbnail) return '';
+            return "<img src='".Storage::disk('admin')->url($thumbnail)."' style='max-width: 100px; max-height: 100px;'>";
+        });
         $grid->column('order', __('Vị trí'))->integer();
         $grid->column('status', __('Status'))->switch();
         $grid->column('created_at', __('Created at'));
@@ -70,6 +74,10 @@ class SliderController extends BaseAdminController
         $form = new Form(new Slider());
         $form->text('title', __('Tiêu đề'));
         $form->image('image', __('Image'))->rules('image|mimes:jpeg,png,jpg,gif,svg')
+            ->name(function ($file) {
+                return \App\Files\Storage::getFileName($file);
+            })->required();
+        $form->image('image_mobile', __('Image mobile'))->rules('image|mimes:jpeg,png,jpg,gif,svg')
             ->name(function ($file) {
                 return \App\Files\Storage::getFileName($file);
             })->required();

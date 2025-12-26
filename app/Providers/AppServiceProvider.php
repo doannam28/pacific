@@ -20,6 +20,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::share('end', app()->getLocale() == 'en' ? '_en' : '');
+        View::composer('*', function ($view) {
+            $view->with(
+                'end',
+                app()->getLocale() === 'en' ? '_en' : ''
+            );
+        });
     }
 }

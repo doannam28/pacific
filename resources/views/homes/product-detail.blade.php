@@ -3,9 +3,9 @@
     <?php use App\Helpers\Utility;$setting = Utility::setting();
     $content = isset($setting->content) ? json_decode($setting->content) : '';
     ?>
-    <title>{{$product["title".$end]}}</title>
+    <title>{{$product["title_web"]}}</title>
     <meta name="description" content="{{$product->meta_description}}">
-    <meta property="og:title" content="{{$product["title".$end]}}">
+    <meta property="og:title" content="{{$product["title_web"]}}">
     <meta name="keywords" content="{{$product["title".$end]}}">
     <meta property="og:description" content="{{$product->meta}}">
     <meta property="og:type" content="article">
@@ -58,21 +58,42 @@
                                     <!-- LEFT: GALLERY -->
                                     <div class="col-md-5">
                                         <div class="product-gallery">
-                                            <a id="a-main-image" href="{{Storage::disk('admin')->url($product->image)}}" rel="prettyPhoto[gallery1]">
+
+                                            <!-- Ảnh chính -->
+                                            <a id="a-main-image"
+                                               href="javascript:void(0);">
                                                 <img id="mainImage"
-                                                     src="{{Storage::disk('admin')->url($product->image)}}"
+                                                     src="{{ Storage::disk('admin')->url($product->image) }}"
                                                      class="img-fluid main-image">
                                             </a>
+
+                                            <!-- Thumbs -->
                                             <div class="thumbs mt-3">
-                                                <img data="{{Storage::disk('admin')->url($product->image)}}" src="{{url('/uploads/').Utility::thumb($product->image,60,60)}}"
+
+                                                <!-- Ảnh đầu tiên -->
+                                                <img data="{{ Storage::disk('admin')->url($product->image) }}"
+                                                     src="{{ url('/uploads/').Utility::thumb($product->image,60,60) }}"
                                                      class="thumb active">
-                                                @for($i=1;$i<6;$i++)
+
+                                                <!-- Anchor ẩn cho gallery -->
+                                                <a href="{{ Storage::disk('admin')->url($product->image) }}"
+                                                   rel="prettyPhoto[gallery1]" style="display:none"></a>
+
+                                                @for($i = 1; $i < 6; $i++)
                                                     @if(!empty($product["image".$i]))
-                                                        <img data="{{Storage::disk('admin')->url($product["image".$i])}}"
-                                                             class="thumb" src="{{url('/uploads/').Utility::thumb($product["image".$i],60,60)}}">
-                                                        <a class="hide" href="{{Storage::disk('admin')->url($product["image".$i])}}" rel="prettyPhoto[gallery1]"></a>
+
+                                                        <img data="{{ Storage::disk('admin')->url($product["image".$i]) }}"
+                                                             class="thumb"
+                                                             src="{{ url('/uploads/').Utility::thumb($product["image".$i],60,60) }}">
+
+                                                        <!-- Anchor ẩn -->
+                                                        <a href="{{ Storage::disk('admin')->url($product["image".$i]) }}"
+                                                           rel="prettyPhoto[gallery1]"
+                                                           style="display:none"></a>
+
                                                     @endif
                                                 @endfor
+
                                             </div>
                                         </div>
                                     </div>
@@ -173,7 +194,26 @@
     <script type="text/javascript" charset="utf-8">
         $(document).ready(function(){
             $(".product-gallery a[rel^='prettyPhoto']").prettyPhoto({animation_speed:'fast',slideshow:10000, hideflash: true});
+            $('#a-main-image').on('click', function () {
+
+                let currentSrc = $('#mainImage').attr('src');
+                let found = false;
+
+                $("a[rel='prettyPhoto[gallery1]']").each(function () {
+                    if ($(this).attr('href') === currentSrc) {
+                        $(this).trigger('click');
+                        found = true;
+                        return false; // break each
+                    }
+                });
+
+                // fallback: nếu không tìm thấy → mở ảnh đầu
+                if (!found) {
+                    $("a[rel='prettyPhoto[gallery1]']").first().trigger('click');
+                }
+            });
         });
+
         document.getElementById('form-star').addEventListener('submit', function (e) {
             e.preventDefault();
 

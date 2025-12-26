@@ -18,18 +18,29 @@
 @section('content')
     <div class="main-page">
         <!-- SECTION BANNER -->
-        <div class="wp-banner-page">
+        <div class="wp-banner-page d-none d-md-block">
             <div class="swiper-container" id="slider-banner-home">
                 <div class="swiper-wrapper">
                     @foreach($sliders as $row)
                         <div class="swiper-slide" style="background-image: url({{Storage::disk('admin')->url($row->image)}});">
-                        <div class="bg-slide-banner" style="background: linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,.5))!important">
-                        </div>
+                            <div class="bg-slide-banner"></div>
                         </div>
                     @endforeach
                 </div>
             </div>
             <div class="swiper-pagination pagination-slider-banner circle-pagination" id="pagination-banner"></div>
+        </div>
+        <div class="wp-banner-page d-block d-md-none">
+            <div class="swiper-container" id="slider-banner-home-mobi">
+                <div class="swiper-wrapper">
+                    @foreach($sliders as $row)
+                        <div class="swiper-slide" style="background-image: url({{Storage::disk('admin')->url($row->image_mobile)}});">
+                            <div class="bg-slide-banner"></div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            <div class="swiper-pagination pagination-slider-banner circle-pagination" id="pagination-banner-mobi"></div>
         </div>
         <!-- END SECTION BANNER -->
         <section class="about-section">
@@ -319,32 +330,25 @@
                     clickable: true
                 }
             });
-            // Slide research-development
-            // var menu_pagination = ['01','02','03']
-            var swiper_research_development = new Swiper("#slide-research-development", {
+            var swiper_banner_mobi = new Swiper("#slider-banner-home-mobi", {
                 slidesPerView: 1,
+                slidesPerGroup: 1,
                 loop: true,
-                keyboard: {
-                    enabled: true
+                autoHeight: true,
+
+                autoplay: {
+                    delay: 3000,
                 },
                 roundLengths: true,
                 speed: 800,
+                simulateTouch: false,
                 pagination: {
-                    el: '#pagination-research-development',
-                    clickable: true,
-                    renderBullet: function (index, className) {
-                        return '<span class="' + className + '">' + (index + 1) + "</span>";
-                    }
-                },
-
-                breakpoints: {
-                    991: {
-                        slidesPerView: 1,
-                        autoHeight: true,
-                    },
+                    el: "#pagination-banner-mobi",
+                    type: "bullets",
+                    clickable: true
                 }
-
             });
+            // Slide research-development
             $('#research .wp-research-development--right .item-picture-wp:eq(0)').addClass('active');
             swiper_research_development.on('transitionEnd', function () {
                 $('#research .wp-research-development--right .item-picture-wp').removeClass('active');

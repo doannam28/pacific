@@ -151,13 +151,8 @@
         })
             .then(res => res.json())
             .then(data => {
-                if(data.status == 'error'){
-                    toastr.warning(data.msg);
-                }else{
-                    toastr.success(data.msg);
-                    form[0].reset();
-                    form.removeClass('was-validated');
-                }
+                toastr.success(data.msg, "Thành công");
+                form.reset();
                 $('#send-email').prop('disabled', false);
             })
             .catch(err => {

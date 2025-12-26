@@ -3,7 +3,7 @@
 <div class="top-bar">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-md-6 col-12 text-md-left">
+            <div class="col-md-6 col-12 text-md-left top-bar-left">
                 @php
                     $locale = app()->getLocale();
                 @endphp
@@ -28,21 +28,20 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-12 text-md-right text-center bar-right">
+            <div class="col-md-6 col-12 text-md-right text-center bar-right d-none d-md-block">
                 <a href="tel:{{$setting->phone}}">
-                <i class="fas fa-phone"></i> {{$setting->phone}}</a>
+                    <i class="fas fa-phone"></i> {{$setting->phone}}</a>
                 <span class="mx-2">|</span>
                 <a href="mailto:{{$setting->email}}">
                     <i class="fas fa-envelope"></i> {{$setting->email}}</a>
                 <span class="ml-2">
-          <a href="{{$setting->facebook}}" target="_blank"><i class="fab fa-facebook-f"></i></a>
-          <a href="{{$setting->youtube}}" target="_blank"><i class="fab fa-youtube"></i></a>
-                    <!-- SEARCH ICON -->
-          <a href="#" class="search-toggle">
-            <i class="fas fa-search"></i>
-          </a>
-        </span>
-
+                      <a href="{{$setting->facebook}}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                      <a href="{{$setting->youtube}}" target="_blank"><i class="fab fa-youtube"></i></a>
+                                <!-- SEARCH ICON -->
+                      <a href="#" class="search-toggle">
+                        <i class="fas fa-search"></i>
+                      </a>
+                </span>
             </div>
         </div>
     </div>
@@ -86,7 +85,9 @@
                     </div>
                 </div>
             </a>
-
+            <a href="#" class="search-toggle d-block d-md-none">
+                <i class="fas fa-search"></i>
+            </a>
             <!-- RIGHT MENU -->
             <div class="collapse navbar-collapse navbar-right">
                 <ul class="navbar-nav w-100 justify-content-start">
@@ -94,6 +95,17 @@
                     <li class="nav-item"><a class="nav-link" href="/tuyen-dung">{{ __('lang.career') }}</a></li>
                     <li class="nav-item"><a class="nav-link" href="/lien-he">{{ __('lang.contact') }}</a></li>
                 </ul>
+                <div class="col-md-12 col-12 text-md-right text-center bar-right d-block d-md-none">
+                    <a href="tel:{{$setting->phone}}">
+                        <i class="fas fa-phone"></i> {{$setting->phone}}</a>
+                    <span class="mx-2">|</span>
+                    <a href="mailto:{{$setting->email}}">
+                        <i class="fas fa-envelope"></i> {{$setting->email}}</a>
+                    <span class="ml-2">
+                      <a href="{{$setting->facebook}}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                      <a href="{{$setting->youtube}}" target="_blank"><i class="fab fa-youtube"></i></a>
+                </span>
+                </div>
             </div>
 
             <!-- TOGGLER -->

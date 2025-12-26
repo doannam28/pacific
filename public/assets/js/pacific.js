@@ -6,7 +6,6 @@ $(function () {
     $('.thumb').click(function () {
         var thisImg = $(this);
         $('.main-image').attr('src',thisImg.attr('data'));
-        $('#a-main-image').attr('href',thisImg.attr('data'));
         $('.thumb').removeClass('active');
         thisImg.addClass('active');
     })

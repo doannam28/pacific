@@ -10,12 +10,12 @@ body{
     position: relative;
 }
 
-.top-bar i {
+.bar-right i,.search-toggle i {
     color: rgb(255 102 0);
     font-size: 18px;
 }
 
-.top-bar a {
+.bar-right a {
     color: rgb(255 102 0);
     margin-left: 8px;
     font-size: 16px;
@@ -956,7 +956,7 @@ body{
 /* MOBILE */
 @media (max-width: 991px) {
     .div-logo div{
-        padding: 0px;
+        top: 5px;
     }
     .navbar-brand {
         margin: 0;
@@ -969,6 +969,29 @@ body{
     }
     .div-logo{
         height: 84px;
+        width: 90px;
+        margin-left: calc(50% - 45px);
+    }
+    .swiper-slide{
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .search-toggle {
+        position: absolute;
+        top: 32px;
+        right: 60px;
+    }
+    .top-bar {
+        border-bottom: none;
+        z-index: 9999;
+    }
+    .top-bar-left{
+        position: absolute;
+        top: 42px;
+        width: 120px;
+    }
+    .main-header{
+        padding-bottom: 8px;
     }
 }
 @media (max-width: 768px) {

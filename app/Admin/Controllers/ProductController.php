@@ -163,7 +163,7 @@ class ProductController extends BaseAdminController
         $form->tinyEditor('content_en', __('Nôi dung (EN)'));
         // Multiple Select tags
 
-        //$form->text('title_web', __('Title website'));
+        $form->text('title_web', __('Title website'));
         $form->textarea('meta', __('Meta description'));
         $form->switch('status', __('Trạng thái'))->default(1);
         //$form->switch('hot', __('Tin hot'))->default(10);

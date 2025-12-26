@@ -7,7 +7,7 @@
     <meta name="description" content="{{$cat->meta_description ?? $title}}">
     <meta property="og:title" content="{{$cat->title_web ?? $title}}">
     <meta name="keywords" content="{{$cat->name ?? $title}}">
-    <meta property="og:description" content="{{$cat->meta_description ?? $title}}">
+    <meta property="og:description" content="{{$cat->meta ?? $title}}">
     <meta property="og:type" content="article">
     <meta property="og:image" content="{{Storage::disk('admin')->url($cat->image_og ?? $setting->image_og)}}"/>
 @endsection

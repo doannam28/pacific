@@ -136,7 +136,7 @@ class PostController extends BaseAdminController
         /*$form->multipleSelect('tags', 'Từ khóa')
             ->options(Tag::pluck('name', 'id')->toArray());*/
         $form->tinyEditor('content', __('Nôi dung'));
-        $form->tinyEditor('content_eg', __('Nôi dung (EN)'));
+        $form->tinyEditor('content_en', __('Nôi dung (EN)'));
         // Multiple Select tags
 
         $form->text('title_web', __('Title website'));
