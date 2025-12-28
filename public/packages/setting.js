@@ -3,16 +3,17 @@ function initEditor() {
     tinymce.init({
         selector: '.editor',
         plugins: 'link image code autoresize table lists',
-        toolbar: 'blocks | code | undo redo | link image | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | removeformat | table',
+        toolbar: 'blocks | code | undo redo | link image | fontsize forecolor backcolor bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | removeformat | table',
         min_height: 300,
         max_height: 400,
         placeholder: 'Nhập nội dung bài viết',
         resize: true,
-        valid_elements: 'p,ul,ol,li,strong,em,b,i[class],span[class|style],a[href|target],img[src|alt|title]',
-        extended_valid_elements: 'span[style],i[class]',
+        valid_elements: '*[*]',
+        extended_valid_elements: 'p[style],img[src|alt|title|style|class]',
         valid_styles: {
-            '*': 'color,font-weight,text-decoration'
+            '*': 'color,font-size,font-weight,text-decoration,text-align,background-color,margin,display'
         },
+        fontsize_formats: '10px 12px 14px 16px 18px 20px 24px 28px 32px 36px 48px',
         custom_elements: 'i',
         forced_root_block: 'p',
         autoresize_bottom_margin: 100,
@@ -26,6 +27,12 @@ function initEditor() {
             table: { title: 'Table', items: 'inserttable | cell row column | tableprops deletetable' },
             help: { title: 'Help', items: 'help' }
         },
+        image_class_list: [
+            { title: 'Căn trái', value: 'float-start img-fluid' },
+            { title: 'Căn giữa', value: 'd-block mx-auto img-fluid' },
+            { title: 'Căn phải', value: 'float-end img-fluid' }
+        ],
+        content_css: ['/assets/home/vendor/bootstrap.min.css'],
         block_formats: 'Đoạn văn=p; Tiêu đề 1=h1; Tiêu đề 2=h2; Tiêu đề 3=h3; Tiêu đề 4=h4; Tiêu đề 5=h5; Tiêu đề 6=h6',
         automatic_uploads: true,
         document_base_url: '/',
